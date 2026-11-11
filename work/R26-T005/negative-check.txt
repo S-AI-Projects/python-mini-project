@@ -1,0 +1,88 @@
+======================================================================
+NEGATIVE CHECK EXECUTION LOG
+Demonstrates that check.py reliably detects incorrect expected results.
+======================================================================
+
+Step 1: Copy cases.json to an external temporary file outside the repository
+Command:
+cp work/R26-T005/cases.json /tmp/cases_negative.json
+
+Step 2: Tamper with one expected headline in the temporary file
+Command:
+python3 -c "import json; p='/tmp/cases_negative.json'; d=json.load(open(p)); d[0]['expected_headline']='TAMPERED HEADLINE'; json.dump(d, open(p, 'w'), indent=2)"
+
+Step 3: Execute check.py against the altered temporary file
+Command:
+python3 work/R26-T005/check.py /tmp/cases_negative.json
+
+Output:
+Loading cases from: /private/tmp/cases_negative.json
+[FAIL] smallest_valid_input
+       Expected: 'TAMPERED HEADLINE'
+       Error: Expected headline 'TAMPERED HEADLINE' missing from stdout.
+[PASS] ordinary_input
+       Expected: 'VIRAL: The Coach spotted orders 10 golden bats!'
+       Actual matched in stdout.
+[PASS] boundary_fallback_and_retry
+       Expected: 'SHOCKING: Virat Kohli suddenly eats 47 pani puris!\nJUST IN: A Mumbai Cat officially declares war on slow internet!'
+       Actual matched in stdout.
+[PASS] mode_case_insensitivity
+       Expected: 'EXCLUSIVE: Prime Minister Modi reportedly launches a new tax policy!'
+       Actual matched in stdout.
+
+Checking Repeatability (Case 1 run twice)...
+[PASS] Repeatability verified: identical stdout across isolated runs.
+
+Checking Input Isolation (Case 1 -> Case 2 -> Case 1)...
+[PASS] Input isolation verified: no residue from intervening call.
+
+Checking Global Immutability (modes and templates)...
+[PASS] Global immutability verified: modes and templates unchanged.
+
+ONE OR MORE CHECKS FAILED.
+
+Exit code: 1
+
+Step 4: Remove temporary copy
+Command:
+rm -f /tmp/cases_negative.json
+
+Step 5: Verify repository evidence file was never modified
+Command:
+git status --porcelain
+
+Output:
+?? tests/test_fake_news_headline_generator.py
+?? work/
+
+Step 6: Re-run check.py against pristine repository cases.json
+Command:
+python3 work/R26-T005/check.py
+
+Output:
+Loading cases from: /Users/kumkum/Desktop/python-mini-project/work/R26-T005/cases.json
+[PASS] smallest_valid_input
+       Expected: 'BREAKING NEWS: Shahrukh Khan launches a giant samosa!'
+       Actual matched in stdout.
+[PASS] ordinary_input
+       Expected: 'VIRAL: The Coach spotted orders 10 golden bats!'
+       Actual matched in stdout.
+[PASS] boundary_fallback_and_retry
+       Expected: 'SHOCKING: Virat Kohli suddenly eats 47 pani puris!\nJUST IN: A Mumbai Cat officially declares war on slow internet!'
+       Actual matched in stdout.
+[PASS] mode_case_insensitivity
+       Expected: 'EXCLUSIVE: Prime Minister Modi reportedly launches a new tax policy!'
+       Actual matched in stdout.
+
+Checking Repeatability (Case 1 run twice)...
+[PASS] Repeatability verified: identical stdout across isolated runs.
+
+Checking Input Isolation (Case 1 -> Case 2 -> Case 1)...
+[PASS] Input isolation verified: no residue from intervening call.
+
+Checking Global Immutability (modes and templates)...
+[PASS] Global immutability verified: modes and templates unchanged.
+
+ALL CHECKS PASSED.
+
+Exit code: 0

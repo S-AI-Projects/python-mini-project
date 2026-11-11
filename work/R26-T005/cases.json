@@ -1,0 +1,100 @@
+[
+  {
+    "case_id": "smallest_valid_input",
+    "description": "Smallest valid input with empty strings defaulting to general mode",
+    "inputs": {
+      "mode": "",
+      "custom_subject": "",
+      "custom_target": "",
+      "user_inputs": ["no"]
+    },
+    "mock_choices": [
+      "Shahrukh Khan",
+      "launches",
+      "a giant samosa",
+      "BREAKING NEWS: {subject} {action} {target}!"
+    ],
+    "expected_headline": "BREAKING NEWS: Shahrukh Khan launches a giant samosa!",
+    "expected_output_contains": [
+      "AVAILABLE MODES: GENERAL | SPORTS | POLITICAL | CHAOTIC",
+      "BREAKING NEWS: Shahrukh Khan launches a giant samosa!",
+      "THANKS FOR USING THE FAKE NEWS GENERATOR. HAVE A FUN DAY!"
+    ],
+    "actual_headline": "BREAKING NEWS: Shahrukh Khan launches a giant samosa!"
+  },
+  {
+    "case_id": "ordinary_input",
+    "description": "Sports mode with custom subject and target",
+    "inputs": {
+      "mode": "sports",
+      "custom_subject": "The Coach",
+      "custom_target": "10 golden bats",
+      "user_inputs": ["no"]
+    },
+    "mock_choices": [
+      "The Coach",
+      "orders",
+      "10 golden bats",
+      "VIRAL: {subject} spotted {action} {target}!"
+    ],
+    "expected_headline": "VIRAL: The Coach spotted orders 10 golden bats!",
+    "expected_output_contains": [
+      "AVAILABLE MODES: GENERAL | SPORTS | POLITICAL | CHAOTIC",
+      "VIRAL: The Coach spotted orders 10 golden bats!",
+      "THANKS FOR USING THE FAKE NEWS GENERATOR. HAVE A FUN DAY!"
+    ],
+    "actual_headline": "VIRAL: The Coach spotted orders 10 golden bats!"
+  },
+  {
+    "case_id": "boundary_fallback_and_retry",
+    "description": "Invalid mode fallback to general, and invalid retry prompt warning",
+    "inputs": {
+      "mode": "invalid_mode",
+      "custom_subject": "",
+      "custom_target": "",
+      "user_inputs": ["maybe", "no"]
+    },
+    "mock_choices": [
+      "Virat Kohli",
+      "eats",
+      "47 pani puris",
+      "SHOCKING: {subject} suddenly {action} {target}!",
+      "A Mumbai Cat",
+      "declares war on",
+      "slow internet",
+      "JUST IN: {subject} officially {action} {target}!"
+    ],
+    "expected_headline": "SHOCKING: Virat Kohli suddenly eats 47 pani puris!\nJUST IN: A Mumbai Cat officially declares war on slow internet!",
+    "expected_output_contains": [
+      "AVAILABLE MODES: GENERAL | SPORTS | POLITICAL | CHAOTIC",
+      "SHOCKING: Virat Kohli suddenly eats 47 pani puris!",
+      "INVALID INPUT. GENERATING ANOTHER HEADLINE...",
+      "JUST IN: A Mumbai Cat officially declares war on slow internet!",
+      "THANKS FOR USING THE FAKE NEWS GENERATOR. HAVE A FUN DAY!"
+    ],
+    "actual_headline": "SHOCKING: Virat Kohli suddenly eats 47 pani puris!\nJUST IN: A Mumbai Cat officially declares war on slow internet!"
+  },
+  {
+    "case_id": "mode_case_insensitivity",
+    "description": "Uppercase POLITICAL mode is lowercased to political",
+    "inputs": {
+      "mode": "POLITICAL",
+      "custom_subject": "",
+      "custom_target": "",
+      "user_inputs": ["no"]
+    },
+    "mock_choices": [
+      "Prime Minister Modi",
+      "launches",
+      "a new tax policy",
+      "EXCLUSIVE: {subject} reportedly {action} {target}!"
+    ],
+    "expected_headline": "EXCLUSIVE: Prime Minister Modi reportedly launches a new tax policy!",
+    "expected_output_contains": [
+      "AVAILABLE MODES: GENERAL | SPORTS | POLITICAL | CHAOTIC",
+      "EXCLUSIVE: Prime Minister Modi reportedly launches a new tax policy!",
+      "THANKS FOR USING THE FAKE NEWS GENERATOR. HAVE A FUN DAY!"
+    ],
+    "actual_headline": "EXCLUSIVE: Prime Minister Modi reportedly launches a new tax policy!"
+  }
+]
