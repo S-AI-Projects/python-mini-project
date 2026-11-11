@@ -923,6 +923,22 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Password Strength Meter",
+    "emoji": "🛡️",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Evaluate password complexity using an educational four-point rule checklist.",
+    "keywords": [
+      "password",
+      "strength",
+      "meter",
+      "checklist",
+      "security",
+      "utility"
+    ],
+    "path": "utilities/Password-Strength-Meter/main.py"
   }
 ]
 

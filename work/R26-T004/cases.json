@@ -1,0 +1,240 @@
+[
+  {
+    "input": "",
+    "expected": {
+      "length": false,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 0
+    },
+    "actual": {
+      "length": false,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 0
+    }
+  },
+  {
+    "input": "abc",
+    "expected": {
+      "length": false,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 0
+    },
+    "actual": {
+      "length": false,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 0
+    }
+  },
+  {
+    "input": "Abc",
+    "expected": {
+      "length": false,
+      "mixed_case": true,
+      "digit": false,
+      "symbol": false,
+      "count": 1
+    },
+    "actual": {
+      "length": false,
+      "mixed_case": true,
+      "digit": false,
+      "symbol": false,
+      "count": 1
+    }
+  },
+  {
+    "input": "abc123",
+    "expected": {
+      "length": false,
+      "mixed_case": false,
+      "digit": true,
+      "symbol": false,
+      "count": 1
+    },
+    "actual": {
+      "length": false,
+      "mixed_case": false,
+      "digit": true,
+      "symbol": false,
+      "count": 1
+    }
+  },
+  {
+    "input": "Abc123!",
+    "expected": {
+      "length": false,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": true,
+      "count": 3
+    },
+    "actual": {
+      "length": false,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": true,
+      "count": 3
+    }
+  },
+  {
+    "input": "Abcdefghij1!",
+    "expected": {
+      "length": true,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": true,
+      "count": 4
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": true,
+      "count": 4
+    }
+  },
+  {
+    "input": "abcdefghijkl",
+    "expected": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 1
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 1
+    }
+  },
+  {
+    "input": "ABCDEFGHIJKL",
+    "expected": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 1
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": false,
+      "count": 1
+    }
+  },
+  {
+    "input": "!@#$%^&*()_+",
+    "expected": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": true,
+      "count": 2
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": true,
+      "count": 2
+    }
+  },
+  {
+    "input": "123456789012",
+    "expected": {
+      "length": true,
+      "mixed_case": false,
+      "digit": true,
+      "symbol": false,
+      "count": 2
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": false,
+      "digit": true,
+      "symbol": false,
+      "count": 2
+    }
+  },
+  {
+    "input": "Abcdefghijkl",
+    "expected": {
+      "length": true,
+      "mixed_case": true,
+      "digit": false,
+      "symbol": false,
+      "count": 2
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": true,
+      "digit": false,
+      "symbol": false,
+      "count": 2
+    }
+  },
+  {
+    "input": "Abcdefghijk1",
+    "expected": {
+      "length": true,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": false,
+      "count": 3
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": false,
+      "count": 3
+    }
+  },
+  {
+    "input": "hello world!!",
+    "expected": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": true,
+      "count": 2
+    },
+    "actual": {
+      "length": true,
+      "mixed_case": false,
+      "digit": false,
+      "symbol": true,
+      "count": 2
+    }
+  },
+  {
+    "input": "Zq7@kmvx",
+    "expected": {
+      "length": false,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": true,
+      "count": 3
+    },
+    "actual": {
+      "length": false,
+      "mixed_case": true,
+      "digit": true,
+      "symbol": true,
+      "count": 3
+    }
+  }
+]

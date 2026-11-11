@@ -1,0 +1,62 @@
+=== STEP 1: Copy cases.json to temp folder outside repo ===
+Copied work/R26-T004/cases.json to /tmp/cases_backup_R26_T004.json
+
+=== STEP 2: Mutate one expected value in cases.json ===
+Mutated case 1 (input='') expected count from 0 to 1
+
+=== STEP 3: Run check.py on mutated cases.json ===
+Exit code: 1
+Output:
+Running independent verification against 14 cases in cases.json...
+============================================================
+Case  1 [FAIL]: input=''
+  Expected: {'length': False, 'mixed_case': False, 'digit': False, 'symbol': False, 'count': 1}
+  Actual  : {'length': False, 'mixed_case': False, 'digit': False, 'symbol': False, 'count': 0}
+Case  2 [PASS]: input='abc'
+Case  3 [PASS]: input='Abc'
+Case  4 [PASS]: input='abc123'
+Case  5 [PASS]: input='Abc123!'
+Case  6 [PASS]: input='Abcdefghij1!'
+Case  7 [PASS]: input='abcdefghijkl'
+Case  8 [PASS]: input='ABCDEFGHIJKL'
+Case  9 [PASS]: input='!@#$%^&*()_+'
+Case 10 [PASS]: input='123456789012'
+Case 11 [PASS]: input='Abcdefghijkl'
+Case 12 [PASS]: input='Abcdefghijk1'
+Case 13 [PASS]: input='hello world!!'
+Case 14 [PASS]: input='Zq7@kmvx'
+============================================================
+One or more test cases FAILED.
+
+=== STEP 4: Restore cases.json from copy ===
+Restored work/R26-T004/cases.json from /tmp/cases_backup_R26_T004.json
+
+=== STEP 5: Verify restoration with plain diff ===
+Exit code: 0
+diff output is empty (files are identical)
+
+=== STEP 6: Delete the temp copy ===
+Deleted /tmp/cases_backup_R26_T004.json (exists=False)
+
+=== STEP 7: Re-run check.py on restored cases.json ===
+Exit code: 0
+Output:
+Running independent verification against 14 cases in cases.json...
+============================================================
+Case  1 [PASS]: input=''
+Case  2 [PASS]: input='abc'
+Case  3 [PASS]: input='Abc'
+Case  4 [PASS]: input='abc123'
+Case  5 [PASS]: input='Abc123!'
+Case  6 [PASS]: input='Abcdefghij1!'
+Case  7 [PASS]: input='abcdefghijkl'
+Case  8 [PASS]: input='ABCDEFGHIJKL'
+Case  9 [PASS]: input='!@#$%^&*()_+'
+Case 10 [PASS]: input='123456789012'
+Case 11 [PASS]: input='Abcdefghijkl'
+Case 12 [PASS]: input='Abcdefghijk1'
+Case 13 [PASS]: input='hello world!!'
+Case 14 [PASS]: input='Zq7@kmvx'
+============================================================
+All test cases PASSED successfully.
+
