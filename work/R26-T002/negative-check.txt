@@ -1,0 +1,58 @@
+=== Negative Check: Intentional Failure Run ===
+Command: python3 -m pytest tests/test_matrix_calculator.py
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: /Users/kumkum/Desktop/python-mini-project
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collected 11 items
+
+tests/test_matrix_calculator.py .......F...                              [100%]
+
+=================================== FAILURES ===================================
+______ TestMatrixCalculatorAdd.test_add_matrices_single_element_boundary _______
+
+self = <test_matrix_calculator.TestMatrixCalculatorAdd testMethod=test_add_matrices_single_element_boundary>
+
+    def test_add_matrices_single_element_boundary(self):
+        """Valid boundary: minimal 1x1 matrix addition."""
+        m1 = [[5.0]]
+        m2 = [[3.0]]
+        expected = [[999.0]]
+>       self.assertEqual(add_matrices(m1, m2), expected)
+E       AssertionError: Lists differ: [[8.0]] != [[999.0]]
+E       
+E       First differing element 0:
+E       [8.0]
+E       [999.0]
+E       
+E       - [[8.0]]
+E       ?   ^
+E       
+E       + [[999.0]]
+E       ?   ^^^
+
+tests/test_matrix_calculator.py:70: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_matrix_calculator.py::TestMatrixCalculatorAdd::test_add_matrices_single_element_boundary
+========================= 1 failed, 10 passed in 0.03s =========================
+Tests passed: 10
+Exit code: 1
+
+=== Plain Diff vs Backup (empty means identical) ===
+Diff exit code: 0
+
+=== Restored Passing Re-run ===
+Command: python3 -m pytest tests/test_matrix_calculator.py
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: /Users/kumkum/Desktop/python-mini-project
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collected 11 items
+
+tests/test_matrix_calculator.py ...........                              [100%]
+
+============================== 11 passed in 0.02s ==============================
+Tests passed: 11
+Exit code: 0

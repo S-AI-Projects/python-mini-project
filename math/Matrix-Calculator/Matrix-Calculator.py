@@ -9,7 +9,13 @@ else:
 from utils.validation import get_choice, get_int, get_float_list
 
 def add_matrices(m1: list[list[float]], m2: list[list[float]]) -> list[list[float]]:
-    """Add two matrices of the same dimensions."""
+    """Add two matrices of the same dimensions.
+
+    Supported domain:
+    - Non-empty 2D matrices where m1 and m2 have identical row and column dimensions.
+    - Supports square and rectangular matrices (minimum dimension 1x1).
+    - Returns a new matrix containing element-wise sums; input arguments are not mutated.
+    """
     rows = len(m1)
     cols = len(m1[0])
     return [[m1[i][j] + m2[i][j] for j in range(cols)] for i in range(rows)]
