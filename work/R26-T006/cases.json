@@ -1,0 +1,137 @@
+[
+  {
+    "case_id": "smallest_valid_input",
+    "description": "Smallest valid game session where user immediately quits with 'n'",
+    "precondition_source_lines": [
+      "L15: choice = input('Toss a coin? (y/n): ').lower().strip()",
+      "L49: elif choice == 'n':",
+      "L60: if total_tosses > 0: (accuracy display guard)"
+    ],
+    "inputs": ["n"],
+    "mock_random": [],
+    "expected_globals": {
+      "total_tosses": 0,
+      "heads_count": 0,
+      "tails_count": 0,
+      "correct_predictions": 0
+    },
+    "expected_output_contains": [
+      "🪙 Coin Flip Game! 🪙",
+      "👋 Thanks for playing! See you next time!",
+      "📊 GAME SUMMARY 📊",
+      "🪙 Total Tosses: 0",
+      "👑 Heads Count: 0",
+      "🦅 Tails Count: 0",
+      "🎯 Correct Predictions: 0",
+      "✨ Thanks for playing!"
+    ],
+    "expected_output_excludes": [
+      "📈 Prediction Accuracy:"
+    ]
+  },
+  {
+    "case_id": "ordinary_input",
+    "description": "Ordinary game session with 1 toss: prediction 'h', coin flip 1 (Heads), quits with 'n'",
+    "precondition_source_lines": [
+      "L15: choice == 'y'",
+      "L18: num = random.randint(1, 2) (returns 1 for Heads)",
+      "L22: prediction == 'h'",
+      "L24: prediction in ['h', 't'] validation passes",
+      "L29: time.sleep(2) simulated toss duration",
+      "L31: total_tosses += 1",
+      "L33-36: num == 1 sets result='h', increments heads_count",
+      "L43-45: prediction == result increments correct_predictions",
+      "L49: choice == 'n' enters summary block",
+      "L60-63: total_tosses > 0 computes accuracy and prints"
+    ],
+    "inputs": ["y", "h", "n"],
+    "mock_random": [1],
+    "expected_globals": {
+      "total_tosses": 1,
+      "heads_count": 1,
+      "tails_count": 0,
+      "correct_predictions": 1,
+      "accuracy": 100.0
+    },
+    "expected_output_contains": [
+      "🪙 Coin Flip Game! 🪙",
+      "🪙 Flipping...",
+      "👑 Heads!!",
+      "🎉 Correct Prediction!",
+      "👋 Thanks for playing! See you next time!",
+      "📊 GAME SUMMARY 📊",
+      "🪙 Total Tosses: 1",
+      "👑 Heads Count: 1",
+      "🦅 Tails Count: 0",
+      "🎯 Correct Predictions: 1",
+      "📈 Prediction Accuracy: 100.00%",
+      "✨ Thanks for playing!"
+    ],
+    "expected_output_excludes": []
+  },
+  {
+    "case_id": "ordinary_multi_round",
+    "description": "Ordinary 2-round session matching README sample: round 1 correct, round 2 incorrect",
+    "precondition_source_lines": [
+      "L15: choice == 'y' (round 1 & 2), choice == 'n' (exit)",
+      "L18: num = random.randint(1, 2) returns 1 (Heads) for both rounds",
+      "L22: predictions 'h' (round 1) and 't' (round 2)",
+      "L33-40: heads/tails counter updates",
+      "L43-47: correct_predictions updated only on round 1",
+      "L60-63: accuracy calculated as (1 / 2) * 100 = 50.00%"
+    ],
+    "inputs": ["y", "h", "y", "t", "n"],
+    "mock_random": [1, 1],
+    "expected_globals": {
+      "total_tosses": 2,
+      "heads_count": 2,
+      "tails_count": 0,
+      "correct_predictions": 1,
+      "accuracy": 50.0
+    },
+    "expected_output_contains": [
+      "👑 Heads!!",
+      "🎉 Correct Prediction!",
+      "👑 Heads!!",
+      "❌ Wrong Prediction!",
+      "🪙 Total Tosses: 2",
+      "👑 Heads Count: 2",
+      "🦅 Tails Count: 0",
+      "🎯 Correct Predictions: 1",
+      "📈 Prediction Accuracy: 50.00%"
+    ],
+    "expected_output_excludes": []
+  },
+  {
+    "case_id": "boundary_invalid_recovery",
+    "description": "Boundary input handling: invalid choice and invalid prediction retry before successful round",
+    "precondition_source_lines": [
+      "L15: choice == 'maybe' triggers L68 warning",
+      "L22: prediction == 'invalid' triggers L26 warning",
+      "L24: prediction == 't' breaks prediction validation loop",
+      "L37-40: num == 2 sets result='t', increments tails_count",
+      "L43-45: prediction == result increments correct_predictions",
+      "L60-63: accuracy calculated as (1 / 1) * 100 = 100.00%"
+    ],
+    "inputs": ["maybe", "y", "invalid", "t", "n"],
+    "mock_random": [2],
+    "expected_globals": {
+      "total_tosses": 1,
+      "heads_count": 0,
+      "tails_count": 1,
+      "correct_predictions": 1,
+      "accuracy": 100.0
+    },
+    "expected_output_contains": [
+      "❌ Invalid input!! Please enter 'y' or 'n'.",
+      "❌ Invalid prediction!! Please enter 'H' or 'T'.",
+      "🦅 Tails!!",
+      "🎉 Correct Prediction!",
+      "🪙 Total Tosses: 1",
+      "🦅 Tails Count: 1",
+      "🎯 Correct Predictions: 1",
+      "📈 Prediction Accuracy: 100.00%"
+    ],
+    "expected_output_excludes": []
+  }
+]
