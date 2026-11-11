@@ -1,0 +1,84 @@
+[
+  {
+    "id": 1,
+    "input": [
+      3,
+      1,
+      2
+    ],
+    "reverse": false,
+    "expected": [
+      1,
+      2,
+      3
+    ],
+    "description": "Standard unordered 3-element list"
+  },
+  {
+    "id": 2,
+    "input": [
+      3,
+      1,
+      2
+    ],
+    "reverse": true,
+    "expected": [
+      3,
+      2,
+      1
+    ],
+    "description": "Standard unordered list descending sort (reverse=True)"
+  },
+  {
+    "id": 3,
+    "input": [
+      2,
+      2,
+      1
+    ],
+    "reverse": false,
+    "expected": [
+      1,
+      2,
+      2
+    ],
+    "description": "Duplicate elements ascending sort"
+  },
+  {
+    "id": 4,
+    "input": [
+      1,
+      2,
+      3
+    ],
+    "reverse": false,
+    "expected": [
+      1,
+      2,
+      3
+    ],
+    "description": "Already sorted list"
+  },
+  {
+    "id": 5,
+    "input": [
+      3,
+      2,
+      1
+    ],
+    "reverse": false,
+    "expected": [
+      1,
+      2,
+      3
+    ],
+    "description": "Reverse sorted list ascending"
+  },
+  {
+    "id": 6,
+    "input": [],
+    "reverse": false,
+    "expected": [],
+    "description": "Smallest supported collection (empty list)"
+  }
+]

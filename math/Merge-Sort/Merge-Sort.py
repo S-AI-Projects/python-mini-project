@@ -27,6 +27,20 @@ def merge_sort(arr: list[int], reverse: bool = False) -> list[int]:
 
     Returns:
         A new sorted list.
+
+    Example:
+        For [3, 1, 2], the list splits into [3] and [1, 2]. The right partition
+        is merged into [1, 2]. The final merge combines [3] with [1, 2],
+        producing [1, 2, 3].
+
+        >>> merge_sort([3, 1, 2])
+        [1, 2, 3]
+        >>> merge_sort([3, 1, 2], reverse=True)
+        [3, 2, 1]
+        >>> merge_sort([2, 2, 1])
+        [1, 2, 2]
+        >>> merge_sort([])
+        []
     """
     # Base case: a list of 0 or 1 elements is already sorted
     if len(arr) <= 1:

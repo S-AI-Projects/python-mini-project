@@ -1,0 +1,43 @@
+Command: python3 work/R26-T007/check.py
+=== Running R26-T007 Independent Checker ===
+--- Verifying Docstring Runnable Examples via Doctest ---
+[PASS] Doctests passed (4 example(s) verified).
+--- Verifying Required Fixtures from cases.json ---
+[PASS] Case 1: Standard unordered 3-element list -> [1, 2, 3]
+[PASS] Case 2: Standard unordered list descending sort (reverse=True) -> [3, 2, 1]
+[PASS] Case 3: Duplicate elements ascending sort -> [1, 2, 2]
+[PASS] Case 4: Already sorted list -> [1, 2, 3]
+[PASS] Case 5: Reverse sorted list ascending -> [1, 2, 3]
+[PASS] Case 6: Smallest supported collection (empty list) -> []
+--- Running Pytest Suite ---
+Command: python3 -m pytest /Users/kumkum/Desktop/python-mini-project/tests/test_merge_sort.py -v
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Library/Frameworks/Python.framework/Versions/3.15/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/kumkum/Desktop/python-mini-project
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... collected 16 items
+
+tests/test_merge_sort.py::TestMergeSort::test_documented_runnable_example_doctest PASSED [  6%]
+tests/test_merge_sort.py::TestMergeSort::test_main_flow_ascending PASSED [ 12%]
+tests/test_merge_sort.py::TestMergeSort::test_main_flow_descending PASSED [ 18%]
+tests/test_merge_sort.py::TestMergeSort::test_main_flow_invalid_inputs PASSED [ 25%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_ascending PASSED     [ 31%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_descending PASSED    [ 37%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_empty_left PASSED    [ 43%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_empty_right PASSED   [ 50%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_already_sorted PASSED [ 56%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_ascending PASSED [ 62%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_descending PASSED [ 68%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_does_not_mutate_original PASSED [ 75%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_empty_and_single_item PASSED [ 81%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_negative_integers PASSED [ 87%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_required_fixtures PASSED [ 93%]
+tests/test_merge_sort.py::TestMergeSort::test_merge_sort_with_duplicates PASSED [100%]
+
+============================== 16 passed in 0.01s ==============================
+Tests passed count: 16
+
+ALL R26-T007 CHECKS PASSED.
+Exit code: 0

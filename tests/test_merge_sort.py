@@ -94,6 +94,34 @@ class TestMergeSort(unittest.TestCase):
         self.assertIn("Sorted list (Ascending): [25, 34, 64]", output)
         self.assertIn("Sorted list (Descending): [12, 11]", output)
 
+    def test_documented_runnable_example_doctest(self):
+        """Executes docstring examples using doctest with explicit namespace."""
+        import doctest
+        finder = doctest.DocTestFinder()
+        tests = finder.find(merge_sort, globs={"merge_sort": merge_sort})
+        self.assertTrue(len(tests) > 0, "No docstring tests found in merge_sort")
+        runner = doctest.DocTestRunner(verbose=False)
+        for t in tests:
+            runner.run(t)
+        self.assertEqual(runner.failures, 0, f"{runner.failures} docstring example(s) failed")
+        self.assertGreater(runner.tries, 0, "No doctest examples were executed")
+
+    def test_merge_sort_required_fixtures(self):
+        """Verifies required fixtures including reverse=True, immutability, and smallest collection."""
+        fixtures = [
+            ([3, 1, 2], False, [1, 2, 3]),
+            ([3, 1, 2], True, [3, 2, 1]),
+            ([2, 2, 1], False, [1, 2, 2]),
+            ([1, 2, 3], False, [1, 2, 3]),
+            ([3, 2, 1], False, [1, 2, 3]),
+            ([], False, []),
+        ]
+        for arr, rev, expected in fixtures:
+            orig = arr.copy()
+            result = merge_sort(arr, reverse=rev)
+            self.assertEqual(result, expected)
+            self.assertEqual(arr, orig, "Input list must not be mutated")
+
 
 if __name__ == '__main__':
     unittest.main()
