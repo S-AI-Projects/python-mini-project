@@ -923,6 +923,22 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Contact Book CSV",
+    "emoji": "📇",
+    "category": "utilities",
+    "difficulty": "intermediate",
+    "description": "Read, write, and update contacts with stable IDs using csv.DictReader and csv.DictWriter.",
+    "keywords": [
+      "contacts",
+      "csv",
+      "address-book",
+      "dictreader",
+      "dictwriter",
+      "utility"
+    ],
+    "path": "utilities/Contact-Book-CSV/main.py"
   }
 ]
 

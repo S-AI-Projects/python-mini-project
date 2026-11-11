@@ -1,0 +1,22 @@
+Command: python3 work/R26-T009/check.py
+=== Running R26-T009 Independent Checker ===
+Loaded 12 test cases from cases.json
+----------------------------------------------------------------------
+[PASS] Case  1: Round-trip name 'Ada, Jr.' through CSV DictReader/DictWriter
+[PASS] Case  2: Reject duplicate ID on add_contact with ValueError
+[PASS] Case  3: Reject duplicate ID when loading CSV with ValueError
+[PASS] Case  4: Updating id1 changes only that row and preserves others intact
+[PASS] Case  5: Unknown ID lookup yields explicit None not-found result
+[PASS] Case  6: Updating unknown ID raises KeyError
+[PASS] Case  7: Deleting unknown ID raises KeyError
+[PASS] Case  8: Stable ID enforcement: modifying contact ID raises ValueError
+[PASS] Case  9: Complexity bounded work at domain size N=10
+[PASS] Case 10: Complexity bounded work at domain size N=100
+[PASS] Case 11: Complexity bounded work at domain size N=1000
+[PASS] Case 12: Empty CSV stream returns empty contact list
+----------------------------------------------------------------------
+Running unittest discovery suite...
+[PASS] Unittest discovery suite passed successfully.
+
+ALL R26-T009 CHECKS PASSED.
+Exit code: 0

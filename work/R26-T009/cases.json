@@ -1,0 +1,190 @@
+[
+  {
+    "id": 1,
+    "description": "Round-trip name 'Ada, Jr.' through CSV DictReader/DictWriter",
+    "type": "roundtrip",
+    "contact": {
+      "id": "id1",
+      "name": "Ada, Jr.",
+      "phone": "555-0100",
+      "email": "ada@example.com"
+    },
+    "expected": {
+      "id": "id1",
+      "name": "Ada, Jr.",
+      "phone": "555-0100",
+      "email": "ada@example.com"
+    }
+  },
+  {
+    "id": 2,
+    "description": "Reject duplicate ID on add_contact with ValueError",
+    "type": "duplicate_add",
+    "existing": [
+      {
+        "id": "id1",
+        "name": "First User",
+        "phone": "555-0001",
+        "email": "user1@example.com"
+      }
+    ],
+    "new_contact": {
+      "id": "id1",
+      "name": "Duplicate User",
+      "phone": "555-9999",
+      "email": "dup@example.com"
+    },
+    "expected_error": "ValueError"
+  },
+  {
+    "id": 3,
+    "description": "Reject duplicate ID when loading CSV with ValueError",
+    "type": "duplicate_csv",
+    "csv_content": "id,name,phone,email\nid1,User A,555-1111,a@example.com\nid1,User B,555-2222,b@example.com\n",
+    "expected_error": "ValueError"
+  },
+  {
+    "id": 4,
+    "description": "Updating id1 changes only that row and preserves others intact",
+    "type": "update_isolation",
+    "contacts": [
+      {
+        "id": "id1",
+        "name": "Original One",
+        "phone": "555-0001",
+        "email": "one@example.com"
+      },
+      {
+        "id": "id2",
+        "name": "Original Two",
+        "phone": "555-0002",
+        "email": "two@example.com"
+      },
+      {
+        "id": "id3",
+        "name": "Original Three",
+        "phone": "555-0003",
+        "email": "three@example.com"
+      }
+    ],
+    "target_id": "id1",
+    "updates": {
+      "name": "Updated One",
+      "phone": "555-9999"
+    },
+    "expected": [
+      {
+        "id": "id1",
+        "name": "Updated One",
+        "phone": "555-9999",
+        "email": "one@example.com"
+      },
+      {
+        "id": "id2",
+        "name": "Original Two",
+        "phone": "555-0002",
+        "email": "two@example.com"
+      },
+      {
+        "id": "id3",
+        "name": "Original Three",
+        "phone": "555-0003",
+        "email": "three@example.com"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "description": "Unknown ID lookup yields explicit None not-found result",
+    "type": "get_unknown",
+    "contacts": [
+      {
+        "id": "id1",
+        "name": "Ada Lovelace",
+        "phone": "555-0100",
+        "email": "ada@example.com"
+      }
+    ],
+    "target_id": "unknown_id_999",
+    "expected": null
+  },
+  {
+    "id": 6,
+    "description": "Updating unknown ID raises KeyError",
+    "type": "update_unknown",
+    "contacts": [
+      {
+        "id": "id1",
+        "name": "Ada Lovelace",
+        "phone": "555-0100",
+        "email": "ada@example.com"
+      }
+    ],
+    "target_id": "missing_id",
+    "updates": {
+      "name": "New Name"
+    },
+    "expected_error": "KeyError"
+  },
+  {
+    "id": 7,
+    "description": "Deleting unknown ID raises KeyError",
+    "type": "delete_unknown",
+    "contacts": [
+      {
+        "id": "id1",
+        "name": "Ada Lovelace",
+        "phone": "555-0100",
+        "email": "ada@example.com"
+      }
+    ],
+    "target_id": "missing_id",
+    "expected_error": "KeyError"
+  },
+  {
+    "id": 8,
+    "description": "Stable ID enforcement: modifying contact ID raises ValueError",
+    "type": "update_id_conflict",
+    "contacts": [
+      {
+        "id": "id1",
+        "name": "Ada Lovelace",
+        "phone": "555-0100",
+        "email": "ada@example.com"
+      }
+    ],
+    "target_id": "id1",
+    "updates": {
+      "id": "different_id"
+    },
+    "expected_error": "ValueError"
+  },
+  {
+    "id": 9,
+    "description": "Complexity bounded work at domain size N=10",
+    "type": "complexity",
+    "domain_size": 10,
+    "expected_comparisons": 10
+  },
+  {
+    "id": 10,
+    "description": "Complexity bounded work at domain size N=100",
+    "type": "complexity",
+    "domain_size": 100,
+    "expected_comparisons": 100
+  },
+  {
+    "id": 11,
+    "description": "Complexity bounded work at domain size N=1000",
+    "type": "complexity",
+    "domain_size": 1000,
+    "expected_comparisons": 1000
+  },
+  {
+    "id": 12,
+    "description": "Empty CSV stream returns empty contact list",
+    "type": "empty_csv",
+    "csv_content": "id,name,phone,email\n",
+    "expected": []
+  }
+]
