@@ -1,0 +1,94 @@
+======================================================================
+COMMAND: python3 -m unittest discover -s utilities/Simple-Interest-Calculator -p test_*.py -v
+TASK: Unit Test Discovery
+======================================================================
+test_clean_import (test_main.TestSimpleInterestCalculator.test_clean_import)
+Importing main.py via spec_from_file_location emits zero stdout/stderr. ... ok
+test_clean_import_subprocess (test_main.TestSimpleInterestCalculator.test_clean_import_subprocess)
+Clean import in an isolated python subprocess produces zero output. ... ok
+test_cli_invalid_argument_exits_nonzero (test_main.TestSimpleInterestCalculator.test_cli_invalid_argument_exits_nonzero)
+CLI: non-numeric argument exits non-zero. ... ok
+test_cli_negative_principal_exits_nonzero (test_main.TestSimpleInterestCalculator.test_cli_negative_principal_exits_nonzero)
+CLI: python3 main.py -100 5 2 exits non-zero. ... ok
+test_cli_standard_arguments (test_main.TestSimpleInterestCalculator.test_cli_standard_arguments)
+CLI: python3 main.py 1000 5 2 prints 100 with no 'E+' and exits 0. ... ok
+test_cli_wrong_argument_count_exits_nonzero (test_main.TestSimpleInterestCalculator.test_cli_wrong_argument_count_exits_nonzero)
+CLI: wrong number of arguments exits non-zero. ... ok
+test_contract_negative_principal_raises_value_error (test_main.TestSimpleInterestCalculator.test_contract_negative_principal_raises_value_error)
+Negative principal -> ValueError. ... ok
+test_contract_standard_example (test_main.TestSimpleInterestCalculator.test_contract_standard_example)
+1000 at 5% for 2 years -> 100. ... ok
+test_contract_zero_years (test_main.TestSimpleInterestCalculator.test_contract_zero_years)
+Zero years -> 0. ... ok
+test_float_precision_preserved (test_main.TestSimpleInterestCalculator.test_float_precision_preserved)
+Floats are converted via Decimal(str(x)) so 0.1 stays 0.1. ... ok
+test_format_currency (test_main.TestSimpleInterestCalculator.test_format_currency)
+format_currency returns exact fixed-point string without scientific notation. ... ok
+test_hand_calculated_table (test_main.TestSimpleInterestCalculator.test_hand_calculated_table)
+Verify the 8 required hand-calculated test cases. ... ok
+test_reference_annual_loop_comparison (test_main.TestSimpleInterestCalculator.test_reference_annual_loop_comparison)
+Verify agreement with independent iterative whole-years loop. ... ok
+test_reference_fraction_comparison (test_main.TestSimpleInterestCalculator.test_reference_fraction_comparison)
+Verify exact agreement with independent fractions.Fraction arithmetic. ... ok
+test_rejection_of_boolean_inputs (test_main.TestSimpleInterestCalculator.test_rejection_of_boolean_inputs)
+Booleans must be rejected with TypeError. ... ok
+test_rejection_of_invalid_strings (test_main.TestSimpleInterestCalculator.test_rejection_of_invalid_strings)
+Non-numeric or empty strings must be rejected with ValueError. ... ok
+test_rejection_of_nan_and_infinity (test_main.TestSimpleInterestCalculator.test_rejection_of_nan_and_infinity)
+NaN and Infinity must be rejected with ValueError. ... ok
+test_rejection_of_unsupported_types (test_main.TestSimpleInterestCalculator.test_rejection_of_unsupported_types)
+Unsupported types must be rejected with TypeError. ... ok
+test_result_type_is_decimal_not_float (test_main.TestSimpleInterestCalculator.test_result_type_is_decimal_not_float)
+Ensure return value is strictly a Decimal instance. ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.085s
+
+OK
+
+EXIT CODE: 0
+
+======================================================================
+COMMAND: python3 work/R26-T003/check.py
+TASK: Cases Check Script
+======================================================================
+Running verification on 8 test cases from cases.json:
+----------------------------------------------------------------------
+[01] PASS: P=1000, R=5, T=2 | Expected=100 | Actual=100
+[02] PASS: P=1000, R=5, T=0 | Expected=0 | Actual=0
+[03] PASS: P=0, R=5, T=2 | Expected=0 | Actual=0
+[04] PASS: P=100, R=0, T=5 | Expected=0 | Actual=0
+[05] PASS: P=500, R=10, T=3 | Expected=150 | Actual=150
+[06] PASS: P=2000, R=7.5, T=4 | Expected=600 | Actual=600.0
+[07] PASS: P=1000, R=5, T=0.5 | Expected=25 | Actual=25.0
+[08] PASS: P=1234.56, R=3.25, T=2 | Expected=80.2464 | Actual=80.2464
+----------------------------------------------------------------------
+✓ All test cases passed successfully.
+
+EXIT CODE: 0
+
+======================================================================
+COMMAND: python3 utils/registry_validator.py --strict
+TASK: Registry Validator Strict
+======================================================================
+
+========== Registry Validation ==========
+
+Status           : FAILED
+Registry         : projects_registry.json
+Projects scanned : 61
+Errors           : 4
+Warnings         : 0
+
+Errors:
+  - Advanced Password Manager has invalid category 'security'.
+
+Repository Consistency:
+
+  Unregistered projects:
+    - math/Heap-Sort
+    - security/password_hasher
+    - work/R26-T003
+
+EXIT CODE: 1
+

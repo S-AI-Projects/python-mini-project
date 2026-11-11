@@ -1,0 +1,58 @@
+[
+  {
+    "principal": "1000",
+    "rate": "5",
+    "years": "2",
+    "expected": "100",
+    "actual": "100"
+  },
+  {
+    "principal": "1000",
+    "rate": "5",
+    "years": "0",
+    "expected": "0",
+    "actual": "0"
+  },
+  {
+    "principal": "0",
+    "rate": "5",
+    "years": "2",
+    "expected": "0",
+    "actual": "0"
+  },
+  {
+    "principal": "100",
+    "rate": "0",
+    "years": "5",
+    "expected": "0",
+    "actual": "0"
+  },
+  {
+    "principal": "500",
+    "rate": "10",
+    "years": "3",
+    "expected": "150",
+    "actual": "150"
+  },
+  {
+    "principal": "2000",
+    "rate": "7.5",
+    "years": "4",
+    "expected": "600",
+    "actual": "600.0"
+  },
+  {
+    "principal": "1000",
+    "rate": "5",
+    "years": "0.5",
+    "expected": "25",
+    "actual": "25.0"
+  },
+  {
+    "principal": "1234.56",
+    "rate": "3.25",
+    "years": "2",
+    "expected": "80.2464",
+    "actual": "80.2464"
+  }
+]

@@ -923,6 +923,22 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Simple Interest Calculator",
+    "emoji": "💰",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Calculate simple interest accurately using decimal arithmetic.",
+    "keywords": [
+      "simple interest",
+      "interest",
+      "calculator",
+      "finance",
+      "decimal",
+      "utility"
+    ],
+    "path": "utilities/Simple-Interest-Calculator/main.py"
   }
 ]
 

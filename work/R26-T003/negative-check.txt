@@ -1,0 +1,63 @@
+======================================================================
+NEGATIVE CHECK DRILL
+Temp dir outside repo: /tmp/si_check_mrZfkX
+======================================================================
+>>> Step 1: Copy cases.json to temporary folder outside repo
+Backup created at /tmp/si_check_mrZfkX/cases.json.bak
+
+>>> Step 2: Tamper with one expected value in cases.json (change 100 to 999)
+Tampered cases.json diff against backup:
+--- /tmp/si_check_mrZfkX/cases.json.bak	2026-11-11 14:43:04
++++ work/R26-T003/cases.json	2026-11-11 14:43:04
+@@ -3,7 +3,7 @@
+     "principal": "1000",
+     "rate": "5",
+     "years": "2",
+-    "expected": "100",
++    "expected": "999",
+     "actual": "100"
+   },
+   {
+
+>>> Step 3: Run check.py on tampered cases.json
+Running verification on 8 test cases from cases.json:
+----------------------------------------------------------------------
+[01] FAIL: P=1000, R=5, T=2 | Expected=999 | Actual=100
+[02] PASS: P=1000, R=5, T=0 | Expected=0 | Actual=0
+[03] PASS: P=0, R=5, T=2 | Expected=0 | Actual=0
+[04] PASS: P=100, R=0, T=5 | Expected=0 | Actual=0
+[05] PASS: P=500, R=10, T=3 | Expected=150 | Actual=150
+[06] PASS: P=2000, R=7.5, T=4 | Expected=600 | Actual=600.0
+[07] PASS: P=1000, R=5, T=0.5 | Expected=25 | Actual=25.0
+[08] PASS: P=1234.56, R=3.25, T=2 | Expected=80.2464 | Actual=80.2464
+----------------------------------------------------------------------
+❌ One or more test cases failed.
+EXIT CODE: 1
+
+>>> Step 4: Restore cases.json from backup
+Restoration complete.
+
+>>> Step 5: Verify restoration with plain diff
+DIFF EXIT CODE: 0 (0 indicates files are identical)
+
+>>> Step 6: Delete temporary backup
+Temporary folder deleted.
+
+>>> Step 7: Re-run check.py on restored cases.json
+Running verification on 8 test cases from cases.json:
+----------------------------------------------------------------------
+[01] PASS: P=1000, R=5, T=2 | Expected=100 | Actual=100
+[02] PASS: P=1000, R=5, T=0 | Expected=0 | Actual=0
+[03] PASS: P=0, R=5, T=2 | Expected=0 | Actual=0
+[04] PASS: P=100, R=0, T=5 | Expected=0 | Actual=0
+[05] PASS: P=500, R=10, T=3 | Expected=150 | Actual=150
+[06] PASS: P=2000, R=7.5, T=4 | Expected=600 | Actual=600.0
+[07] PASS: P=1000, R=5, T=0.5 | Expected=25 | Actual=25.0
+[08] PASS: P=1234.56, R=3.25, T=2 | Expected=80.2464 | Actual=80.2464
+----------------------------------------------------------------------
+✓ All test cases passed successfully.
+EXIT CODE: 0
+
+======================================================================
+NEGATIVE CHECK DRILL COMPLETED SUCCESSFULLY
+======================================================================
