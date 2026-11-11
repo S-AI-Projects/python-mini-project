@@ -1,0 +1,79 @@
+======================================================================
+NEGATIVE CHECK & MUTATION TEST LOG: R26-T010 Fourier Series Visualizer
+======================================================================
+
+PART 1: Plausible One-Line Semantic Mutation Test
+----------------------------------------------------------------------
+Mutation applied temporarily to math/Fourier-Series-Visualizer/Fourier-Series-Visualizer.py (line 110):
+- Original: x += radius * math.cos(n * time_val)
++ Mutant:   x = radius * math.cos(n * time_val)
+
+Semantic reason: Overwriting `x` instead of accumulating `+=` drops prior epicycle
+horizontal offsets whenever n_harmonics >= 2.
+
+Command 1a:
+pytest tests/test_fourier_series_visualizer.py -v
+
+Output under mutant:
+tests/test_fourier_series_visualizer.py::test_import_safety PASSED       [ 11%]
+tests/test_fourier_series_visualizer.py::test_smallest_valid_exit_only PASSED [ 22%]
+tests/test_fourier_series_visualizer.py::test_smallest_valid_simulation_square_n1 PASSED [ 33%]
+tests/test_fourier_series_visualizer.py::test_ordinary_input_square_n3 FAILED [ 44%]
+tests/test_fourier_series_visualizer.py::test_minimal_distinguishing_input_square_n2_accumulation FAILED [ 55%]
+tests/test_fourier_series_visualizer.py::test_sawtooth_and_triangle_waveforms FAILED [ 66%]
+tests/test_fourier_series_visualizer.py::test_upper_boundary_n50_and_invalid_input_recovery PASSED [ 77%]
+tests/test_fourier_series_visualizer.py::test_wave_data_sliding_window_caps_at_300 PASSED [ 88%]
+tests/test_fourier_series_visualizer.py::test_repeatability_and_session_isolation PASSED [100%]
+
+Key failing assertions:
+- test_ordinary_input_square_n3:
+  assert snap0[2][0] == pytest.approx([1.952300635260583])
+  E assert [0.25464790894703254] == approx([1.952300635260583 ± 2.0e-06])
+- test_minimal_distinguishing_input_square_n2_accumulation:
+  assert snap0[2][0] == pytest.approx([1.6976527263135504])
+  E assert [0.4244131815783876] == approx([1.6976527263135504 ± 1.7e-06])
+- test_sawtooth_and_triangle_waveforms:
+  assert saw_snap0[2][0] == pytest.approx([0.3183098861837907])
+  E assert [-0.3183098861837907] == approx([0.3183098861837907 ± 3.2e-07])
+
+========================= 3 failed, 6 passed in 0.06s ==========================
+Exit code: 1
+
+Command 1b:
+python3 work/R26-T010/check.py
+
+Output under mutant:
+[PASS] smallest_valid_exit_only
+[PASS] smallest_valid_simulation_n1
+[FAIL] ordinary_input_square_n3: ordinary_input_square_n3.f0.x[0]: expected 1.952300635260583, got 0.25464790894703254
+[FAIL] minimal_distinguishing_square_n2: minimal_distinguishing_square_n2.f0.x[0]: expected 1.6976527263135504, got 0.4244131815783876
+[FAIL] sawtooth_n2: sawtooth_n2.f0.x[0]: expected 0.3183098861837907, got -0.3183098861837907
+[FAIL] triangle_n2: triangle_n2.f0.x[0]: expected 0.7205061947899575, got -0.09006327434874468
+...
+========================= 3 failed, 6 passed in 0.05s ==========================
+Tests passed count: 6
+[FAIL] Pytest failed or zero tests passed (returncode=1)
+
+ONE OR MORE CHECKS FAILED.
+Exit code: 1
+
+Restoration:
+Restored line 110 back to `x += radius * math.cos(n * time_val)`.
+Verified `git diff math/Fourier-Series-Visualizer/Fourier-Series-Visualizer.py` is empty.
+Re-ran `python3 work/R26-T010/check.py` -> ALL R26-T010 CHECKS PASSED (Exit code: 0).
+
+
+PART 2: Negative Fixture Mismatch Check (Temporary Directory)
+----------------------------------------------------------------------
+Tampered a temporary copy of cases.json inside tempfile.TemporaryDirectory():
+set `ordinary_input_square_n3.expected.frame0_drawing_point = [999.0, 0.0]`
+Command:
+python3 work/R26-T010/check.py --cases <temp_dir>/cases_bad.json
+
+Output:
+[PASS] smallest_valid_exit_only: Smallest valid CLI session (immediate exit '4' without running animation)
+[PASS] smallest_valid_simulation_n1: Smallest valid simulation input (Square wave, N=1 harmonic, then exit)
+[FAIL] ordinary_input_square_n3: ordinary_input_square_n3.f0.x[0]: expected 999.0, got 1.952300635260583
+...
+ONE OR MORE CHECKS FAILED.
+EXIT_CODE: 1

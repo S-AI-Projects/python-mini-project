@@ -1,0 +1,110 @@
+======================================================================
+TEST EXECUTION RESULTS: R26-T010 Fourier Series Visualizer
+======================================================================
+
+Command 1 (Focused Pytest):
+pytest tests/test_fourier_series_visualizer.py -v
+
+Output:
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Library/Frameworks/Python.framework/Versions/3.15/bin/python3.15
+cachedir: .pytest_cache
+rootdir: /Users/kumkum/Desktop/python-mini-project
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... 
+collected 9 items
+
+tests/test_fourier_series_visualizer.py::test_import_safety PASSED       [ 11%]
+tests/test_fourier_series_visualizer.py::test_smallest_valid_exit_only PASSED [ 22%]
+tests/test_fourier_series_visualizer.py::test_smallest_valid_simulation_square_n1 PASSED [ 33%]
+tests/test_fourier_series_visualizer.py::test_ordinary_input_square_n3 PASSED [ 44%]
+tests/test_fourier_series_visualizer.py::test_minimal_distinguishing_input_square_n2_accumulation PASSED [ 55%]
+tests/test_fourier_series_visualizer.py::test_sawtooth_and_triangle_waveforms PASSED [ 66%]
+tests/test_fourier_series_visualizer.py::test_upper_boundary_n50_and_invalid_input_recovery PASSED [ 77%]
+tests/test_fourier_series_visualizer.py::test_wave_data_sliding_window_caps_at_300 PASSED [ 88%]
+tests/test_fourier_series_visualizer.py::test_repeatability_and_session_isolation PASSED [100%]
+
+============================== 9 passed in 0.05s ===============================
+
+Exit code: 0
+
+
+======================================================================
+Command 2 (Independent Checker):
+python3 work/R26-T010/check.py
+
+Output:
+=== R26-T010 Independent Checker ===
+Target: /Users/kumkum/Desktop/python-mini-project/math/Fourier-Series-Visualizer/Fourier-Series-Visualizer.py
+Cases:  /Users/kumkum/Desktop/python-mini-project/work/R26-T010/cases.json
+
+--- Verifying Source Precondition Anchors ---
+[PASS] Source precondition line 15: def main():
+[PASS] Source precondition line 46: if n_harmonics < 1:
+[PASS] Source precondition line 49: if n_harmonics > 50:
+[PASS] Source precondition line 76: circles = []
+[PASS] Source precondition line 77: radii_lines = []
+[PASS] Source precondition line 134: return [wave_line, connect_line, drawing_point] + circles + radii_lines
+
+--- Running Fixture Cases ---
+[PASS] smallest_valid_exit_only: Smallest valid CLI session (immediate exit '4' without running animation)
+[PASS] smallest_valid_simulation_n1: Smallest valid simulation input (Square wave, N=1 harmonic, then exit)
+[PASS] ordinary_input_square_n3: Ordinary simulation input (Square wave, N=3 harmonics, then exit)
+[PASS] minimal_distinguishing_square_n2: Reduced distinguishing input (Square wave, N=2) detecting accumulation and harmonic index defects
+[PASS] sawtooth_n2: Sawtooth waveform with alternating signs (N=2 harmonics)
+[PASS] triangle_n2: Triangle waveform with inverse-square harmonic decay (N=2 harmonics)
+
+--- Checking Repeatability Under Controlled External State ---
+[PASS] Repeatability verified across fresh equivalent inputs.
+
+--- Running Focused Pytest Suite ---
+Command: /Library/Frameworks/Python.framework/Versions/3.15/bin/python3 -m pytest /Users/kumkum/Desktop/python-mini-project/tests/test_fourier_series_visualizer.py -v
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Library/Frameworks/Python.framework/Versions/3.15/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/kumkum/Desktop/python-mini-project
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... 
+collected 9 items
+
+tests/test_fourier_series_visualizer.py::test_import_safety PASSED       [ 11%]
+tests/test_fourier_series_visualizer.py::test_smallest_valid_exit_only PASSED [ 22%]
+tests/test_fourier_series_visualizer.py::test_smallest_valid_simulation_square_n1 PASSED [ 33%]
+tests/test_fourier_series_visualizer.py::test_ordinary_input_square_n3 PASSED [ 44%]
+tests/test_fourier_series_visualizer.py::test_minimal_distinguishing_input_square_n2_accumulation PASSED [ 55%]
+tests/test_fourier_series_visualizer.py::test_sawtooth_and_triangle_waveforms PASSED [ 66%]
+tests/test_fourier_series_visualizer.py::test_upper_boundary_n50_and_invalid_input_recovery PASSED [ 77%]
+tests/test_fourier_series_visualizer.py::test_wave_data_sliding_window_caps_at_300 PASSED [ 88%]
+tests/test_fourier_series_visualizer.py::test_repeatability_and_session_isolation PASSED [100%]
+
+============================== 9 passed in 0.03s ===============================
+Tests passed count: 9
+[PASS] Pytest passed 9 test(s).
+
+ALL R26-T010 CHECKS PASSED.
+
+Exit code: 0
+
+
+======================================================================
+Command 3 (Complete Project Test Suite):
+MPLBACKEND=Agg SDL_VIDEODRIVER=dummy SDL_AUDIODRIVER=dummy pytest tests/ -v --tb=short
+
+Summary Output:
+======================== 182 passed, 1 skipped in 0.85s ========================
+(Note: tests/test_scientific_calculator.py skipped locally because numpy is not installed in Python 3.15.2.)
+
+Exit code: 0
+
+
+======================================================================
+Command 4 (Lint and Diff Checks):
+ruff check .
+Output:
+All checks passed!
+Exit code: 0
+
+git diff --check
+Exit code: 0

@@ -1,0 +1,181 @@
+[
+  {
+    "case_id": "smallest_valid_exit_only",
+    "description": "Smallest valid CLI session (immediate exit '4' without running animation)",
+    "inputs": ["4"],
+    "frames": [],
+    "precondition_source_lines": {
+      "entry_point": "line 15: def main():",
+      "menu_prompt": "line 29: choice = input(\"🎯 Enter choice (1-4): \").strip()",
+      "exit_branch": "line 31: if choice == \"4\": breaks loop at line 33"
+    },
+    "expected": {
+      "return_value": null,
+      "stdout_contains": [
+        "WELCOME TO FOURIER SERIES VISUALIZER",
+        "Exiting... Keep exploring math!"
+      ],
+      "stdout_excludes": ["Simulating", "Invalid choice"],
+      "session_count": 0
+    }
+  },
+  {
+    "case_id": "smallest_valid_simulation_n1",
+    "description": "Smallest valid simulation input (Square wave, N=1 harmonic, then exit)",
+    "inputs": ["1", "1", "4"],
+    "frames": [0, 1],
+    "precondition_source_lines": {
+      "entry_point": "line 15: def main():",
+      "choice_valid": "line 35: if choice not in [\"1\", \"2\", \"3\"]:; line 39 maps \"1\" -> \"square\"",
+      "lower_bound_n": "line 46: if n_harmonics < 1: establishes N=1 as smallest valid harmonic count",
+      "upper_bound_n": "line 49: if n_harmonics > 50:",
+      "circles_anchor": "line 76: circles = []",
+      "radii_lines_anchor": "line 77: radii_lines = []",
+      "artist_loop": "line 78: for _ in range(n_harmonics):",
+      "square_formula": "line 100-102: n = i * 2 + 1; radius = (4 / (n * math.pi))",
+      "wave_prepend": "line 121: wave_data.insert(0, y)",
+      "time_step": "line 131: time_val += 0.03",
+      "return_order": "line 134: return [wave_line, connect_line, drawing_point] + circles + radii_lines",
+      "animation_call": "line 136: FuncAnimation(fig, update, frames=400, interval=20, blit=True)"
+    },
+    "expected": {
+      "return_value": null,
+      "stdout_contains": [
+        "Simulating square wave with 1 harmonics...",
+        "Opening animation window... Close it to return to menu.",
+        "Exiting... Keep exploring math!"
+      ],
+      "stdout_excludes": ["Invalid choice", "Enter a value greater than or equal to 1"],
+      "session_count": 1,
+      "title": "Fourier Series Approximation: Square Wave (N=1)",
+      "circles_count": 1,
+      "radii_lines_count": 1,
+      "artist_count": 5,
+      "frame0_drawing_point": [1.2732395447351628, 0.0],
+      "frame1_drawing_point": [1.2726666299105776, 0.038191457021929054],
+      "frame1_wave_x": [3.0, 3.06],
+      "frame1_wave_y": [0.038191457021929054, 0.0]
+    }
+  },
+  {
+    "case_id": "ordinary_input_square_n3",
+    "description": "Ordinary simulation input (Square wave, N=3 harmonics, then exit)",
+    "inputs": ["1", "3", "4"],
+    "frames": [0, 1],
+    "precondition_source_lines": {
+      "entry_point": "line 15: def main():",
+      "choice_valid": "line 35 & line 39: choice \"1\" -> \"square\"",
+      "harmonic_bounds": "line 46 (n_harmonics < 1) & line 49 (n_harmonics > 50)",
+      "circles_anchor": "line 76: circles = []",
+      "radii_lines_anchor": "line 77: radii_lines = []",
+      "accumulation": "line 110-111: x += radius * math.cos(n * time_val); y += radius * math.sin(n * time_val)",
+      "wave_prepend": "line 121: wave_data.insert(0, y)",
+      "return_order": "line 134: return [wave_line, connect_line, drawing_point] + circles + radii_lines"
+    },
+    "expected": {
+      "return_value": null,
+      "stdout_contains": [
+        "Simulating square wave with 3 harmonics...",
+        "Exiting... Keep exploring math!"
+      ],
+      "stdout_excludes": ["Invalid choice"],
+      "session_count": 1,
+      "title": "Fourier Series Approximation: Square Wave (N=3)",
+      "circles_count": 3,
+      "radii_lines_count": 3,
+      "artist_count": 9,
+      "frame0_drawing_point": [1.952300635260583, 0.0],
+      "frame1_drawing_point": [1.9471505854536049, 0.11439120599405823],
+      "frame1_wave_x": [3.0, 3.06],
+      "frame1_wave_y": [0.11439120599405823, 0.0]
+    }
+  },
+  {
+    "case_id": "minimal_distinguishing_square_n2",
+    "description": "Reduced distinguishing input (Square wave, N=2) detecting accumulation and harmonic index defects",
+    "inputs": ["1", "2", "4"],
+    "frames": [0, 1],
+    "precondition_source_lines": {
+      "entry_point": "line 15: def main():",
+      "circles_anchor": "line 76: circles = []",
+      "radii_lines_anchor": "line 77: radii_lines = []",
+      "square_formula": "line 101-102: n = i * 2 + 1; radius = (4 / (n * math.pi))",
+      "accumulation": "line 110: x += radius * math.cos(n * time_val)"
+    },
+    "expected": {
+      "return_value": null,
+      "stdout_contains": [
+        "Simulating square wave with 2 harmonics...",
+        "Exiting... Keep exploring math!"
+      ],
+      "stdout_excludes": ["Invalid choice"],
+      "session_count": 1,
+      "title": "Fourier Series Approximation: Square Wave (N=2)",
+      "circles_count": 2,
+      "radii_lines_count": 2,
+      "artist_count": 7,
+      "frame0_drawing_point": [1.6976527263135504, 0.0],
+      "frame1_drawing_point": [1.6953620980298885, 0.07633709804270655],
+      "frame1_wave_x": [3.0, 3.06],
+      "frame1_wave_y": [0.07633709804270655, 0.0]
+    }
+  },
+  {
+    "case_id": "sawtooth_n2",
+    "description": "Sawtooth waveform with alternating signs (N=2 harmonics)",
+    "inputs": ["2", "2", "4"],
+    "frames": [0, 1],
+    "precondition_source_lines": {
+      "choice_valid": "line 39: \"2\" -> \"sawtooth\"",
+      "circles_anchor": "line 76: circles = []",
+      "radii_lines_anchor": "line 77: radii_lines = []",
+      "sawtooth_formula": "line 103-105: n = i + 1; radius = (2 * (-1)**(n + 1) / (n * math.pi))"
+    },
+    "expected": {
+      "return_value": null,
+      "stdout_contains": [
+        "Simulating sawtooth wave with 2 harmonics...",
+        "Exiting... Keep exploring math!"
+      ],
+      "stdout_excludes": ["Invalid choice"],
+      "session_count": 1,
+      "title": "Fourier Series Approximation: Sawtooth Wave (N=2)",
+      "circles_count": 2,
+      "radii_lines_count": 2,
+      "artist_count": 7,
+      "frame0_drawing_point": [0.3183098861837907, 0.0],
+      "frame1_drawing_point": [0.3185962146999155, 8.592433368429658e-06],
+      "frame1_wave_x": [3.0, 3.06],
+      "frame1_wave_y": [8.592433368429658e-06, 0.0]
+    }
+  },
+  {
+    "case_id": "triangle_n2",
+    "description": "Triangle waveform with inverse-square harmonic decay (N=2 harmonics)",
+    "inputs": ["3", "2", "4"],
+    "frames": [0, 1],
+    "precondition_source_lines": {
+      "choice_valid": "line 39: \"3\" -> \"triangle\"",
+      "circles_anchor": "line 76: circles = []",
+      "radii_lines_anchor": "line 77: radii_lines = []",
+      "triangle_formula": "line 106-108: n = i * 2 + 1; radius = (8 * (-1)**((n - 1) / 2) / ((n**2) * (math.pi**2)))"
+    },
+    "expected": {
+      "return_value": null,
+      "stdout_contains": [
+        "Simulating triangle wave with 2 harmonics...",
+        "Exiting... Keep exploring math!"
+      ],
+      "stdout_excludes": ["Invalid choice"],
+      "session_count": 1,
+      "title": "Fourier Series Approximation: Triangle Wave (N=2)",
+      "circles_count": 2,
+      "radii_lines_count": 2,
+      "artist_count": 7,
+      "frame0_drawing_point": [0.7205061947899575, 0.0],
+      "frame1_drawing_point": [0.7205059760018473, 0.01621868024119913],
+      "frame1_wave_x": [3.0, 3.06],
+      "frame1_wave_y": [0.01621868024119913, 0.0]
+    }
+  }
+]
