@@ -1,0 +1,133 @@
+=== 1. Deliberate Failure Run (Expected -3 instead of -2) ===
+======================================================================
+Matrix Determinant Contract Checks
+======================================================================
+[FAIL] 2x2 contract case
+       Input:    [[1, 2], [3, 4]]
+       Expected: -3
+       Actual:   -2
+[PASS] 1x1 contract case
+       Input:    [[5]]
+       Expected: 5
+       Actual:   5
+[PASS] Nonsquare 2x3 matrix rejected
+       Input:    [[1, 2, 3], [4, 5, 6]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Nonsquare 2x1 matrix rejected
+       Input:    [[1], [2]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Nonsquare 1x2 matrix rejected
+       Input:    [[1, 2]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Ragged matrix rejected
+       Input:    [[1, 2], [3]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Empty matrix [] rejected
+       Input:    []
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Empty matrix [[]] rejected
+       Input:    [[]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Boolean element rejected
+       Input:    [[True, 0], [0, 1]]
+       Expected: TypeError
+       Actual:   TypeError
+[PASS] Non-numeric string element rejected
+       Input:    [['a', 1], [2, 3]]
+       Expected: TypeError
+       Actual:   TypeError
+[PASS] 3x3 integer matrix
+       Input:    [[6, 1, 1], [4, -2, 5], [2, 8, 7]]
+       Expected: -306
+       Actual:   -306
+[PASS] 3x3 identity matrix
+       Input:    [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+       Expected: 1
+       Actual:   1
+[PASS] 3x3 singular matrix
+       Input:    [[1, 2, 3], [2, 4, 6], [7, 8, 9]]
+       Expected: 0
+       Actual:   0
+[PASS] 2x2 float matrix
+       Input:    [[2.5, 1.5], [0.5, 4.0]]
+       Expected: 9.25
+       Actual:   9.25
+----------------------------------------------------------------------
+Summary: 13/14 passed, 1 failed
+======================================================================
+Exit code: 1
+
+=== 2. Restoring cases.json from backup ===
+Plain diff with backup (expecting identical/empty):
+Diff exit code: 0
+
+=== 3. Verification Run After Restore ===
+======================================================================
+Matrix Determinant Contract Checks
+======================================================================
+[PASS] 2x2 contract case
+       Input:    [[1, 2], [3, 4]]
+       Expected: -2
+       Actual:   -2
+[PASS] 1x1 contract case
+       Input:    [[5]]
+       Expected: 5
+       Actual:   5
+[PASS] Nonsquare 2x3 matrix rejected
+       Input:    [[1, 2, 3], [4, 5, 6]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Nonsquare 2x1 matrix rejected
+       Input:    [[1], [2]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Nonsquare 1x2 matrix rejected
+       Input:    [[1, 2]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Ragged matrix rejected
+       Input:    [[1, 2], [3]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Empty matrix [] rejected
+       Input:    []
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Empty matrix [[]] rejected
+       Input:    [[]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Boolean element rejected
+       Input:    [[True, 0], [0, 1]]
+       Expected: TypeError
+       Actual:   TypeError
+[PASS] Non-numeric string element rejected
+       Input:    [['a', 1], [2, 3]]
+       Expected: TypeError
+       Actual:   TypeError
+[PASS] 3x3 integer matrix
+       Input:    [[6, 1, 1], [4, -2, 5], [2, 8, 7]]
+       Expected: -306
+       Actual:   -306
+[PASS] 3x3 identity matrix
+       Input:    [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+       Expected: 1
+       Actual:   1
+[PASS] 3x3 singular matrix
+       Input:    [[1, 2, 3], [2, 4, 6], [7, 8, 9]]
+       Expected: 0
+       Actual:   0
+[PASS] 2x2 float matrix
+       Input:    [[2.5, 1.5], [0.5, 4.0]]
+       Expected: 9.25
+       Actual:   9.25
+----------------------------------------------------------------------
+Summary: 14/14 passed, 0 failed
+======================================================================
+Exit code: 0

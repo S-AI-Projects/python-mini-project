@@ -923,6 +923,21 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Matrix Determinant",
+    "emoji": "🔢",
+    "category": "utilities",
+    "difficulty": "intermediate",
+    "description": "Calculate square matrix determinants with explicit dimension checks.",
+    "keywords": [
+      "matrix",
+      "determinant",
+      "linear-algebra",
+      "math",
+      "dimensions"
+    ],
+    "path": "utilities/Matrix-Determinant/main.py"
   }
 ]
 

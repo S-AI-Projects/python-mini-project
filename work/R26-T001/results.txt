@@ -1,0 +1,129 @@
+=== Command 1: unittest discover ===
+test_3x3_matrix (test_main.TestMatrixDeterminantContract.test_3x3_matrix)
+Verify 3x3 matrix determinant calculation. ... ok
+test_4x4_matrix (test_main.TestMatrixDeterminantContract.test_4x4_matrix)
+Verify 4x4 matrix determinant calculation. ... ok
+test_bool_rejected_with_type_error (test_main.TestMatrixDeterminantContract.test_bool_rejected_with_type_error)
+Verify boolean elements are rejected with TypeError. ... ok
+test_clean_import_no_side_effects (test_main.TestMatrixDeterminantContract.test_clean_import_no_side_effects)
+Verify that importing main produces no stdout/stderr or prompts. ... ok
+test_cli_subprocess_non_zero_exit_on_invalid_input (test_main.TestMatrixDeterminantContract.test_cli_subprocess_non_zero_exit_on_invalid_input)
+Verify CLI exits non-zero via subprocess when given invalid matrix. ... ok
+test_cli_subprocess_success (test_main.TestMatrixDeterminantContract.test_cli_subprocess_success)
+Verify CLI exits zero via subprocess when given valid matrix. ... ok
+test_contract_1x1 (test_main.TestMatrixDeterminantContract.test_contract_1x1)
+Verify [[5]] evaluates to 5. ... ok
+test_contract_2x2 (test_main.TestMatrixDeterminantContract.test_contract_2x2)
+Verify [[1,2],[3,4]] evaluates to -2. ... ok
+test_empty_matrix_rejected (test_main.TestMatrixDeterminantContract.test_empty_matrix_rejected)
+Verify empty lists [] and [[]] raise ValueError. ... ok
+test_float_matrix (test_main.TestMatrixDeterminantContract.test_float_matrix)
+Verify float matrix calculation with correct decimal handling. ... ok
+test_identity_matrix (test_main.TestMatrixDeterminantContract.test_identity_matrix)
+Verify identity matrix of size 3 has determinant 1. ... ok
+test_non_numeric_rejected_with_type_error (test_main.TestMatrixDeterminantContract.test_non_numeric_rejected_with_type_error)
+Verify non-numeric values raise TypeError. ... ok
+test_nonsquare_rejected_column_vector (test_main.TestMatrixDeterminantContract.test_nonsquare_rejected_column_vector)
+Verify 2x1 matrix [[1],[2]] raises ValueError. ... ok
+test_nonsquare_rejected_more_columns (test_main.TestMatrixDeterminantContract.test_nonsquare_rejected_more_columns)
+Verify 2x3 matrix [[1,2,3],[4,5,6]] raises ValueError. ... ok
+test_nonsquare_rejected_row_vector (test_main.TestMatrixDeterminantContract.test_nonsquare_rejected_row_vector)
+Verify 1x2 matrix [[1,2]] raises ValueError. ... ok
+test_parse_matrix_safe (test_main.TestMatrixDeterminantContract.test_parse_matrix_safe)
+Verify parse_matrix correctly parses string formats and rejects invalid. ... ok
+test_ragged_matrix_rejected (test_main.TestMatrixDeterminantContract.test_ragged_matrix_rejected)
+Verify ragged matrix [[1,2],[3]] raises ValueError. ... ok
+test_singular_matrix (test_main.TestMatrixDeterminantContract.test_singular_matrix)
+Verify singular matrix (linearly dependent rows) has determinant 0. ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.042s
+
+OK
+Exit code: 0
+
+=== Command 2: check.py ===
+======================================================================
+Matrix Determinant Contract Checks
+======================================================================
+[PASS] 2x2 contract case
+       Input:    [[1, 2], [3, 4]]
+       Expected: -2
+       Actual:   -2
+[PASS] 1x1 contract case
+       Input:    [[5]]
+       Expected: 5
+       Actual:   5
+[PASS] Nonsquare 2x3 matrix rejected
+       Input:    [[1, 2, 3], [4, 5, 6]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Nonsquare 2x1 matrix rejected
+       Input:    [[1], [2]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Nonsquare 1x2 matrix rejected
+       Input:    [[1, 2]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Ragged matrix rejected
+       Input:    [[1, 2], [3]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Empty matrix [] rejected
+       Input:    []
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Empty matrix [[]] rejected
+       Input:    [[]]
+       Expected: ValueError
+       Actual:   ValueError
+[PASS] Boolean element rejected
+       Input:    [[True, 0], [0, 1]]
+       Expected: TypeError
+       Actual:   TypeError
+[PASS] Non-numeric string element rejected
+       Input:    [['a', 1], [2, 3]]
+       Expected: TypeError
+       Actual:   TypeError
+[PASS] 3x3 integer matrix
+       Input:    [[6, 1, 1], [4, -2, 5], [2, 8, 7]]
+       Expected: -306
+       Actual:   -306
+[PASS] 3x3 identity matrix
+       Input:    [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
+       Expected: 1
+       Actual:   1
+[PASS] 3x3 singular matrix
+       Input:    [[1, 2, 3], [2, 4, 6], [7, 8, 9]]
+       Expected: 0
+       Actual:   0
+[PASS] 2x2 float matrix
+       Input:    [[2.5, 1.5], [0.5, 4.0]]
+       Expected: 9.25
+       Actual:   9.25
+----------------------------------------------------------------------
+Summary: 14/14 passed, 0 failed
+======================================================================
+Exit code: 0
+
+=== Command 3: registry_validator.py --strict ===
+
+========== Registry Validation ==========
+
+Status           : FAILED
+Registry         : projects_registry.json
+Projects scanned : 61
+Errors           : 4
+Warnings         : 0
+
+Errors:
+  - Advanced Password Manager has invalid category 'security'.
+
+Repository Consistency:
+
+  Unregistered projects:
+    - math/Heap-Sort
+    - security/password_hasher
+    - work/R26-T001
+Exit code: 1

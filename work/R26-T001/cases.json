@@ -1,0 +1,72 @@
+[
+  {
+    "description": "2x2 contract case",
+    "input": [[1, 2], [3, 4]],
+    "expected": -2
+  },
+  {
+    "description": "1x1 contract case",
+    "input": [[5]],
+    "expected": 5
+  },
+  {
+    "description": "Nonsquare 2x3 matrix rejected",
+    "input": [[1, 2, 3], [4, 5, 6]],
+    "expected": "ValueError"
+  },
+  {
+    "description": "Nonsquare 2x1 matrix rejected",
+    "input": [[1], [2]],
+    "expected": "ValueError"
+  },
+  {
+    "description": "Nonsquare 1x2 matrix rejected",
+    "input": [[1, 2]],
+    "expected": "ValueError"
+  },
+  {
+    "description": "Ragged matrix rejected",
+    "input": [[1, 2], [3]],
+    "expected": "ValueError"
+  },
+  {
+    "description": "Empty matrix [] rejected",
+    "input": [],
+    "expected": "ValueError"
+  },
+  {
+    "description": "Empty matrix [[]] rejected",
+    "input": [[]],
+    "expected": "ValueError"
+  },
+  {
+    "description": "Boolean element rejected",
+    "input": [[true, 0], [0, 1]],
+    "expected": "TypeError"
+  },
+  {
+    "description": "Non-numeric string element rejected",
+    "input": [["a", 1], [2, 3]],
+    "expected": "TypeError"
+  },
+  {
+    "description": "3x3 integer matrix",
+    "input": [[6, 1, 1], [4, -2, 5], [2, 8, 7]],
+    "expected": -306
+  },
+  {
+    "description": "3x3 identity matrix",
+    "input": [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
+    "expected": 1
+  },
+  {
+    "description": "3x3 singular matrix",
+    "input": [[1, 2, 3], [2, 4, 6], [7, 8, 9]],
+    "expected": 0
+  },
+  {
+    "description": "2x2 float matrix",
+    "input": [[2.5, 1.5], [0.5, 4.0]],
+    "expected": 9.25
+  }
+]
