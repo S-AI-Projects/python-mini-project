@@ -44,6 +44,50 @@ def test_caesar_round_trip(cipher_suite):
     assert dec == plaintext
 
 
+def test_caesar_standard_shift_abc(cipher_suite):
+    """Cover the 'abc' shifted by 3 fixture in both encrypt and decrypt modes."""
+    enc = cipher_suite.caesar_cipher("abc", 3, "E")
+    assert enc == "def"
+    dec = cipher_suite.caesar_cipher("def", 3, "D")
+    assert dec == "abc"
+
+
+def test_caesar_zero_and_full_alphabet_shift(cipher_suite):
+    """Cover zero shift and full-alphabet cycle shifts (26 and -26)."""
+    assert cipher_suite.caesar_cipher("abc", 0, "E") == "abc"
+    assert cipher_suite.caesar_cipher("abc", 26, "E") == "abc"
+    assert cipher_suite.caesar_cipher("abc", -26, "E") == "abc"
+
+
+def test_caesar_preserves_punctuation_casing_and_unicode(cipher_suite):
+    """Verify casing is preserved and non-alphabetic/Unicode characters are untouched."""
+    assert cipher_suite.caesar_cipher("AbC", 3, "E") == "DeF"
+    assert cipher_suite.caesar_cipher("Hello, World! 123", 3, "E") == "Khoor, Zruog! 123"
+    assert cipher_suite.caesar_cipher("café", 3, "E") == "fdié"
+
+
+def test_caesar_empty_message_and_rejection_branches(cipher_suite):
+    """Verify empty input returns empty string and non-alpha characters pass through."""
+    assert cipher_suite.caesar_cipher("", 3, "E") == ""
+    assert cipher_suite.caesar_cipher("", 3, "D") == ""
+    assert cipher_suite.caesar_cipher("!", 3, "E") == "!"
+    assert cipher_suite.caesar_cipher("123 !?@#", 3, "E") == "123 !?@#"
+
+
+def test_caesar_caller_input_integrity_and_subsequent_valid_call(cipher_suite):
+    """
+    Verify caller input string is preserved, empty message call succeeds,
+    subsequent ordinary valid call succeeds, and original string remains intact.
+    """
+    original = "abc"
+    res_empty = cipher_suite.caesar_cipher("", 3, "E")
+    assert res_empty == ""
+
+    res_valid = cipher_suite.caesar_cipher(original, 3, "E")
+    assert res_valid == "def"
+    assert original == "abc"
+
+
 # ── Vigenere cipher ───────────────────────────────────────────────────────────
 
 def test_vigenere_round_trip(cipher_suite):

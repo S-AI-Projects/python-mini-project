@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "message": "abc",
+    "shift": 3,
+    "mode": "E",
+    "expected": "def",
+    "description": "Standard 'abc' shifted by 3 encryption"
+  },
+  {
+    "id": 2,
+    "message": "def",
+    "shift": 3,
+    "mode": "D",
+    "expected": "abc",
+    "description": "Standard 'def' shifted by 3 decryption"
+  },
+  {
+    "id": 3,
+    "message": "abc",
+    "shift": 0,
+    "mode": "E",
+    "expected": "abc",
+    "description": "Zero shift boundary (identity)"
+  },
+  {
+    "id": 4,
+    "message": "abc",
+    "shift": 26,
+    "mode": "E",
+    "expected": "abc",
+    "description": "Full-alphabet positive shift boundary (26 % 26 == 0)"
+  },
+  {
+    "id": 5,
+    "message": "abc",
+    "shift": -26,
+    "mode": "E",
+    "expected": "abc",
+    "description": "Full-alphabet negative shift boundary (-26 % 26 == 0)"
+  },
+  {
+    "id": 6,
+    "message": "",
+    "shift": 3,
+    "mode": "E",
+    "expected": "",
+    "description": "Smallest input for empty-result branch (length 0)"
+  },
+  {
+    "id": 7,
+    "message": "",
+    "shift": 3,
+    "mode": "D",
+    "expected": "",
+    "description": "Empty input under decrypt mode"
+  },
+  {
+    "id": 8,
+    "message": "!",
+    "shift": 3,
+    "mode": "E",
+    "expected": "!",
+    "description": "Smallest input for non-alphabetic rejection fallback branch (length 1)"
+  },
+  {
+    "id": 9,
+    "message": "123 !?@#",
+    "shift": 3,
+    "mode": "E",
+    "expected": "123 !?@#",
+    "description": "Non-alphabetic, punctuation, and whitespace preservation"
+  },
+  {
+    "id": 10,
+    "message": "AbC",
+    "shift": 3,
+    "mode": "E",
+    "expected": "DeF",
+    "description": "Mixed case preservation"
+  },
+  {
+    "id": 11,
+    "message": "Hello, World! 123",
+    "shift": 3,
+    "mode": "E",
+    "expected": "Khoor, Zruog! 123",
+    "description": "Case, space, and punctuation preservation in phrase"
+  },
+  {
+    "id": 12,
+    "message": "café",
+    "shift": 3,
+    "mode": "E",
+    "expected": "fdié",
+    "description": "Non-ASCII Unicode rejection fallback preservation"
+  }
+]

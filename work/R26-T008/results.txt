@@ -1,0 +1,45 @@
+Command: python3 work/R26-T008/check.py
+=== Running R26-T008 Independent Checker ===
+--- Verifying Required Fixtures from cases.json ---
+[PASS] Case 1: Standard 'abc' shifted by 3 encryption -> 'def'
+[PASS] Case 2: Standard 'def' shifted by 3 decryption -> 'abc'
+[PASS] Case 3: Zero shift boundary (identity) -> 'abc'
+[PASS] Case 4: Full-alphabet positive shift boundary (26 % 26 == 0) -> 'abc'
+[PASS] Case 5: Full-alphabet negative shift boundary (-26 % 26 == 0) -> 'abc'
+[PASS] Case 6: Smallest input for empty-result branch (length 0) -> ''
+[PASS] Case 7: Empty input under decrypt mode -> ''
+[PASS] Case 8: Smallest input for non-alphabetic rejection fallback branch (length 1) -> '!'
+[PASS] Case 9: Non-alphabetic, punctuation, and whitespace preservation -> '123 !?@#'
+[PASS] Case 10: Mixed case preservation -> 'DeF'
+[PASS] Case 11: Case, space, and punctuation preservation in phrase -> 'Khoor, Zruog! 123'
+[PASS] Case 12: Non-ASCII Unicode rejection fallback preservation -> 'fdié'
+--- Verifying Caller Input Integrity and Subsequent Valid Call ---
+[PASS] Caller input string preserved and subsequent call succeeded.
+--- Running Pytest Suite ---
+Command: python3 -m pytest /Users/kumkum/Desktop/python-mini-project/tests/test_caesar_cipher.py -v
+============================= test session starts ==============================
+platform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Library/Frameworks/Python.framework/Versions/3.15/bin/python3
+cachedir: .pytest_cache
+rootdir: /Users/kumkum/Desktop/python-mini-project
+configfile: pyproject.toml
+plugins: cov-7.1.0
+collecting ... collected 12 items
+
+tests/test_caesar_cipher.py::test_caesar_round_trip PASSED               [  8%]
+tests/test_caesar_cipher.py::test_caesar_standard_shift_abc PASSED       [ 16%]
+tests/test_caesar_cipher.py::test_caesar_zero_and_full_alphabet_shift PASSED [ 25%]
+tests/test_caesar_cipher.py::test_caesar_preserves_punctuation_casing_and_unicode PASSED [ 33%]
+tests/test_caesar_cipher.py::test_caesar_empty_message_and_rejection_branches PASSED [ 41%]
+tests/test_caesar_cipher.py::test_caesar_caller_input_integrity_and_subsequent_valid_call PASSED [ 50%]
+tests/test_caesar_cipher.py::test_vigenere_round_trip PASSED             [ 58%]
+tests/test_caesar_cipher.py::test_atbash_is_its_own_inverse PASSED       [ 66%]
+tests/test_caesar_cipher.py::test_playfair_round_trip_even_length PASSED [ 75%]
+tests/test_caesar_cipher.py::test_playfair_decrypt_odd_length_processes_final_letter PASSED [ 83%]
+tests/test_caesar_cipher.py::test_playfair_encrypt_decrypt_roundtrip_various_lengths PASSED [ 91%]
+tests/test_caesar_cipher.py::test_playfair_matrix_has_25_unique_letters PASSED [100%]
+
+============================== 12 passed in 0.01s ==============================
+Tests passed count: 12
+
+ALL R26-T008 CHECKS PASSED.
+Exit code: 0
