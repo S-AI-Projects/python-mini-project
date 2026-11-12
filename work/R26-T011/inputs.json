@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Missing JSON file",
+    "input": null
+  },
+  {
+    "name": "Smallest valid input",
+    "input": {
+      "completed": {}
+    }
+  },
+  {
+    "name": "Ordinary project data",
+    "input": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00"
+      }
+    }
+  },
+  {
+    "name": "Repeated timestamp values",
+    "input": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00",
+        "Chess": "2026-11-01 10:00"
+      }
+    }
+  },
+  {
+    "name": "Valid old project name migration",
+    "input": {
+      "completed": {
+        "Dice-Rolling": "2026-11-01 10:00"
+      }
+    }
+  }
+]
