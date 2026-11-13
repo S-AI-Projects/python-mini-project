@@ -1,0 +1,10 @@
+Deliberately changed the helper's return to `return []` in a temporary source copy.
+Command: /private/tmp/r26-t011-venv/bin/python3 -m pytest -q /Users/nishantavinashkurkure/SnAI_Tasks/python-mini-project/tests/test_dots_boxes_ai.py -k smallest
+Exit code: 1
+Detected by tests: True
+Smallest case failed: True
+Minimal failure signature:
+_ test_small_valid_inputs_have_explicit_results[smallest horizontal top edge] __
+E       AssertionError: expected [(0, 0)], got []
+FAILED tests/test_dots_boxes_ai.py::test_small_valid_inputs_have_explicit_results[smallest horizontal top edge]
+1 failed, 2 deselected in 0.01s
