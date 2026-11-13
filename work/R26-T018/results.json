@@ -1,0 +1,52 @@
+[
+  {
+    "case": "ordinary list target 2",
+    "source_anchor": "binary_search at Binary-Search.py:11; high=len(arr)-1 at line 17; loop condition at line 19; miss sentinel at line 30; duplicate equality return at lines 23-24",
+    "input": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "target": 2,
+    "expected": 0,
+    "actual": 0,
+    "expected_input_after": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "actual_input_after": [
+      2,
+      4,
+      6,
+      8
+    ]
+  },
+  {
+    "case": "ordinary search succeeds after empty miss",
+    "source_anchor": "binary_search at Binary-Search.py:11; high=len(arr)-1 at line 17; loop condition at line 19; miss sentinel at line 30; duplicate equality return at lines 23-24",
+    "input": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "target": 8,
+    "expected": 3,
+    "actual": 3,
+    "expected_input_after": [
+      2,
+      4,
+      6,
+      8
+    ],
+    "actual_input_after": [
+      2,
+      4,
+      6,
+      8
+    ]
+  }
+]
