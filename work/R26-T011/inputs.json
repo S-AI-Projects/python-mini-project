@@ -1,16 +1,19 @@
 [
   {
-    "name": "Missing JSON file",
+    "case": "missing file",
+    "source_anchor": "Progress-Tracker.py:55, 83-84",
     "input": null
   },
   {
-    "name": "Smallest valid input",
+    "case": "smallest valid file",
+    "source_anchor": "Progress-Tracker.py:55-57, 64, 83",
     "input": {
       "completed": {}
     }
   },
   {
-    "name": "Ordinary project data",
+    "case": "ordinary progress",
+    "source_anchor": "Progress-Tracker.py:64, 67-83",
     "input": {
       "completed": {
         "Snake-Game": "2026-11-01 10:00"
@@ -18,7 +21,8 @@
     }
   },
   {
-    "name": "Repeated timestamp values",
+    "case": "repeated timestamps",
+    "source_anchor": "Progress-Tracker.py:67-79",
     "input": {
       "completed": {
         "Snake-Game": "2026-11-01 10:00",
@@ -27,10 +31,12 @@
     }
   },
   {
-    "name": "Valid old project name migration",
+    "case": "legacy migration mutation",
+    "source_anchor": "Progress-Tracker.py:16-26, 31-37, 59-71, 80-83",
     "input": {
       "completed": {
-        "Dice-Rolling": "2026-11-01 10:00"
+        "Dice-Rolling": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
       }
     }
   }

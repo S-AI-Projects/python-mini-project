@@ -1,7 +1,7 @@
 [
   {
-    "name": "Missing JSON file",
-    "source_anchor": "Progress-Tracker.py:48-50, 78-79",
+    "case": "missing file",
+    "source_anchor": "Progress-Tracker.py:55, 83-84",
     "input": null,
     "expected_return": {
       "completed": {}
@@ -9,15 +9,12 @@
     "actual_return": {
       "completed": {}
     },
-    "expected_file": null,
-    "actual_file": null,
-    "return_pass": true,
-    "file_pass": true,
-    "stdout": ""
+    "expected_saved": [],
+    "actual_saved": []
   },
   {
-    "name": "Smallest valid input",
-    "source_anchor": "Progress-Tracker.py:59-61, 78",
+    "case": "smallest valid file",
+    "source_anchor": "Progress-Tracker.py:55-57, 64, 83",
     "input": {
       "completed": {}
     },
@@ -27,19 +24,12 @@
     "actual_return": {
       "completed": {}
     },
-    "expected_file": {
-      "completed": {}
-    },
-    "actual_file": {
-      "completed": {}
-    },
-    "return_pass": true,
-    "file_pass": true,
-    "stdout": ""
+    "expected_saved": [],
+    "actual_saved": []
   },
   {
-    "name": "Ordinary project data",
-    "source_anchor": "Progress-Tracker.py:59-74",
+    "case": "ordinary progress",
+    "source_anchor": "Progress-Tracker.py:64, 67-83",
     "input": {
       "completed": {
         "Snake-Game": "2026-11-01 10:00"
@@ -55,23 +45,12 @@
         "Snake-Game": "2026-11-01 10:00"
       }
     },
-    "expected_file": {
-      "completed": {
-        "Snake-Game": "2026-11-01 10:00"
-      }
-    },
-    "actual_file": {
-      "completed": {
-        "Snake-Game": "2026-11-01 10:00"
-      }
-    },
-    "return_pass": true,
-    "file_pass": true,
-    "stdout": ""
+    "expected_saved": [],
+    "actual_saved": []
   },
   {
-    "name": "Repeated timestamp values",
-    "source_anchor": "Progress-Tracker.py:62-74",
+    "case": "repeated timestamps",
+    "source_anchor": "Progress-Tracker.py:67-79",
     "input": {
       "completed": {
         "Snake-Game": "2026-11-01 10:00",
@@ -90,52 +69,45 @@
         "Chess": "2026-11-01 10:00"
       }
     },
-    "expected_file": {
-      "completed": {
-        "Snake-Game": "2026-11-01 10:00",
-        "Chess": "2026-11-01 10:00"
-      }
-    },
-    "actual_file": {
-      "completed": {
-        "Snake-Game": "2026-11-01 10:00",
-        "Chess": "2026-11-01 10:00"
-      }
-    },
-    "return_pass": true,
-    "file_pass": true,
-    "stdout": ""
+    "expected_saved": [],
+    "actual_saved": []
   },
   {
-    "name": "Valid old project name migration",
-    "source_anchor": "Progress-Tracker.py:54-68, 75-78",
+    "case": "legacy migration mutation",
+    "source_anchor": "Progress-Tracker.py:16-26, 31-37, 59-71, 80-83",
     "input": {
       "completed": {
-        "Dice-Rolling": "2026-11-01 10:00"
+        "Dice-Rolling": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
       }
     },
     "expected_return": {
       "completed": {
-        "Rolling-Dice": "2026-11-01 10:00"
+        "Rolling-Dice": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
       }
     },
     "actual_return": {
       "completed": {
-        "Rolling-Dice": "2026-11-01 10:00"
+        "Rolling-Dice": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
       }
     },
-    "expected_file": {
-      "completed": {
-        "Rolling-Dice": "2026-11-01 10:00"
+    "expected_saved": [
+      {
+        "completed": {
+          "Rolling-Dice": "2026-11-01 10:00",
+          "Snake-Game": "2026-11-01 11:00"
+        }
       }
-    },
-    "actual_file": {
-      "completed": {
-        "Rolling-Dice": "2026-11-01 10:00"
+    ],
+    "actual_saved": [
+      {
+        "completed": {
+          "Rolling-Dice": "2026-11-01 10:00",
+          "Snake-Game": "2026-11-01 11:00"
+        }
       }
-    },
-    "return_pass": true,
-    "file_pass": true,
-    "stdout": ""
+    ]
   }
 ]

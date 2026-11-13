@@ -1,59 +1,52 @@
 [
   {
-    "name": "Missing JSON file",
+    "case": "missing file",
     "return": {
       "completed": {}
     },
-    "file": null
+    "saved": []
   },
   {
-    "name": "Smallest valid input",
+    "case": "smallest valid file",
     "return": {
       "completed": {}
     },
-    "file": {
-      "completed": {}
-    }
+    "saved": []
   },
   {
-    "name": "Ordinary project data",
+    "case": "ordinary progress",
     "return": {
       "completed": {
         "Snake-Game": "2026-11-01 10:00"
       }
     },
-    "file": {
-      "completed": {
-        "Snake-Game": "2026-11-01 10:00"
-      }
-    }
+    "saved": []
   },
   {
-    "name": "Repeated timestamp values",
+    "case": "repeated timestamps",
     "return": {
       "completed": {
         "Snake-Game": "2026-11-01 10:00",
         "Chess": "2026-11-01 10:00"
       }
     },
-    "file": {
-      "completed": {
-        "Snake-Game": "2026-11-01 10:00",
-        "Chess": "2026-11-01 10:00"
-      }
-    }
+    "saved": []
   },
   {
-    "name": "Valid old project name migration",
+    "case": "legacy migration mutation",
     "return": {
       "completed": {
-        "Rolling-Dice": "2026-11-01 10:00"
+        "Rolling-Dice": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
       }
     },
-    "file": {
-      "completed": {
-        "Rolling-Dice": "2026-11-01 10:00"
+    "saved": [
+      {
+        "completed": {
+          "Rolling-Dice": "2026-11-01 10:00",
+          "Snake-Game": "2026-11-01 11:00"
+        }
       }
-    }
+    ]
   }
 ]
