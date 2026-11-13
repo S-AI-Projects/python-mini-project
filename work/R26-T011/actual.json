@@ -1,0 +1,113 @@
+[
+  {
+    "case": "missing file",
+    "source_anchor": "Progress-Tracker.py:55, 83-84",
+    "input": null,
+    "expected_return": {
+      "completed": {}
+    },
+    "actual_return": {
+      "completed": {}
+    },
+    "expected_saved": [],
+    "actual_saved": []
+  },
+  {
+    "case": "smallest valid file",
+    "source_anchor": "Progress-Tracker.py:55-57, 64, 83",
+    "input": {
+      "completed": {}
+    },
+    "expected_return": {
+      "completed": {}
+    },
+    "actual_return": {
+      "completed": {}
+    },
+    "expected_saved": [],
+    "actual_saved": []
+  },
+  {
+    "case": "ordinary progress",
+    "source_anchor": "Progress-Tracker.py:64, 67-83",
+    "input": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00"
+      }
+    },
+    "expected_return": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00"
+      }
+    },
+    "actual_return": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00"
+      }
+    },
+    "expected_saved": [],
+    "actual_saved": []
+  },
+  {
+    "case": "repeated timestamps",
+    "source_anchor": "Progress-Tracker.py:67-79",
+    "input": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00",
+        "Chess": "2026-11-01 10:00"
+      }
+    },
+    "expected_return": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00",
+        "Chess": "2026-11-01 10:00"
+      }
+    },
+    "actual_return": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00",
+        "Chess": "2026-11-01 10:00"
+      }
+    },
+    "expected_saved": [],
+    "actual_saved": []
+  },
+  {
+    "case": "legacy migration mutation",
+    "source_anchor": "Progress-Tracker.py:16-26, 31-37, 59-71, 80-83",
+    "input": {
+      "completed": {
+        "Dice-Rolling": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
+      }
+    },
+    "expected_return": {
+      "completed": {
+        "Rolling-Dice": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
+      }
+    },
+    "actual_return": {
+      "completed": {
+        "Rolling-Dice": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
+      }
+    },
+    "expected_saved": [
+      {
+        "completed": {
+          "Rolling-Dice": "2026-11-01 10:00",
+          "Snake-Game": "2026-11-01 11:00"
+        }
+      }
+    ],
+    "actual_saved": [
+      {
+        "completed": {
+          "Rolling-Dice": "2026-11-01 10:00",
+          "Snake-Game": "2026-11-01 11:00"
+        }
+      }
+    ]
+  }
+]

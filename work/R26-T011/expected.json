@@ -1,0 +1,52 @@
+[
+  {
+    "case": "missing file",
+    "return": {
+      "completed": {}
+    },
+    "saved": []
+  },
+  {
+    "case": "smallest valid file",
+    "return": {
+      "completed": {}
+    },
+    "saved": []
+  },
+  {
+    "case": "ordinary progress",
+    "return": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00"
+      }
+    },
+    "saved": []
+  },
+  {
+    "case": "repeated timestamps",
+    "return": {
+      "completed": {
+        "Snake-Game": "2026-11-01 10:00",
+        "Chess": "2026-11-01 10:00"
+      }
+    },
+    "saved": []
+  },
+  {
+    "case": "legacy migration mutation",
+    "return": {
+      "completed": {
+        "Rolling-Dice": "2026-11-01 10:00",
+        "Snake-Game": "2026-11-01 11:00"
+      }
+    },
+    "saved": [
+      {
+        "completed": {
+          "Rolling-Dice": "2026-11-01 10:00",
+          "Snake-Game": "2026-11-01 11:00"
+        }
+      }
+    ]
+  }
+]

@@ -46,7 +46,12 @@ TOTAL = len(ALL_PROJECT_NAMES)
 # ── Data helpers ──────────────────────────────────────────────────────────────
 
 def load_data() -> dict:
-    """Load saved progress from JSON file, or return a fresh state."""
+    """Return saved progress, migrating legacy names that exist in the registry.
+
+    A missing DATA_FILE returns ``{"completed": {}}``. Existing completions
+    are preserved; registered legacy-name migrations update the returned data
+    and persist it through ``save_data``.
+    """
     if os.path.exists(DATA_FILE):
         with open(DATA_FILE, "r") as f:
             data = json.load(f)
