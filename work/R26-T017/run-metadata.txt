@@ -1,0 +1,4 @@
+Automated check: python3 -m unittest discover -s utilities/Tip-Calculator -p "test_*.py"
+Executed command: /Library/Developer/CommandLineTools/usr/bin/python3 -m unittest discover -s /Users/nishantavinashkurkure/SnAI_Tasks/python-mini-project/utilities/Tip-Calculator -p test_*.py
+Test count: 8
+Exit status: 0

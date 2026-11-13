@@ -923,7 +923,22 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Tip Calculator",
+    "emoji": "💵",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Calculate a tip-inclusive bill total and split it into exact currency shares.",
+    "keywords": [
+      "tip",
+      "calculator",
+      "bill",
+      "currency",
+      "split",
+      "utilities"
+    ],
+    "path": "utilities/Tip-Calculator/main.py"
   }
 ]
-
 
