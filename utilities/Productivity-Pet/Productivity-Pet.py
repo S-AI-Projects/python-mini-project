@@ -6,6 +6,29 @@ from datetime import datetime
 SAVE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "save.json")
 
 
+def _calculate_task_rewards(tasks, pet_class):
+    """Return completed count, completed names, and earned XP in task order."""
+    completed_task_list = []
+    total_xp = 0
+
+    for task in tasks:
+        if not task["done"]:
+            continue
+
+        completed_task_list.append(task["name"])
+        if task["difficulty"] == "easy":
+            xp = 5
+        elif task["difficulty"] == "medium":
+            xp = 15
+        else:
+            xp = 30
+        if pet_class == "Dragon 🐉" and task["difficulty"] == "hard":
+            xp += 10
+        total_xp += xp
+
+    return len(completed_task_list), total_xp, completed_task_list
+
+
 def main():
     print("🐦‍🔥 PRODUCTIVITY PET 🐦‍🔥")
     print("Track your tasks and evolve your pet!\n")
@@ -93,9 +116,6 @@ def main():
             count = int(count)
 
             tasks = []
-            total_xp = 0
-            completed = 0
-            completed_task_list = []
 
             for i in range(count):
 
@@ -123,18 +143,9 @@ def main():
 
                 tasks.append(task_data)
 
-                if done:
-                    completed += 1
-                    completed_task_list.append(task)
-                    if difficulty == "easy":
-                        xp = 5
-                    elif difficulty == "medium":
-                        xp = 15
-                    else:
-                        xp = 30
-                    if data["pet_class"] == "Dragon 🐉" and difficulty == "hard":
-                        xp += 10
-                    total_xp += xp
+            completed, total_xp, completed_task_list = _calculate_task_rewards(
+                tasks, data["pet_class"]
+            )
             percentage = (completed / count) * 100 if count > 0 else 0
             print(f"\n📊 Progress: {percentage:.1f}%")
 
