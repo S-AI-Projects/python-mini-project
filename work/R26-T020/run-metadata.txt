@@ -1,0 +1,5 @@
+Automated check: python3 work/R26-T020/check.py
+Focused pytest command: /private/tmp/r26-t011-venv/bin/python3 -m pytest -q -s /Users/nishantavinashkurkure/SnAI_Tasks/python-mini-project/tests/test_word_building_load_words_contract.py
+Test count: 3
+Exit status: 0
+Mutation check: temporary _load_words comprehension filters empty buckets; original assertion must reject the mutant.
