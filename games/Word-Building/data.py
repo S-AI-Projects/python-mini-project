@@ -9,6 +9,7 @@ WORDS_FILE = Path(__file__).with_name("words.json")
 
 
 def _load_words():
+    """Load the complete JSON mapping, preserving empty buckets and order."""
     with open(WORDS_FILE, encoding="utf-8") as fh:
         return json.load(fh)
 

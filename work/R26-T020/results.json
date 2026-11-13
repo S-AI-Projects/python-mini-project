@@ -1,0 +1,121 @@
+{
+  "cases": [
+    {
+      "case": "smallest valid empty bucket",
+      "source_precondition": "data.py:11 defines _load_words; line 12 documents preservation of empty buckets/order; line 13 opens WORDS_FILE as UTF-8; line 14 returns json.load(fh)",
+      "expected_type": "dict",
+      "actual_type": "dict",
+      "expected": {
+        "a": []
+      },
+      "actual": {
+        "a": []
+      },
+      "expected_key_order": [
+        "a"
+      ],
+      "actual_key_order": [
+        "a"
+      ],
+      "expected_list_order": {
+        "a": []
+      },
+      "actual_list_order": {
+        "a": []
+      }
+    },
+    {
+      "case": "ordinary ordered word buckets",
+      "source_precondition": "data.py:11 defines _load_words; line 12 documents preservation of empty buckets/order; line 13 opens WORDS_FILE as UTF-8; line 14 returns json.load(fh)",
+      "expected_type": "dict",
+      "actual_type": "dict",
+      "expected": {
+        "a": [
+          "zebra",
+          "apple"
+        ],
+        "b": [
+          "Ball",
+          "book"
+        ],
+        "c": []
+      },
+      "actual": {
+        "a": [
+          "zebra",
+          "apple"
+        ],
+        "b": [
+          "Ball",
+          "book"
+        ],
+        "c": []
+      },
+      "expected_key_order": [
+        "a",
+        "b",
+        "c"
+      ],
+      "actual_key_order": [
+        "a",
+        "b",
+        "c"
+      ],
+      "expected_list_order": {
+        "a": [
+          "zebra",
+          "apple"
+        ],
+        "b": [
+          "Ball",
+          "book"
+        ],
+        "c": []
+      },
+      "actual_list_order": {
+        "a": [
+          "zebra",
+          "apple"
+        ],
+        "b": [
+          "Ball",
+          "book"
+        ],
+        "c": []
+      }
+    },
+    {
+      "case": "smallest valid empty bucket",
+      "source_precondition": "data.py:11 defines _load_words; line 12 documents preservation of empty buckets/order; line 13 opens WORDS_FILE as UTF-8; line 14 returns json.load(fh)",
+      "expected_type": "dict",
+      "actual_type": "dict",
+      "expected": {
+        "a": []
+      },
+      "actual": {},
+      "expected_key_order": [
+        "a"
+      ],
+      "actual_key_order": [],
+      "expected_list_order": {
+        "a": []
+      },
+      "actual_list_order": {}
+    }
+  ],
+  "mutants": [
+    {
+      "case": "one-line mutant drops empty buckets",
+      "mutation": "return {letter: words for letter, words in json.load(fh).items() if words}",
+      "input": {
+        "a": []
+      },
+      "expected": {
+        "a": []
+      },
+      "mutant_actual": {},
+      "killed_by_assertion": "smallest valid empty bucket preserves buckets",
+      "semantic_reason": "the mutation drops a valid key whose bucket is empty"
+    }
+  ]
+}
