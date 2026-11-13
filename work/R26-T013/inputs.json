@@ -1,0 +1,226 @@
+[
+  {
+    "case": "empty string",
+    "input": {
+      "type": "str",
+      "value": ""
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton string",
+    "input": {
+      "type": "str",
+      "value": "A"
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-code-point string",
+    "input": {
+      "type": "str",
+      "value": "ABC"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-code-point string",
+    "input": {
+      "type": "str",
+      "value": "ab"
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "repeated-code-point string",
+    "input": {
+      "type": "str",
+      "value": "level"
+    },
+    "expected_length": 5
+  },
+  {
+    "case": "unicode code points",
+    "input": {
+      "type": "str",
+      "value": "Aé🙂"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "empty bytes",
+    "input": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton bytes",
+    "input": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-byte sequence",
+    "input": {
+      "type": "bytes",
+      "hex": "414243"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-byte sequence",
+    "input": {
+      "type": "bytes",
+      "hex": "00ff"
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "UTF-8 bytes reverse as bytes",
+    "input": {
+      "type": "bytes",
+      "hex": "c3a9"
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "three binary bytes",
+    "input": {
+      "type": "bytes",
+      "hex": "007fff"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "empty list",
+    "input": {
+      "type": "list",
+      "items": []
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton list",
+    "input": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-element list",
+    "input": {
+      "type": "list",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-element list",
+    "input": {
+      "type": "list",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "repeated list values",
+    "input": {
+      "type": "list",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "empty tuple",
+    "input": {
+      "type": "tuple",
+      "items": []
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton tuple",
+    "input": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-element tuple",
+    "input": {
+      "type": "tuple",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-element tuple",
+    "input": {
+      "type": "tuple",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "repeated tuple values",
+    "input": {
+      "type": "tuple",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "singleton integer list",
+    "input": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "mixed list",
+    "input": {
+      "type": "list",
+      "items": [
+        "A",
+        2,
+        null
+      ]
+    },
+    "expected_length": 3
+  }
+]

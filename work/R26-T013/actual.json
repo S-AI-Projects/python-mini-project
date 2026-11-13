@@ -1,0 +1,1042 @@
+[
+  {
+    "case": "empty string",
+    "input": {
+      "type": "str",
+      "value": ""
+    },
+    "expected": {
+      "type": "str",
+      "value": ""
+    },
+    "reference": {
+      "type": "str",
+      "value": ""
+    },
+    "actual": {
+      "type": "str",
+      "value": ""
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": ""
+    },
+    "actual_twice": {
+      "type": "str",
+      "value": ""
+    },
+    "expected_length": 0,
+    "actual_length": 0,
+    "input_after": {
+      "type": "str",
+      "value": ""
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "singleton string",
+    "input": {
+      "type": "str",
+      "value": "A"
+    },
+    "expected": {
+      "type": "str",
+      "value": "A"
+    },
+    "reference": {
+      "type": "str",
+      "value": "A"
+    },
+    "actual": {
+      "type": "str",
+      "value": "A"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "A"
+    },
+    "actual_twice": {
+      "type": "str",
+      "value": "A"
+    },
+    "expected_length": 1,
+    "actual_length": 1,
+    "input_after": {
+      "type": "str",
+      "value": "A"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "three-code-point string",
+    "input": {
+      "type": "str",
+      "value": "ABC"
+    },
+    "expected": {
+      "type": "str",
+      "value": "CBA"
+    },
+    "reference": {
+      "type": "str",
+      "value": "CBA"
+    },
+    "actual": {
+      "type": "str",
+      "value": "CBA"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "ABC"
+    },
+    "actual_twice": {
+      "type": "str",
+      "value": "ABC"
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "str",
+      "value": "ABC"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "two-code-point string",
+    "input": {
+      "type": "str",
+      "value": "ab"
+    },
+    "expected": {
+      "type": "str",
+      "value": "ba"
+    },
+    "reference": {
+      "type": "str",
+      "value": "ba"
+    },
+    "actual": {
+      "type": "str",
+      "value": "ba"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "ab"
+    },
+    "actual_twice": {
+      "type": "str",
+      "value": "ab"
+    },
+    "expected_length": 2,
+    "actual_length": 2,
+    "input_after": {
+      "type": "str",
+      "value": "ab"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "repeated-code-point string",
+    "input": {
+      "type": "str",
+      "value": "level"
+    },
+    "expected": {
+      "type": "str",
+      "value": "level"
+    },
+    "reference": {
+      "type": "str",
+      "value": "level"
+    },
+    "actual": {
+      "type": "str",
+      "value": "level"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "level"
+    },
+    "actual_twice": {
+      "type": "str",
+      "value": "level"
+    },
+    "expected_length": 5,
+    "actual_length": 5,
+    "input_after": {
+      "type": "str",
+      "value": "level"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "unicode code points",
+    "input": {
+      "type": "str",
+      "value": "Aé🙂"
+    },
+    "expected": {
+      "type": "str",
+      "value": "🙂éA"
+    },
+    "reference": {
+      "type": "str",
+      "value": "🙂éA"
+    },
+    "actual": {
+      "type": "str",
+      "value": "🙂éA"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "Aé🙂"
+    },
+    "actual_twice": {
+      "type": "str",
+      "value": "Aé🙂"
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "str",
+      "value": "Aé🙂"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "empty bytes",
+    "input": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "expected": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "actual": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "actual_twice": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "expected_length": 0,
+    "actual_length": 0,
+    "input_after": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "singleton bytes",
+    "input": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "expected": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "actual": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "actual_twice": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "expected_length": 1,
+    "actual_length": 1,
+    "input_after": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "three-byte sequence",
+    "input": {
+      "type": "bytes",
+      "hex": "414243"
+    },
+    "expected": {
+      "type": "bytes",
+      "hex": "434241"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "434241"
+    },
+    "actual": {
+      "type": "bytes",
+      "hex": "434241"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "414243"
+    },
+    "actual_twice": {
+      "type": "bytes",
+      "hex": "414243"
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "bytes",
+      "hex": "414243"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "two-byte sequence",
+    "input": {
+      "type": "bytes",
+      "hex": "00ff"
+    },
+    "expected": {
+      "type": "bytes",
+      "hex": "ff00"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "ff00"
+    },
+    "actual": {
+      "type": "bytes",
+      "hex": "ff00"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "00ff"
+    },
+    "actual_twice": {
+      "type": "bytes",
+      "hex": "00ff"
+    },
+    "expected_length": 2,
+    "actual_length": 2,
+    "input_after": {
+      "type": "bytes",
+      "hex": "00ff"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "UTF-8 bytes reverse as bytes",
+    "input": {
+      "type": "bytes",
+      "hex": "c3a9"
+    },
+    "expected": {
+      "type": "bytes",
+      "hex": "a9c3"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "a9c3"
+    },
+    "actual": {
+      "type": "bytes",
+      "hex": "a9c3"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "c3a9"
+    },
+    "actual_twice": {
+      "type": "bytes",
+      "hex": "c3a9"
+    },
+    "expected_length": 2,
+    "actual_length": 2,
+    "input_after": {
+      "type": "bytes",
+      "hex": "c3a9"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "three binary bytes",
+    "input": {
+      "type": "bytes",
+      "hex": "007fff"
+    },
+    "expected": {
+      "type": "bytes",
+      "hex": "ff7f00"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "ff7f00"
+    },
+    "actual": {
+      "type": "bytes",
+      "hex": "ff7f00"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "007fff"
+    },
+    "actual_twice": {
+      "type": "bytes",
+      "hex": "007fff"
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "bytes",
+      "hex": "007fff"
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "empty list",
+    "input": {
+      "type": "list",
+      "items": []
+    },
+    "expected": {
+      "type": "list",
+      "items": []
+    },
+    "reference": {
+      "type": "list",
+      "items": []
+    },
+    "actual": {
+      "type": "list",
+      "items": []
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": []
+    },
+    "actual_twice": {
+      "type": "list",
+      "items": []
+    },
+    "expected_length": 0,
+    "actual_length": 0,
+    "input_after": {
+      "type": "list",
+      "items": []
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "singleton list",
+    "input": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "expected": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "actual": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "actual_twice": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_length": 1,
+    "actual_length": 1,
+    "input_after": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "three-element list",
+    "input": {
+      "type": "list",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected": {
+      "type": "list",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "actual": {
+      "type": "list",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "actual_twice": {
+      "type": "list",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "list",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "two-element list",
+    "input": {
+      "type": "list",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected": {
+      "type": "list",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "actual": {
+      "type": "list",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "actual_twice": {
+      "type": "list",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected_length": 2,
+    "actual_length": 2,
+    "input_after": {
+      "type": "list",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "repeated list values",
+    "input": {
+      "type": "list",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected": {
+      "type": "list",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "actual": {
+      "type": "list",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "actual_twice": {
+      "type": "list",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "list",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "empty tuple",
+    "input": {
+      "type": "tuple",
+      "items": []
+    },
+    "expected": {
+      "type": "tuple",
+      "items": []
+    },
+    "reference": {
+      "type": "tuple",
+      "items": []
+    },
+    "actual": {
+      "type": "tuple",
+      "items": []
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": []
+    },
+    "actual_twice": {
+      "type": "tuple",
+      "items": []
+    },
+    "expected_length": 0,
+    "actual_length": 0,
+    "input_after": {
+      "type": "tuple",
+      "items": []
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "singleton tuple",
+    "input": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "expected": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "actual": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "actual_twice": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_length": 1,
+    "actual_length": 1,
+    "input_after": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "three-element tuple",
+    "input": {
+      "type": "tuple",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected": {
+      "type": "tuple",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "actual": {
+      "type": "tuple",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "actual_twice": {
+      "type": "tuple",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "tuple",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "two-element tuple",
+    "input": {
+      "type": "tuple",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected": {
+      "type": "tuple",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "actual": {
+      "type": "tuple",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "actual_twice": {
+      "type": "tuple",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected_length": 2,
+    "actual_length": 2,
+    "input_after": {
+      "type": "tuple",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "repeated tuple values",
+    "input": {
+      "type": "tuple",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected": {
+      "type": "tuple",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "actual": {
+      "type": "tuple",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "actual_twice": {
+      "type": "tuple",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "tuple",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "singleton integer list",
+    "input": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "expected": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "actual": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "actual_twice": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "expected_length": 1,
+    "actual_length": 1,
+    "input_after": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  },
+  {
+    "case": "mixed list",
+    "input": {
+      "type": "list",
+      "items": [
+        "A",
+        2,
+        null
+      ]
+    },
+    "expected": {
+      "type": "list",
+      "items": [
+        null,
+        2,
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        null,
+        2,
+        "A"
+      ]
+    },
+    "actual": {
+      "type": "list",
+      "items": [
+        null,
+        2,
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        "A",
+        2,
+        null
+      ]
+    },
+    "actual_twice": {
+      "type": "list",
+      "items": [
+        "A",
+        2,
+        null
+      ]
+    },
+    "expected_length": 3,
+    "actual_length": 3,
+    "input_after": {
+      "type": "list",
+      "items": [
+        "A",
+        2,
+        null
+      ]
+    },
+    "source_anchor": "Reverse-Hangman-Game.py:11-19 (standalone helper)"
+  }
+]

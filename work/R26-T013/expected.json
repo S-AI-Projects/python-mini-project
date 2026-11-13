@@ -1,0 +1,482 @@
+[
+  {
+    "case": "empty string",
+    "expected": {
+      "type": "str",
+      "value": ""
+    },
+    "reference": {
+      "type": "str",
+      "value": ""
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": ""
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton string",
+    "expected": {
+      "type": "str",
+      "value": "A"
+    },
+    "reference": {
+      "type": "str",
+      "value": "A"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "A"
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-code-point string",
+    "expected": {
+      "type": "str",
+      "value": "CBA"
+    },
+    "reference": {
+      "type": "str",
+      "value": "CBA"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "ABC"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-code-point string",
+    "expected": {
+      "type": "str",
+      "value": "ba"
+    },
+    "reference": {
+      "type": "str",
+      "value": "ba"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "ab"
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "repeated-code-point string",
+    "expected": {
+      "type": "str",
+      "value": "level"
+    },
+    "reference": {
+      "type": "str",
+      "value": "level"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "level"
+    },
+    "expected_length": 5
+  },
+  {
+    "case": "unicode code points",
+    "expected": {
+      "type": "str",
+      "value": "🙂éA"
+    },
+    "reference": {
+      "type": "str",
+      "value": "🙂éA"
+    },
+    "expected_twice": {
+      "type": "str",
+      "value": "Aé🙂"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "empty bytes",
+    "expected": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": ""
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton bytes",
+    "expected": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "41"
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-byte sequence",
+    "expected": {
+      "type": "bytes",
+      "hex": "434241"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "434241"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "414243"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-byte sequence",
+    "expected": {
+      "type": "bytes",
+      "hex": "ff00"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "ff00"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "00ff"
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "UTF-8 bytes reverse as bytes",
+    "expected": {
+      "type": "bytes",
+      "hex": "a9c3"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "a9c3"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "c3a9"
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "three binary bytes",
+    "expected": {
+      "type": "bytes",
+      "hex": "ff7f00"
+    },
+    "reference": {
+      "type": "bytes",
+      "hex": "ff7f00"
+    },
+    "expected_twice": {
+      "type": "bytes",
+      "hex": "007fff"
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "empty list",
+    "expected": {
+      "type": "list",
+      "items": []
+    },
+    "reference": {
+      "type": "list",
+      "items": []
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": []
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton list",
+    "expected": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-element list",
+    "expected": {
+      "type": "list",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-element list",
+    "expected": {
+      "type": "list",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "repeated list values",
+    "expected": {
+      "type": "list",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "empty tuple",
+    "expected": {
+      "type": "tuple",
+      "items": []
+    },
+    "reference": {
+      "type": "tuple",
+      "items": []
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": []
+    },
+    "expected_length": 0
+  },
+  {
+    "case": "singleton tuple",
+    "expected": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        "A"
+      ]
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "three-element tuple",
+    "expected": {
+      "type": "tuple",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        "C",
+        "B",
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        "A",
+        "B",
+        "C"
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "two-element tuple",
+    "expected": {
+      "type": "tuple",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        2,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        1,
+        2
+      ]
+    },
+    "expected_length": 2
+  },
+  {
+    "case": "repeated tuple values",
+    "expected": {
+      "type": "tuple",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "reference": {
+      "type": "tuple",
+      "items": [
+        2,
+        1,
+        1
+      ]
+    },
+    "expected_twice": {
+      "type": "tuple",
+      "items": [
+        1,
+        1,
+        2
+      ]
+    },
+    "expected_length": 3
+  },
+  {
+    "case": "singleton integer list",
+    "expected": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        0
+      ]
+    },
+    "expected_length": 1
+  },
+  {
+    "case": "mixed list",
+    "expected": {
+      "type": "list",
+      "items": [
+        null,
+        2,
+        "A"
+      ]
+    },
+    "reference": {
+      "type": "list",
+      "items": [
+        null,
+        2,
+        "A"
+      ]
+    },
+    "expected_twice": {
+      "type": "list",
+      "items": [
+        "A",
+        2,
+        null
+      ]
+    },
+    "expected_length": 3
+  }
+]

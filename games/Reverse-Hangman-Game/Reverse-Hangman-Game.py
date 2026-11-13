@@ -6,6 +6,19 @@ MAX_ATTEMPTS = 8
 WORDS = [ "karate", "judo", "taekwondo", "aikido", "kungfu", "muaythai", "capoeira", "boxing", "python", "javascript", "algorithm", "compiler", "debugger", "recursion", "variable", "function", "database", "network", "kernel", "encryption", "github", "docker", "linux", "server", "cloud", "runtime", "binary", "pointer", "thread", "naruto", "sasuke", "goku", "luffy", "zoro", "gojo", "tanjiro", "levi", "eren", "light", "lelouch", "pikachu" ]
 
 WORDS_BY_LENGTH = {}
+
+
+def reverse_value(value):
+    """Return a reversed copy of a string, bytes, list, or tuple.
+
+    Strings reverse by Unicode code point, while bytes reverse individual byte
+    values. For example, ``"Aé🙂"`` becomes ``"🙂éA"``; its UTF-8 bytes reverse
+    as bytes, not as decoded characters. Reversing ``["A", "B", "C"]`` twice
+    restores the original list and its length. The input is not mutated.
+    """
+    return value[::-1]
+
+
 def main():
     global attempts_left, choice, frequency, guess, guessed_letters, i, length, letter, pattern, pattern_list, possible_words, remaining, target_word, valid, word, wrong_letters
     for word in WORDS:

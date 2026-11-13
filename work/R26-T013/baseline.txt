@@ -1,0 +1,9 @@
+Pre-implementation minimal-case baseline
+Command: PATH=/tmp/r26-t011-venv/bin:$PATH python3 -m pytest -q tests/test_reverse_hangman_game.py -x
+Python version: 3.9.6
+Pytest version: 8.4.2
+Input: ""
+Expected explicit result: ""
+Independent reference result: ""
+Observed: AttributeError: module 'reverse_hangman_game' has no attribute 'reverse_value'
+Interpretation: the source had no sequence-reversal helper; main is an interactive guessing game and does not define the requested operation. The missing helper is added separately without changing main.
