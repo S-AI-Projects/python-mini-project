@@ -1,0 +1,3 @@
+Command: /private/tmp/r26-t011-venv/bin/python3 -m pytest -q -s /Users/nishantavinashkurkure/SnAI_Tasks/python-mini-project/tests/test_n_queens_print_board.py
+Test count: 2
+Exit status: 0

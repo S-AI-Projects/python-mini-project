@@ -1,4 +1,5 @@
 def print_board(board, n):
+    """Print each row and a trailing blank line; return None without mutation."""
     for row in board:
         print(" ".join("♛" if col else "⬜" for col in row))
     print()

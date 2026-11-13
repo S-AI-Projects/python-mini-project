@@ -1,0 +1,10 @@
+
+R26_T015_CASE={"case": "smallest first run", "source_anchor": "N-Queens.py:1-5, 18-20, 39, 49", "input": [[1]], "expected": "♛\n\n", "actual": "♛\n\n", "expected_input_after": [[1]], "actual_input_after": [[1]], "expected_return": null, "actual_return": null}
+
+R26_T015_CASE={"case": "ordinary board", "source_anchor": "N-Queens.py:1-5, 18-20, 39, 49", "input": [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]], "expected": "⬜ ♛ ⬜ ⬜\n⬜ ⬜ ⬜ ♛\n♛ ⬜ ⬜ ⬜\n⬜ ⬜ ♛ ⬜\n\n", "actual": "⬜ ♛ ⬜ ⬜\n⬜ ⬜ ⬜ ♛\n♛ ⬜ ⬜ ⬜\n⬜ ⬜ ♛ ⬜\n\n", "expected_input_after": [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]], "actual_input_after": [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]], "expected_return": null, "actual_return": null}
+
+R26_T015_CASE={"case": "fresh smallest after ordinary", "source_anchor": "N-Queens.py:1-5, 18-20, 39, 49", "input": [[1]], "expected": "♛\n\n", "actual": "♛\n\n", "expected_input_after": [[1]], "actual_input_after": [[1]], "expected_return": null, "actual_return": null}
+.
+R26_T015_CASE={"case": "ordinary board independent run", "source_anchor": "N-Queens.py:1-5, 18-20, 39, 49", "input": [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]], "expected": "⬜ ♛ ⬜ ⬜\n⬜ ⬜ ⬜ ♛\n♛ ⬜ ⬜ ⬜\n⬜ ⬜ ♛ ⬜\n\n", "actual": "⬜ ♛ ⬜ ⬜\n⬜ ⬜ ⬜ ♛\n♛ ⬜ ⬜ ⬜\n⬜ ⬜ ♛ ⬜\n\n", "expected_input_after": [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]], "actual_input_after": [[0, 1, 0, 0], [0, 0, 0, 1], [1, 0, 0, 0], [0, 0, 1, 0]], "expected_return": null, "actual_return": null}
+.
+2 passed in 0.01s
