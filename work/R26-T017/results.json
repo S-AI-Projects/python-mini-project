@@ -1,0 +1,24 @@
+[
+  {
+    "case": "README executable example",
+    "inputs": {
+      "bill": "100.00",
+      "tip_percent": "10",
+      "people": 3
+    },
+    "expected_output": "Shares: $36.67, $36.67, $36.66\nTotal: $110.00\n",
+    "actual_output": "Shares: $36.67, $36.67, $36.66\nTotal: $110.00\n",
+    "exit_status": 0
+  },
+  {
+    "case": "zero people rejected",
+    "inputs": {
+      "bill": "100",
+      "tip_percent": "10",
+      "people": 0
+    },
+    "expected_result": "ValueError",
+    "actual_result": "ValueError",
+    "exit_status": 0
+  }
+]

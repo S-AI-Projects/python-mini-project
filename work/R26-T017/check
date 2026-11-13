@@ -1,0 +1,129 @@
+"""Run Tip Calculator unittest checks and write the requested evidence."""
+
+import json
+import platform
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+
+ROOT = Path(__file__).resolve().parents[2]
+PROJECT_DIR = ROOT / "utilities" / "Tip-Calculator"
+EVIDENCE_DIR = Path(__file__).resolve().parent
+README = PROJECT_DIR / "README.md"
+EXPECTED_OUTPUT = "Shares: $36.67, $36.67, $36.66\nTotal: $110.00\n"
+COUNT_PATTERN = re.compile(r"Ran (\d+) tests?")
+
+
+def main():
+    command = [
+        sys.executable,
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        str(PROJECT_DIR),
+        "-p",
+        "test_*.py",
+    ]
+    result = subprocess.run(
+        command,
+        cwd=ROOT,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
+    (EVIDENCE_DIR / "test-output.txt").write_text(result.stdout, encoding="utf-8")
+
+    readme = README.read_text(encoding="utf-8")
+    example = re.search(r"```python example\n(.*?)\n```", readme, re.DOTALL)
+    if example is None:
+        print("README runnable Python example was not found.", file=sys.stderr)
+        return 1
+    example_result = subprocess.run(
+        [sys.executable, "-c", example.group(1)],
+        cwd=PROJECT_DIR,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
+    zero_people_result = subprocess.run(
+        [
+            sys.executable,
+            "-c",
+            "from main import calculate_split\n"
+            "try:\n"
+            "    calculate_split('100', '10', 0)\n"
+            "except ValueError as exc:\n"
+            "    print(type(exc).__name__)\n"
+            "else:\n"
+            "    raise AssertionError('zero people was accepted')\n",
+        ],
+        cwd=PROJECT_DIR,
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.STDOUT,
+        check=False,
+    )
+    evidence = [
+        {
+            "case": "README executable example",
+            "inputs": {"bill": "100.00", "tip_percent": "10", "people": 3},
+            "expected_output": EXPECTED_OUTPUT,
+            "actual_output": example_result.stdout,
+            "exit_status": example_result.returncode,
+        },
+        {
+            "case": "zero people rejected",
+            "inputs": {"bill": "100", "tip_percent": "10", "people": 0},
+            "expected_result": "ValueError",
+            "actual_result": zero_people_result.stdout.strip(),
+            "exit_status": zero_people_result.returncode,
+        },
+    ]
+    (EVIDENCE_DIR / "results.json").write_text(
+        json.dumps(evidence, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    count_match = COUNT_PATTERN.search(result.stdout)
+    test_count = int(count_match.group(1)) if count_match else 0
+    (EVIDENCE_DIR / "run-metadata.txt").write_text(
+        "Automated check: python3 -m unittest discover -s "
+        'utilities/Tip-Calculator -p "test_*.py"\n'
+        f"Executed command: {' '.join(command)}\n"
+        f"Test count: {test_count}\n"
+        f"Exit status: {result.returncode}\n",
+        encoding="utf-8",
+    )
+    (EVIDENCE_DIR / "tool-versions.txt").write_text(
+        f"Python: {platform.python_version()} ({sys.executable})\n"
+        "Test runner: Python standard-library unittest\n",
+        encoding="utf-8",
+    )
+
+    print(f"Command: {' '.join(command)}")
+    print(f"Test count: {test_count}")
+    print(f"Evidence: {EVIDENCE_DIR}")
+    print(result.stdout, end="")
+    if result.returncode:
+        return result.returncode
+    if test_count == 0:
+        print("unittest did not report any executed tests.", file=sys.stderr)
+        return 1
+    if example_result.returncode or example_result.stdout != EXPECTED_OUTPUT:
+        print(
+            "README example output did not match its documented output.",
+            file=sys.stderr,
+        )
+        return 1
+    if zero_people_result.returncode or zero_people_result.stdout.strip() != "ValueError":
+        print("Zero people was not rejected with ValueError.", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
