@@ -195,7 +195,10 @@ def main():
 
         pygame.display.flip()
 
-    # ── Main loop ─────────────────────────────────────────────
+    # For m board clicks in a click-only frame, rectangle collision checks
+    # are at most 11m + 2; winner checks add at most 8(m + 1). With the fixed
+    # 3x3 board and one redraw, worst-case work is O(m). Timings include pygame
+    # init/rendering; measured collision counts are the separate operation data.
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

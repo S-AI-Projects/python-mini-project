@@ -1,0 +1,6 @@
+Automated check: python3 work/R26-T019/check.py
+Focused pytest command: /private/tmp/r26-t011-venv/bin/python3 -m pytest -q -s /Users/nishantavinashkurkure/SnAI_Tasks/python-mini-project/tests/test_tic_tac_toe_scaling.py
+SDL video/audio drivers: dummy
+Test count: 1
+Exit status: 0
+Performance methodology: 5 operation-count runs and 5 wall-time runs per input size (1, 3, 5 clicks); main timings exclude process startup, import, and compilation, include pygame init and dummy rendering; deterministic inputs use no randomness; no pass/fail timing threshold.
