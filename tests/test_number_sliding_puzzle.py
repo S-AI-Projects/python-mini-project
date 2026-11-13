@@ -17,6 +17,7 @@ import.
 
 import importlib.util
 import itertools
+import json
 import sys
 import types
 from collections import deque
@@ -30,6 +31,45 @@ MODULE_PATH = (
     / "Number-Sliding-Puzzle"
     / "Number-Sliding-Puzzle.py"
 )
+
+# These contract cases use the 3x3 tile permutation initialized at
+# Number-Sliding-Puzzle.py:51 and passed to is_solvable before reshaping at
+# lines 54 and 57-61. Expected parity is calculated from each literal list,
+# not by calling is_solvable.
+IS_SOLVABLE_CONTRACT_CASES = [
+    {
+        "name": "smallest valid board and minimum inversion boundary",
+        "source_anchor": "Number-Sliding-Puzzle.py:11-17, 21-27, 41-42, 51, 54",
+        "numbers": [1, 2, 3, 4, 5, 6, 7, 8, 0],
+        "inversions": 0,
+        "calculation": "The non-blank tiles are ascending: 0 inversions is even.",
+        "expected": True,
+    },
+    {
+        "name": "ordinary board",
+        "source_anchor": "Number-Sliding-Puzzle.py:11-17, 41-42, 51-54",
+        "numbers": [1, 2, 3, 4, 5, 6, 0, 7, 8],
+        "inversions": 0,
+        "calculation": "Excluding 0 leaves ascending tiles: 0 inversions is even.",
+        "expected": True,
+    },
+    {
+        "name": "minimum odd inversion boundary",
+        "source_anchor": "Number-Sliding-Puzzle.py:14-17, 21-27, 33-42, 51",
+        "numbers": [2, 1, 3, 4, 5, 6, 7, 8, 0],
+        "inversions": 1,
+        "calculation": "Only 2-before-1 is inverted: 1 inversion is odd.",
+        "expected": False,
+    },
+    {
+        "name": "maximum inversion boundary",
+        "source_anchor": "Number-Sliding-Puzzle.py:14-17, 21-27, 33-42, 51",
+        "numbers": [8, 7, 6, 5, 4, 3, 2, 1, 0],
+        "inversions": 28,
+        "calculation": "The 8 numbered tiles are reversed: 8*7/2 = 28, even.",
+        "expected": True,
+    },
+]
 
 
 def _install_utils_validation_stub():
@@ -165,6 +205,42 @@ def test_shuffle_loop_never_yields_unsolvable_state(puzzle_module, reachable_sta
         random.shuffle(numbers)
         if puzzle_module.is_solvable(numbers) and numbers != [1, 2, 3, 4, 5, 6, 7, 8, 0]:
             assert tuple(numbers) in reachable_states
+
+
+@pytest.mark.parametrize(
+    "case",
+    IS_SOLVABLE_CONTRACT_CASES,
+    ids=[case["name"] for case in IS_SOLVABLE_CONTRACT_CASES],
+)
+def test_is_solvable_contract_boundaries(puzzle_module, case):
+    numbers = case["numbers"][:]
+    original_numbers = numbers[:]
+    expected = case["expected"]
+    actual = puzzle_module.is_solvable(numbers)
+
+    print(
+        "R26_T012_CASE="
+        + json.dumps(
+            {
+                "case": case["name"],
+                "source_anchor": case["source_anchor"],
+                "input": original_numbers,
+                "input_after": numbers,
+                "inversions": case["inversions"],
+                "calculation": case["calculation"],
+                "expected": expected,
+                "actual": actual,
+            }
+        )
+    )
+    assert actual is expected, (
+        f"{case['name']}: expected {expected!r}, got {actual!r}; "
+        f"input={original_numbers!r}, inversions={case['inversions']}"
+    )
+    assert numbers == original_numbers, (
+        f"{case['name']}: expected input unchanged {original_numbers!r}, "
+        f"got {numbers!r}"
+    )
 
 
 if __name__ == "__main__":
