@@ -1,0 +1,18 @@
+Number Sliding Puzzle is_solvable boundary checks
+Invocation: python3 work/R26-T012/check.py
+Pytest command: /private/tmp/r26-t011-venv/bin/python3 -m pytest -q -s /Users/nishantavinashkurkure/SnAI_Tasks/python-mini-project/tests/test_number_sliding_puzzle.py -k is_solvable_contract_boundaries
+Python version: 3.9.6 (default, Aug 25 2026, 21:26:21)
+[Clang 21.0.0 (clang-2100.3.34.2)]
+Pytest version: 8.4.2
+Executed test count: 4
+Case evidence count: 4
+Pytest exit code: 0
+Check exit code: 0
+
+Pytest output:
+R26_T012_CASE={"case": "smallest valid board and minimum inversion boundary", "source_anchor": "Number-Sliding-Puzzle.py:11-17, 21-27, 41-42, 51, 54", "input": [1, 2, 3, 4, 5, 6, 7, 8, 0], "input_after": [1, 2, 3, 4, 5, 6, 7, 8, 0], "inversions": 0, "calculation": "The non-blank tiles are ascending: 0 inversions is even.", "expected": true, "actual": true}
+.R26_T012_CASE={"case": "ordinary board", "source_anchor": "Number-Sliding-Puzzle.py:11-17, 41-42, 51-54", "input": [1, 2, 3, 4, 5, 6, 0, 7, 8], "input_after": [1, 2, 3, 4, 5, 6, 0, 7, 8], "inversions": 0, "calculation": "Excluding 0 leaves ascending tiles: 0 inversions is even.", "expected": true, "actual": true}
+.R26_T012_CASE={"case": "minimum odd inversion boundary", "source_anchor": "Number-Sliding-Puzzle.py:14-17, 21-27, 33-42, 51", "input": [2, 1, 3, 4, 5, 6, 7, 8, 0], "input_after": [2, 1, 3, 4, 5, 6, 7, 8, 0], "inversions": 1, "calculation": "Only 2-before-1 is inverted: 1 inversion is odd.", "expected": false, "actual": false}
+.R26_T012_CASE={"case": "maximum inversion boundary", "source_anchor": "Number-Sliding-Puzzle.py:14-17, 21-27, 33-42, 51", "input": [8, 7, 6, 5, 4, 3, 2, 1, 0], "input_after": [8, 7, 6, 5, 4, 3, 2, 1, 0], "inversions": 28, "calculation": "The 8 numbered tiles are reversed: 8*7/2 = 28, even.", "expected": true, "actual": true}
+.
+4 passed, 8 deselected in 0.01s

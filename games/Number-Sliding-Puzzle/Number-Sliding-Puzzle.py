@@ -9,22 +9,26 @@ from utils.validation import get_int, get_yes_no
 
 
 def is_solvable(numbers):
-    """
-    Determines if a 3x3 (8-puzzle) board configuration is solvable.
+    """Return whether a valid 3x3 board can be solved.
 
-    The classic 15-puzzle solvability rule has two cases:
-      - For an ODD-width grid (like this 3-wide board), a configuration is
-        solvable if and only if the number of inversions among the
-        non-blank tiles is EVEN. The blank tile's row has no bearing on
-        solvability in this case.
-      - The "blank row from bottom" adjustment only matters for EVEN-width
-        grids (e.g. a 4x4 15-puzzle), where solvability depends on both
-        inversion parity and which row the blank sits on.
+    The supported input is a flat permutation of the nine tiles 0 through 8,
+    as initialized in ``main`` (line 51). For this odd-width board, the return
+    value is ``True`` exactly when the non-blank tiles have an even number of
+    inversions; the blank's position does not affect the result.
 
-    Applying the even-width row adjustment to this odd-width (3x3) board
-    was the source of the original bug: it caused genuinely solvable
-    layouts to be rejected, and genuinely unsolvable layouts to be
-    accepted, depending purely on which row the blank happened to be in.
+    Inversion-count boundaries for a valid board:
+
+    ================  ==============  ======
+    Inversions        Boundary        Result
+    ================  ==============  ======
+    0                 minimum         True
+    1                 minimum odd     False
+    28                maximum         True
+    ================  ==============  ======
+
+    Other valid boards follow the same even/odd rule. Inputs that are not
+    permutations of these nine tiles are outside the contract; this function
+    does not specify a validation error or sentinel for them.
     """
     # Filter out the blank tile (0) for inversion counting
     tiles = [n for n in numbers if n != 0]
