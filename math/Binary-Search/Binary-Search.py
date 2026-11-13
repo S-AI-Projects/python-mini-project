@@ -9,7 +9,10 @@ else:
 from utils.validation import get_int, get_int_list
 
 def binary_search(arr: list[int], target: int) -> int:
-    """Perform binary search on a sorted list and return target index or -1."""
+    """Search a sorted list; return any matching index or -1 when absent.
+
+    An empty list is a valid miss case, and the input list is not modified.
+    """
     low = 0
     high = len(arr) - 1
     
