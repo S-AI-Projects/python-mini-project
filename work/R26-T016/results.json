@@ -1,0 +1,80 @@
+[
+  {
+    "case": "smallest valid task list",
+    "source_preconditions": "before: main at Productivity-Pet.py:9 initializes tasks=[] and completed_task_list=[] at lines 95-98; after: main at line 32 initializes tasks at line 118 and _calculate_task_rewards at line 9 initializes completed_task_list at line 11",
+    "inputs": [
+      "yes",
+      "1",
+      "Read",
+      "easy",
+      "yes",
+      "n"
+    ],
+    "expected_output": [
+      "📊 Progress: 100.0%",
+      "💭 Pet Mood: 😄 Motivated",
+      "✨ XP Earned: +5",
+      "🪙 Coins Earned: +15"
+    ],
+    "actual_output": [
+      "📊 Progress: 100.0%",
+      "💭 Pet Mood: 😄 Motivated",
+      "✨ XP Earned: +5",
+      "🪙 Coins Earned: +15"
+    ],
+    "expected_saved_data": {
+      "xp": 5,
+      "level": 1,
+      "coins": 15,
+      "streak": 1,
+      "best_streak": 1,
+      "completed_tasks": 1,
+      "achievements": [
+        "🥚 First Steps",
+        "👑 Legendary Focus"
+      ],
+      "pet_class": "Fox 🦊",
+      "last_day": "2026-11-13",
+      "history": [
+        {
+          "date": "2026-11-13",
+          "total_tasks": 1,
+          "completed": 1,
+          "percentage": 100.0,
+          "tasks": [
+            "Read"
+          ]
+        }
+      ]
+    },
+    "actual_saved_data": {
+      "xp": 5,
+      "level": 1,
+      "coins": 15,
+      "streak": 1,
+      "best_streak": 1,
+      "completed_tasks": 1,
+      "achievements": [
+        "🥚 First Steps",
+        "👑 Legendary Focus"
+      ],
+      "pet_class": "Fox 🦊",
+      "last_day": "2026-11-13",
+      "history": [
+        {
+          "date": "2026-11-13",
+          "total_tasks": 1,
+          "completed": 1,
+          "percentage": 100.0,
+          "tasks": [
+            "Read"
+          ]
+        }
+      ]
+    },
+    "expected_return": null,
+    "actual_return": null,
+    "random_event_roll": 100,
+    "random_choice_called": false
+  }
+]
