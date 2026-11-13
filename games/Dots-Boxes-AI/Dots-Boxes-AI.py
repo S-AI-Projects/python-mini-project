@@ -12,6 +12,12 @@ BOLD = "\033[1m"
 
 
 def get_affected_boxes(direction, row, col, size):
+    """Return adjacent boxes in top-to-bottom or left-to-right order.
+
+    The caller validates horizontal edges as row 0..size, col 0..size-1 and
+    vertical edges as row 0..size-1, col 0..size (see main). Results are fresh
+    lists of (row, column) integer pairs; the scalar inputs are not modified.
+    """
     affected = []
     if direction == 'h':
         if row > 0:
