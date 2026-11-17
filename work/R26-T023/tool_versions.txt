@@ -1,0 +1,5 @@
+{
+  "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "pytest": "pytest 9.2.0",
+  "module": "math/Happy-Number/Happy-Number.py"
+}
