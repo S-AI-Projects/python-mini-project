@@ -909,6 +909,21 @@
     "path": "utilities/N-Queens/N-Queens.py"
   },
   {
+    "name": "Expense Splitter",
+    "emoji": "💸",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Track shared bills and automatically settle who owes whom.",
+    "keywords": [
+      "expense",
+      "bill",
+      "split",
+      "money",
+      "group"
+    ],
+    "path": "utilities/Expense-Splitter/main.py"
+  },
+  {
     "name": "Mathematical Expression Parser",
     "emoji": "🧮",
     "category": "math",
