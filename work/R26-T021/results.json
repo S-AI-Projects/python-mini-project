@@ -1,0 +1,103 @@
+{
+  "invocation": "python3 work/R26-T021/check.py",
+  "command": "/opt/homebrew/opt/python@3.15/bin/python3.15 -m pytest -c '/Users/netragupta/homework snai/python-mini-project/pyproject.toml' -q '/Users/netragupta/homework snai/python-mini-project/tests/test_complete_calculus_engine.py'",
+  "python_version": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+  "pytest_version": "9.2.0",
+  "test_count": 6,
+  "outcome_counts": {
+    "passed": 6,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "xfailed": 0,
+    "xpassed": 0
+  },
+  "exit_code": 0,
+  "output": "......                                                                   [100%]\n6 passed in 0.01s\n",
+  "cases": [
+    {
+      "input": "3x^2 - x^-1 + 5",
+      "expected": [
+        {
+          "coeff": 3.0,
+          "power": 2,
+          "is_ln": false
+        },
+        {
+          "coeff": 5.0,
+          "power": 0,
+          "is_ln": false
+        },
+        {
+          "coeff": -1.0,
+          "power": -1,
+          "is_ln": false
+        }
+      ],
+      "actual": [
+        {
+          "coeff": 3.0,
+          "power": 2,
+          "is_ln": false
+        },
+        {
+          "coeff": 5.0,
+          "power": 0,
+          "is_ln": false
+        },
+        {
+          "coeff": -1.0,
+          "power": -1,
+          "is_ln": false
+        }
+      ]
+    },
+    {
+      "input": "2x + 3 - x",
+      "expected": [
+        {
+          "coeff": 1.0,
+          "power": 1,
+          "is_ln": false
+        },
+        {
+          "coeff": 3.0,
+          "power": 0,
+          "is_ln": false
+        }
+      ],
+      "actual": [
+        {
+          "coeff": 1.0,
+          "power": 1,
+          "is_ln": false
+        },
+        {
+          "coeff": 3.0,
+          "power": 0,
+          "is_ln": false
+        }
+      ]
+    },
+    {
+      "input": "",
+      "expected": null,
+      "actual": null
+    },
+    {
+      "input": "x + 2y",
+      "expected": null,
+      "actual": null
+    },
+    {
+      "input": "x +",
+      "expected": null,
+      "actual": null
+    },
+    {
+      "input": "2**x",
+      "expected": null,
+      "actual": null
+    }
+  ]
+}

@@ -11,6 +11,8 @@ def parse_polynomial(raw):
     
     if not matches:
         return None
+    if "".join(matches) != clean_str:
+        return None
         
     terms_map = {}
     for term in matches:
