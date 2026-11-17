@@ -1,0 +1,617 @@
+{
+  "cases": [
+    {
+      "input": 1,
+      "expected_happy": true,
+      "expected_sequence": [
+        1
+      ],
+      "actual_happy": true,
+      "actual_sequence": [
+        1
+      ],
+      "pass": true
+    },
+    {
+      "input": 2,
+      "expected_happy": false,
+      "expected_sequence": [
+        2,
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        2,
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4
+      ],
+      "pass": true
+    },
+    {
+      "input": 3,
+      "expected_happy": false,
+      "expected_sequence": [
+        3,
+        9,
+        81,
+        65,
+        61,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        3,
+        9,
+        81,
+        65,
+        61,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37
+      ],
+      "pass": true
+    },
+    {
+      "input": 4,
+      "expected_happy": false,
+      "expected_sequence": [
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4
+      ],
+      "pass": true
+    },
+    {
+      "input": 5,
+      "expected_happy": false,
+      "expected_sequence": [
+        5,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        5,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "pass": true
+    },
+    {
+      "input": 6,
+      "expected_happy": false,
+      "expected_sequence": [
+        6,
+        36,
+        45,
+        41,
+        17,
+        50,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        6,
+        36,
+        45,
+        41,
+        17,
+        50,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "pass": true
+    },
+    {
+      "input": 7,
+      "expected_happy": true,
+      "expected_sequence": [
+        7,
+        49,
+        97,
+        130,
+        10,
+        1
+      ],
+      "actual_happy": true,
+      "actual_sequence": [
+        7,
+        49,
+        97,
+        130,
+        10,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "input": 8,
+      "expected_happy": false,
+      "expected_sequence": [
+        8,
+        64,
+        52,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        8,
+        64,
+        52,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "pass": true
+    },
+    {
+      "input": 9,
+      "expected_happy": false,
+      "expected_sequence": [
+        9,
+        81,
+        65,
+        61,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        9,
+        81,
+        65,
+        61,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37
+      ],
+      "pass": true
+    },
+    {
+      "input": 10,
+      "expected_happy": true,
+      "expected_sequence": [
+        10,
+        1
+      ],
+      "actual_happy": true,
+      "actual_sequence": [
+        10,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "input": 11,
+      "expected_happy": false,
+      "expected_sequence": [
+        11,
+        2,
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        11,
+        2,
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4
+      ],
+      "pass": true
+    },
+    {
+      "input": 12,
+      "expected_happy": false,
+      "expected_sequence": [
+        12,
+        5,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        12,
+        5,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "pass": true
+    },
+    {
+      "input": 13,
+      "expected_happy": true,
+      "expected_sequence": [
+        13,
+        10,
+        1
+      ],
+      "actual_happy": true,
+      "actual_sequence": [
+        13,
+        10,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "input": 14,
+      "expected_happy": false,
+      "expected_sequence": [
+        14,
+        17,
+        50,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        14,
+        17,
+        50,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "pass": true
+    },
+    {
+      "input": 15,
+      "expected_happy": false,
+      "expected_sequence": [
+        15,
+        26,
+        40,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        15,
+        26,
+        40,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16
+      ],
+      "pass": true
+    },
+    {
+      "input": 16,
+      "expected_happy": false,
+      "expected_sequence": [
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16
+      ],
+      "pass": true
+    },
+    {
+      "input": 17,
+      "expected_happy": false,
+      "expected_sequence": [
+        17,
+        50,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        17,
+        50,
+        25,
+        29,
+        85,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37,
+        58,
+        89
+      ],
+      "pass": true
+    },
+    {
+      "input": 18,
+      "expected_happy": false,
+      "expected_sequence": [
+        18,
+        65,
+        61,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        18,
+        65,
+        61,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20,
+        4,
+        16,
+        37
+      ],
+      "pass": true
+    },
+    {
+      "input": 19,
+      "expected_happy": true,
+      "expected_sequence": [
+        19,
+        82,
+        68,
+        100,
+        1
+      ],
+      "actual_happy": true,
+      "actual_sequence": [
+        19,
+        82,
+        68,
+        100,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "input": 20,
+      "expected_happy": false,
+      "expected_sequence": [
+        20,
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20
+      ],
+      "actual_happy": false,
+      "actual_sequence": [
+        20,
+        4,
+        16,
+        37,
+        58,
+        89,
+        145,
+        42,
+        20
+      ],
+      "pass": true
+    }
+  ],
+  "tool_versions": {
+    "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "pytest": "pytest 9.2.0",
+    "module": "math/Happy-Number/Happy-Number.py"
+  }
+}
