@@ -594,6 +594,21 @@
     "path": "utilities/Typing-Speed-Tester/Typing-Speed-Tester.py"
   },
   {
+    "name": "Leap Year Calendar",
+    "emoji": "📅",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Check Gregorian leap years and the number of days in any month.",
+    "keywords": [
+      "leap",
+      "year",
+      "calendar",
+      "month",
+      "days"
+    ],
+    "path": "utilities/Leap-Year-Calendar/main.py"
+  },
+  {
     "name": "Sudoku Solver & Game",
     "emoji": "🧩",
     "category": "games",
