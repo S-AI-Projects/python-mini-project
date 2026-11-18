@@ -1,0 +1,8 @@
+{"check": "generate_fibonacci_benchmark", "inputs": {"n": 100, "seed": 20261118, "repetitions": 5, "fresh_inputs": [100, 100, 100, 100, 100]}, "expected": {"result_length": 100, "median_status": "measured", "range_status": "measured"}, "actual": {"median_us": 5.541, "range_us": [4.542, 7.292]}, "status": "passed", "message": null}
+{"check": "generate_fibonacci_benchmark", "inputs": {"n": 1000, "seed": 20261118, "repetitions": 5, "fresh_inputs": [1000, 1000, 1000, 1000, 1000]}, "expected": {"result_length": 1000, "median_status": "measured", "range_status": "measured"}, "actual": {"median_us": 53.375, "range_us": [47.917, 61.0]}, "status": "passed", "message": null}
+{"check": "generate_fibonacci_benchmark", "inputs": {"n": 10000, "seed": 20261118, "repetitions": 5, "fresh_inputs": [10000, 10000, 10000, 10000, 10000]}, "expected": {"result_length": 10000, "median_status": "measured", "range_status": "measured"}, "actual": {"median_us": 1578.75, "range_us": [1419.208, 1746.542]}, "status": "passed", "message": null}
+{"check": "generate_fibonacci", "inputs": {"term_count": 0}, "expected": [], "actual": [], "status": "passed", "message": null}
+{"check": "generate_fibonacci", "inputs": {"term_count": -3}, "expected": [], "actual": [], "status": "passed", "message": null}
+{"check": "generate_fibonacci", "inputs": {"term_count": 1}, "expected": [1], "actual": [1], "status": "passed", "message": null}
+{"check": "generate_fibonacci", "inputs": {"term_count": 2}, "expected": [1, 1], "actual": [1, 1], "status": "passed", "message": null}
+{"check": "generate_fibonacci", "inputs": {"term_count": 10}, "expected": [1, 1, 2, 3, 5, 8, 13, 21, 34, 55], "actual": [1, 1, 2, 3, 5, 8, 13, 21, 34, 55], "status": "passed", "message": null}

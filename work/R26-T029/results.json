@@ -1,0 +1,25 @@
+{
+  "command": "/opt/homebrew/opt/python@3.15/bin/python3.15 -m pytest -c /Users/netragupta/homework snai/python-mini-project/pyproject.toml -q --junitxml=/Users/netragupta/homework snai/python-mini-project/work/R26-T029/pytest-results.xml /Users/netragupta/homework snai/python-mini-project/work/R26-T029/test_fibonacci_series.py",
+  "working_directory": "/Users/netragupta/homework snai/python-mini-project",
+  "tool_versions": {
+    "python": "3.15.2",
+    "python_executable": "/opt/homebrew/opt/python@3.15/bin/python3.15",
+    "platform": "Darwin-25.6.0-arm64",
+    "pytest": "9.2.0"
+  },
+  "test_count": 4,
+  "test_results": [
+    {
+      "name": "focused_fibonacci_suite",
+      "status": "passed",
+      "message": null
+    }
+  ],
+  "nonzero_test_count": 0,
+  "benchmark_status": "passed",
+  "benchmark_error": null,
+  "case_results_file": "case-results.jsonl",
+  "case_count": 8,
+  "pytest_results_file": "pytest-results.xml",
+  "pytest_exit_code": 0
+}
