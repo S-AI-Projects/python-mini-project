@@ -923,7 +923,21 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Pig Latin Translator",
+    "emoji": "🐷",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Translate ASCII English words into Pig Latin while preserving punctuation and spacing.",
+    "keywords": [
+      "pig latin",
+      "translator",
+      "words",
+      "text",
+      "language"
+    ],
+    "path": "utilities/Pig-Latin-Translator/main.py"
   }
 ]
-
 
