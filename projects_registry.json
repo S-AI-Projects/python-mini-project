@@ -549,6 +549,21 @@
     "path": "utilities/Number-System-Converter/Number-System-Converter.py"
   },
   {
+    "name": "Unit Converter",
+    "emoji": "🔄",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Convert supported length, weight, and temperature units interactively.",
+    "keywords": [
+      "unit",
+      "converter",
+      "length",
+      "weight",
+      "temperature"
+    ],
+    "path": "utilities/Unit-Converter/main.py"
+  },
+  {
     "name": "Productive Pet",
     "emoji": "🐧",
     "category": "utilities",
@@ -925,5 +940,4 @@
     "path": "expression_parser/main.py"
   }
 ]
-
 
