@@ -1,0 +1,53 @@
+{
+  "test_command": "python3 -m unittest discover -s utilities/Pig-Latin-Translator -p \"test_*.py\"",
+  "test_run": {
+    "expected": "All discovered assertions pass; exit code 0",
+    "actual": "Ran 6 tests; OK; exit code 0"
+  },
+  "translation_cases": [
+    {"input": "apple", "expected": "appleway", "actual": "appleway", "passed": true},
+    {"input": "hello", "expected": "ellohay", "actual": "ellohay", "passed": true},
+    {"input": "string", "expected": "ingstray", "actual": "ingstray", "passed": true},
+    {"input": "quick", "expected": "ickquay", "actual": "ickquay", "passed": true},
+    {"input": "yellow", "expected": "ellowyay", "actual": "ellowyay", "passed": true},
+    {"input": "rhythm", "expected": "ythmrhay", "actual": "ythmrhay", "passed": true},
+    {"input": "Apple", "expected": "Appleway", "actual": "Appleway", "passed": true},
+    {"input": "QUICK", "expected": "ICKQUAY", "actual": "ICKQUAY", "passed": true},
+    {"input": "Hello, world!", "expected": "Ellohay, orldway!", "actual": "Ellohay, orldway!", "passed": true},
+    {"input": "Hello,\\tworld!\\n", "expected": "Ellohay,\\torldway!\\n", "actual": "Ellohay,\\torldway!\\n", "passed": true},
+    {"input": "café", "expected": "afcayé", "actual": "afcayé", "passed": true},
+    {"input": "", "expected": "", "actual": "", "passed": true}
+  ],
+  "responsibility_check": {
+    "input": "Hello,  world!",
+    "expected_tokens": ["", "Hello", ",  ", "world", "!"],
+    "actual_tokens": ["", "Hello", ",  ", "world", "!"],
+    "expected_translated_tokens": ["", "Ellohay", ",  ", "orldway", "!"],
+    "actual_translated_tokens": ["", "Ellohay", ",  ", "orldway", "!"],
+    "expected_formatted": "Ellohay,  orldway!",
+    "actual_formatted": "Ellohay,  orldway!"
+  },
+  "type_check": {
+    "inputs": ["None to parse_text", "None to translate_word", "None to translate_text"],
+    "expected": "Each input raises TypeError",
+    "actual": "All three raise TypeError"
+  },
+  "cli_check": {
+    "stdin": "Hello, world!\\n",
+    "expected_output_line": "✨ Pig Latin: Ellohay, orldway!",
+    "actual_stdout": "🐷 Pig Latin Translator 🐷\\n➡️  Enter text to translate: ✨ Pig Latin: Ellohay, orldway!\\n👋 Thanks for using the Pig Latin Translator!\\n",
+    "exit_code": 0
+  },
+  "assertion_failure_check": {
+    "expected": "A failing assertion makes unittest exit non-zero",
+    "actual_exit_code": 1,
+    "result": "verified"
+  },
+  "tool_versions": {
+    "python": "3.15.2",
+    "implementation": "CPython",
+    "platform": "macOS-26.7.3-arm64-arm-64bit-Mach-O",
+    "unittest": "Python standard-library unittest (Python 3.15.2)",
+    "ruff": "0.17.3"
+  }
+}
