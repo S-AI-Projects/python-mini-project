@@ -31,6 +31,32 @@ NOT_CLOSE_THRESHOLD = 20
 
 
 def main() -> None:
+    """Run the CLI Number Guessing Game.
+
+    Domain and Boundary Contract:
+    - Inputs:
+        - Interactive CLI input via stdin (wrapped by utils.validation).
+        - Difficulty choice:
+            - Valid domain: "1" (Easy: 15 attempts), "2" (Medium: 10 attempts),
+              "3" (Hard: 5 attempts, smallest attempt budget).
+            - Default fallback: "" resolves to "2" (Medium).
+            - Source fixture anchor: DIFFICULTY_ATTEMPTS (lines 21-25).
+        - Guess number (guess_num):
+            - Valid domain: [MIN_NUMBER, MAX_NUMBER] = [1, 100].
+            - Boundary check: 1 <= guess_num <= 100 (line 69).
+            - Out-of-bounds (0 or <=0, 101 or >=101): rejected with warning,
+              does not penalize attempts or modify guess_history.
+            - Smallest valid guess: 1 (MIN_NUMBER).
+        - Play again choice:
+            - Valid exit: 'n', 'no' (terminates game loop).
+            - Valid retry: 'y', 'yes' (initiates new round).
+    - Result:
+        - Returns None.
+    - Observable Mutation:
+        - Tracks round guesses in local guess_history = [] (line 53).
+        - Appends accepted in-bounds guesses sequentially (line 74).
+        - Does not mutate any external caller state.
+    """
     print("🎯 Welcome to the Number Guessing Game!\n")
 
     while True:
