@@ -923,6 +923,22 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Roman Numeral Converter",
+    "emoji": "🏛️",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Convert integers 1..3999 to canonical Roman numerals with failure-path isolation.",
+    "keywords": [
+      "roman",
+      "numerals",
+      "converter",
+      "utilities",
+      "math",
+      "integers"
+    ],
+    "path": "utilities/Roman-Numerals/main.py"
   }
 ]
 
