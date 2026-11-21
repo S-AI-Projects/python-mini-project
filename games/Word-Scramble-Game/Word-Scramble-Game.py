@@ -79,8 +79,25 @@ DIFFICULTY_LEVELS = {
 # ─────────────────────────────────────────────
 #  HELPERS
 # ─────────────────────────────────────────────
-def clear():
-    os.system("cls" if os.name == "nt" else "clear")
+def clear(target=None):
+    """Clear the terminal screen or clear a mutable collection in-place.
+
+    Contract:
+    - Inputs:
+        target (optional, mutable collection or None): The collection to clear.
+        Defaults to None.
+    - Return value:
+        None.
+    - Mutation:
+        If target is provided, mutates target in-place by removing all elements.
+        If target is None, clears the terminal screen via os.system and does not mutate arguments.
+    - Smallest supported input:
+        Empty collection (e.g. []), which remains empty ([]) without error.
+    """
+    if target is None:
+        os.system("cls" if os.name == "nt" else "clear")
+    else:
+        target.clear()
 
 
 def scramble(word: str) -> str:

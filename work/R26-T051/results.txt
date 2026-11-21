@@ -1,0 +1,101 @@
+R26-T051 – Test Evidence File
+==============================
+Task  : R26-T051 (GitHub issue #6)
+Author: Rhea Sharma
+Date  : 2026-11-18
+
+TOOL VERSIONS
+-------------
+Python     : 3.15.2  (python3 --version)
+pytest     : 9.2.0   (.venv/bin/pytest --version)
+ruff       : 0.17.1  (ruff --version)
+git        : 2.55.0  (git --version)
+OS         : macOS (darwin), os.name = posix
+
+FUNCTION UNDER TEST
+-------------------
+File : games/Word-Scramble-Game/Word-Scramble-Game.py
+Name : clear()
+Lines: 82-87 (after docstring added)
+Body :
+  def clear():
+      # Contract: takes no arguments, returns None.
+      # Side-effect: clears the terminal screen by running "cls" on Windows
+      # (os.name == "nt") or "clear" on POSIX systems (os.name == "posix").
+      # The specific command is selected at call time based on os.name.
+      os.system("cls" if os.name == "nt" else "clear")
+
+FIXTURE ANCHORS FROM ISSUE #6
+------------------------------
+  note = []        → source line 280 (pre-docstring: 276)
+  valid_words = [] → source line 349 (pre-docstring: 345)
+
+Both anchors confirm clear() is called when no game state has been
+accumulated – i.e. the smallest/cleanest precondition.
+
+INPUTS & EXPECTED OUTPUTS (independently calculated before running)
+---------------------------------------------------------------------
+Test T1 – Smallest valid input / return value
+  Input     : clear()  [zero arguments – smallest valid call]
+  Precond   : source line 82 – def clear() takes no args
+  Expected  : return value is None  (no return stmt → implicit None)
+  Actual    : None ✅
+
+Test T2 – Smallest valid input / OS command dispatched
+  Input     : clear()
+  Precond   : source line 87 – os.system("cls" if os.name=="nt" else "clear")
+  Expected  : os.system called once with "clear" (posix platform)
+  Actual    : os.system("clear") called once ✅
+
+Test T3 – Ordinary input / typical in-game call
+  Input     : clear()  [as called after a correct word guess, line 278]
+  Precond   : source line 278 – clear() called before header reprint
+  Expected  : os.system call_count=1, arg="clear", return value=None
+  Actual    : call_count=1, arg="clear", return=None ✅
+
+Test T4 – Repeated-value boundary / 3 successive calls
+  Input     : clear() × 3  [as happens across a full game: lines 278,295,316]
+  Precond   : source lines 278, 295, 316 – multiple clear() calls per session
+  Expected  : os.system called 3 times, each with "clear", no state leaks
+  Actual    : 3 calls, each os.system("clear") ✅
+
+Test T5 – Boundary / os.system returns non-zero (failure)
+  Input     : clear()  with os.system mocked to return 1
+  Precond   : source line 87 – return value of os.system not propagated
+  Expected  : clear() returns None regardless of os.system exit code
+  Actual    : None ✅
+
+COMMAND RUN
+-----------
+  python3 work/R26-T051/check.py
+  (from repo root: ~/Desktop/workshop/python-mini-project)
+
+Internally delegates to:
+  .venv/bin/pytest tests/test_word_scramble_game.py -v --tb=short
+
+TEST COUNT: 5
+
+TEST OUTPUT (all passing)
+--------------------------
+  tests/test_word_scramble_game.py::TestClear::test_clear_smallest_input_returns_none PASSED
+  tests/test_word_scramble_game.py::TestClear::test_clear_smallest_input_calls_correct_command PASSED
+  tests/test_word_scramble_game.py::TestClear::test_clear_ordinary_call_dispatches_once PASSED
+  tests/test_word_scramble_game.py::TestClear::test_clear_repeated_calls_each_dispatch_once PASSED
+  tests/test_word_scramble_game.py::TestClear::test_clear_returns_none_even_when_os_system_fails PASSED
+  5 passed in 0.02s
+
+NON-ZERO EXIT VERIFICATION
+---------------------------
+Deliberately broke T1 (expected_return = "WRONG") and T5:
+  2 failed, 3 passed – exit code 1 ✅
+Reverted: all 5 pass again – exit code 0 ✅
+
+LINT (ruff)
+-----------
+  ruff check tests/test_word_scramble_game.py games/Word-Scramble-Game/Word-Scramble-Game.py work/R26-T051/check.py
+  Result: All checks passed! (exit 0) ✅
+
+BEHAVIORAL CHANGES
+------------------
+None. Only a 4-line comment block (contract) was added inside clear().
+The function body, signature, and all callers are unchanged.
