@@ -1,0 +1,188 @@
+{
+  "tool_versions": {
+    "python": "Python 3.15.2",
+    "pytest": "pytest 9.2.0"
+  },
+  "checks": [
+    {
+      "name": "pytest_quick_sort_suite",
+      "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_quick_sort.py -v --tb=short",
+      "passed": 17,
+      "total": 17,
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "benchmark_fixtures_original",
+      "fixtures": [
+        {
+          "fixture": "unsorted",
+          "input": [
+            3,
+            1,
+            2
+          ],
+          "reverse": false,
+          "expected": [
+            1,
+            2,
+            3
+          ],
+          "actual": [
+            1,
+            2,
+            3
+          ],
+          "input_preserved": true,
+          "status": "PASS"
+        },
+        {
+          "fixture": "duplicates",
+          "input": [
+            2,
+            2,
+            1
+          ],
+          "reverse": false,
+          "expected": [
+            1,
+            2,
+            2
+          ],
+          "actual": [
+            1,
+            2,
+            2
+          ],
+          "input_preserved": true,
+          "status": "PASS"
+        },
+        {
+          "fixture": "already_ordered",
+          "input": [
+            1,
+            2,
+            3
+          ],
+          "reverse": false,
+          "expected": [
+            1,
+            2,
+            3
+          ],
+          "actual": [
+            1,
+            2,
+            3
+          ],
+          "input_preserved": true,
+          "status": "PASS"
+        },
+        {
+          "fixture": "reversed",
+          "input": [
+            3,
+            2,
+            1
+          ],
+          "reverse": false,
+          "expected": [
+            1,
+            2,
+            3
+          ],
+          "actual": [
+            1,
+            2,
+            3
+          ],
+          "input_preserved": true,
+          "status": "PASS"
+        },
+        {
+          "fixture": "empty",
+          "input": [],
+          "reverse": false,
+          "expected": [],
+          "actual": [],
+          "input_preserved": true,
+          "status": "PASS"
+        },
+        {
+          "fixture": "single",
+          "input": [
+            42
+          ],
+          "reverse": false,
+          "expected": [
+            42
+          ],
+          "actual": [
+            42
+          ],
+          "input_preserved": true,
+          "status": "PASS"
+        },
+        {
+          "fixture": "descending_duplicates",
+          "input": [
+            2,
+            2,
+            1
+          ],
+          "reverse": true,
+          "expected": [
+            2,
+            2,
+            1
+          ],
+          "actual": [
+            2,
+            2,
+            1
+          ],
+          "input_preserved": true,
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "mutant_differential_verification",
+      "named_assertion": "test_duplicates_multiplicity_preserved",
+      "differentiating_input": [
+        2,
+        2,
+        1
+      ],
+      "expected_output": [
+        1,
+        2,
+        2
+      ],
+      "original_output": [
+        1,
+        2,
+        2
+      ],
+      "original_passed": true,
+      "mutant_output": [
+        2,
+        2,
+        1
+      ],
+      "mutant_failed": true,
+      "semantic_reason": "In the mutant, line 34 boundary comparison is altered to 'value >= pivot' instead of 'value <= pivot'. This inverts the partition predicate, placing elements greater than or equal to the pivot into the left partition rather than the right partition. For input [2, 2, 1], the original correctly produces [1, 2, 2] (ascending), whereas the mutant produces [2, 2, 1] (descending), failing the assertion.",
+      "status": "PASS"
+    },
+    {
+      "name": "ruff_lint",
+      "command": "ruff check math/Quick-Sort/Quick-Sort.py tests/test_quick_sort.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "output": "All checks passed!"
+    }
+  ],
+  "timestamp": "2026-11-21T22:48:19+0530",
+  "overall": "PASS"
+}
