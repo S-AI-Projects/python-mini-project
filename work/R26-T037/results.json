@@ -1,0 +1,70 @@
+{
+  "tool_versions": {
+    "python": "Python 3.15.2",
+    "pytest": "pytest 9.2.0"
+  },
+  "checks": [
+    {
+      "name": "pytest_flames_game_suite",
+      "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_flames_game.py -v --tb=short",
+      "passed": 6,
+      "total": 6,
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "native_worked_example_execution",
+      "command": "python native import + mocked I/O execution",
+      "details": {
+        "smallest_input": {
+          "inputs": [
+            "a",
+            "b",
+            "n"
+          ],
+          "expected": {
+            "count": 2,
+            "score": 30,
+            "result": "E",
+            "relation": "Enemies"
+          },
+          "actual": {
+            "score": 30,
+            "result": "E",
+            "relation": "Enemies"
+          },
+          "status": "PASS"
+        },
+        "ordinary_input": {
+          "inputs": [
+            "alex",
+            "emma",
+            "n"
+          ],
+          "expected": {
+            "count": 4,
+            "score": 65,
+            "result": "E",
+            "relation": "Enemies"
+          },
+          "actual": {
+            "score": 65,
+            "result": "E",
+            "relation": "Enemies"
+          },
+          "status": "PASS"
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "name": "ruff_lint",
+      "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/ruff check <source> <tests>",
+      "exit_code": 0,
+      "status": "PASS",
+      "output": "All checks passed!"
+    }
+  ],
+  "timestamp": "2026-11-21T21:57:37+0530",
+  "overall": "PASS"
+}

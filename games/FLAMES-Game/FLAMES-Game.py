@@ -1,4 +1,65 @@
 def main():
+    """Execute the interactive FLAMES relationship calculation game.
+
+    Workflow Overview
+    -----------------
+    1. Input Validation: Prompts for two non-empty alphabetic names.
+    2. Character Cancellation: Removes shared characters one-by-one from both names.
+    3. Degenerate Detection: If remaining letters count == 0, flags as undefined.
+    4. Decisive State Transition (Cyclic Elimination):
+       Starting with the full relationship list:
+           flames = ['F', 'L', 'A', 'M', 'E', 'S']
+       repeatedly steps through using modulo arithmetic:
+           index = (index + count - 1) % len(flames)
+           flames.pop(index)
+       until exactly one letter remains.
+    5. Scoring & Reporting: Computes a compatibility percentage from matched
+       characters and prints the relationship card plus session statistics.
+
+    Worked Example: Smallest Valid Input
+    -----------------------------------
+    Trace of main() using the smallest valid input (names: "a" and "b", choice: "n").
+
+    Source Anchors / Preconditions:
+      - Line 5:  session = {"rounds": 0, "results": {r: 0 for r in "FLAMES"}, "total_score": 0}
+      - Line 34: name1 input = "a" ('a'.isalpha() is True)
+      - Line 41: name2 input = "b" ('b'.isalpha() is True)
+      - Line 49: name1_list = ['a']
+      - Line 50: name2_list = ['b']
+      - Line 52: Common letter cancellation: 'a' not in ['b'] -> no removals.
+      - Line 57: count = len(['a']) + len(['b']) = 2
+      - Line 73: total_len = 2, matched_chars = 0
+      - Line 75: score = 30 + round((0 / 2) * 70) = 30%
+      - Line 80: flames = ['F', 'L', 'A', 'M', 'E', 'S'] (anchor)
+
+    Decisive State Transition:
+      With count = 2, cyclic elimination proceeds as follows:
+        Round 1: len=6, index=(0 + 2 - 1)%6 = 1 -> 'L' popped -> ['F', 'A', 'M', 'E', 'S'], next index=1
+        Round 2: len=5, index=(1 + 2 - 1)%5 = 2 -> 'M' popped -> ['F', 'A', 'E', 'S'],      next index=2
+        Round 3: len=4, index=(2 + 2 - 1)%4 = 3 -> 'S' popped -> ['F', 'A', 'E'],           next index=3
+        Round 4: len=3, index=(3 + 2 - 1)%3 = 1 -> 'A' popped -> ['F', 'E'],                next index=1
+        Round 5: len=2, index=(1 + 2 - 1)%2 = 0 -> 'F' popped -> ['E'],                      next index=0
+      The decisive elimination leaves flames = ['E'].
+      Result: 'E' -> Enemies 😈, Rivalry Quotient: 30%.
+
+    Worked Example: Ordinary Input ("alex", "emma", "n")
+    ----------------------------------------------------
+    Source Anchors / Preconditions:
+      - Line 34: name1 = "alex", Line 41: name2 = "emma"
+      - Line 52: Common letters 'a' and 'e' cancelled.
+      - Line 57: Remaining letters: ['l', 'x'] and ['m', 'm'] -> count = 4.
+      - Line 73: total_len = 8, matched_chars = 4.
+      - Line 75: score = 30 + round((4 / 8) * 70) = 65%.
+      - Line 80: flames = ['F', 'L', 'A', 'M', 'E', 'S']
+    Decisive State Transition:
+      With count = 4, cyclic elimination proceeds:
+        Round 1: len=6, index=(0 + 4 - 1)%6 = 3 -> 'M' popped -> ['F', 'L', 'A', 'E', 'S'], next index=3
+        Round 2: len=5, index=(3 + 4 - 1)%5 = 1 -> 'L' popped -> ['F', 'A', 'E', 'S'],      next index=1
+        Round 3: len=4, index=(1 + 4 - 1)%4 = 0 -> 'F' popped -> ['A', 'E', 'S'],           next index=0
+        Round 4: len=3, index=(0 + 4 - 1)%3 = 0 -> 'A' popped -> ['E', 'S'],                next index=0
+        Round 5: len=2, index=(0 + 4 - 1)%2 = 1 -> 'S' popped -> ['E'],                      next index=1
+      Result: 'E' -> Enemies 😈, Rivalry Quotient: 65%.
+    """
     global char, choice, count, final, flames, index, mapping, matched_chars, name1, name1_list, name2, name2_list, original_name1, original_name2, result, score, share_text, total_len, valid_game
 
     # Session statistics tracker

@@ -1,0 +1,14 @@
+R26-T037 Check Report — 2026-11-21T21:57:37+0530
+============================================================
+
+[PASS] pytest_flames_game_suite
+       Command: /Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_flames_game.py -v --tb=short
+       Tests: 6/6
+
+[PASS] native_worked_example_execution
+       Command: python native import + mocked I/O execution
+
+[PASS] ruff_lint
+       Command: /Users/rudratiwari011/Desktop/Project /.venv/bin/ruff check <source> <tests>
+
+Overall: PASS
