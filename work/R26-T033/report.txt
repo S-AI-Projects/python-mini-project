@@ -1,0 +1,61 @@
+Task R26-T033 Verification Report
+Target: utilities/GPA-Calculator
+Overall Status: PASSED
+Total Checks: 8 (Nonzero Count Verified)
+Native Test Command: /opt/homebrew/opt/python@3.15/bin/python3.15 -m unittest discover -s utilities/GPA-Calculator -p test_*.py
+Unittest Exit Code: 0
+
+--- Tool Versions ---
+Python: 3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit-Mach-O (arm64)
+Git Branch: student/e26b07f0866/R26-T033 (2a5b4c41)
+
+--- Contract & Reference Check Results ---
+[01] PASSED: Stated contract example: A=4 for 3 credits and B=3 for 1 credit gives 3.75
+     Contract Rule: Goal: A=4 for 3 credits and B=3 for 1 credit gives 3.75
+     Input:    [('A', 3), ('B', 1)]
+     Expected: 3.75
+     Actual:   3.75
+
+[02] PASSED: Boundary: zero total credits rejected
+     Contract Rule: Goal: zero total credits rejected
+     Input:    [('A', 0)]
+     Expected: 'ValueError'
+     Actual:   'ValueError raised'
+
+[03] PASSED: Boundary: unknown grades rejected
+     Contract Rule: Goal: unknown grades rejected
+     Input:    [('A', 3), ('Z_INVALID', 2)]
+     Expected: 'ValueError'
+     Actual:   'ValueError raised'
+
+[04] PASSED: Boundary: negative credits rejected
+     Contract Rule: Enforce positive credit constraint
+     Input:    [('A', -1)]
+     Expected: 'ValueError'
+     Actual:   'ValueError raised'
+
+[05] PASSED: Supplied grade-point mapping support
+     Contract Rule: Goal: Calculate credit-weighted GPA from a supplied grade-point mapping
+     Input:    {'courses': [('HIGH', 2), ('MID', 2)], 'mapping': {'HIGH': 5.0, 'MID': 3.0}}
+     Expected: 4.0
+     Actual:   4.0
+
+[06] PASSED: Focus: Dual-method independent reference comparison matches
+     Contract Rule: Focus: Compare the result with a second simple method or an independently calculated table
+     Input:    [('A+', 4), ('A-', 3), ('B+', 3), ('C', 2)]
+     Expected: 'primary == reference (3.4167)'
+     Actual:   'primary=3.4167, reference=3.4167'
+
+[07] PASSED: Focus: Assertion fails for an incorrect result
+     Contract Rule: Done when: The assigned contribution focus is visible and assertions fail for an incorrect result
+     Input:    'Tampered calculation returning incorrect 1.00'
+     Expected: 'AssertionError raised on mismatch'
+     Actual:   'AssertionError caught'
+
+[08] PASSED: Import isolation: no prompts, file writes, or CLI run on import
+     Contract Rule: Done when: Importing the module does not prompt, write files or run the CLI
+     Input:    'import utilities.GPA-Calculator.main'
+     Expected: 'No stdout output on import'
+     Actual:   'Zero stdout output'
+

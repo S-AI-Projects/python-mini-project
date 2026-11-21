@@ -923,6 +923,23 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "GPA Calculator",
+    "emoji": "🎓",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Calculate credit-weighted GPA with independent reference verification.",
+    "keywords": [
+      "gpa",
+      "grade",
+      "calculator",
+      "credit",
+      "education",
+      "student",
+      "score"
+    ],
+    "path": "utilities/GPA-Calculator/main.py"
   }
 ]
 
