@@ -1,0 +1,162 @@
+{
+  "task_id": "R26-T031",
+  "target_file": "games/Math-Quiz/Math-Quiz.py",
+  "target_function": "play_sound",
+  "native_command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_math_quiz.py -v",
+  "nonzero_test_count": 17,
+  "overall_status": "PASSED",
+  "tool_versions": {
+    "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "platform_machine": "arm64",
+    "pytest_available": true,
+    "git": {
+      "branch": "R26-T031",
+      "commit": "2a5b4c4155f8d53c31cd84fa89de9cf8511c0b3e",
+      "status": "?? tests/test_math_quiz.py\n?? work/"
+    }
+  },
+  "checks": [
+    {
+      "name": "Return value: ordinary input 'correct'",
+      "input": "'correct'",
+      "precondition_source_line": "Line 575: play_sound('correct')",
+      "expected": "None",
+      "actual": "None",
+      "status": "PASSED"
+    },
+    {
+      "name": "Return value: smallest valid input 'wrong'",
+      "input": "'wrong'",
+      "precondition_source_line": "Line 595: play_sound('wrong')",
+      "expected": "None",
+      "actual": "None",
+      "status": "PASSED"
+    },
+    {
+      "name": "Return value: domain boundary 'game_over'",
+      "input": "'game_over'",
+      "precondition_source_line": "Line 605: play_sound('game_over')",
+      "expected": "None",
+      "actual": "None",
+      "status": "PASSED"
+    },
+    {
+      "name": "Return value: boundary empty input ''",
+      "input": "''",
+      "precondition_source_line": "Line 21: def play_sound(sound_type)",
+      "expected": "None",
+      "actual": "None",
+      "status": "PASSED"
+    },
+    {
+      "name": "Observable mutation isolation",
+      "input": "'correct'",
+      "precondition_source_line": "Lines 21-40: play_sound function body",
+      "expected": "'no mutation on module state or inputs'",
+      "actual": "'no mutation observed'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Winsound dispatch: 'correct'",
+      "input": "'correct'",
+      "precondition_source_line": "Lines 32-33: if sound_type == 'correct': winsound.Beep(1000, 150)",
+      "expected": "'winsound.Beep(1000, 150)'",
+      "actual": "'winsound.Beep(1000, 150)'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Winsound dispatch: 'wrong'",
+      "input": "'wrong'",
+      "precondition_source_line": "Lines 34-35: elif sound_type == 'wrong': winsound.Beep(300, 300)",
+      "expected": "'winsound.Beep(300, 300)'",
+      "actual": "'winsound.Beep(300, 300)'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Winsound dispatch: 'game_over'",
+      "input": "'game_over'",
+      "precondition_source_line": "Lines 36-37: elif sound_type == 'game_over': winsound.Beep(200, 600)",
+      "expected": "'winsound.Beep(200, 600)'",
+      "actual": "'winsound.Beep(200, 600)'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Winsound dispatch: repeated-value domain boundary ('correct', 'correct')",
+      "input": "['correct', 'correct']",
+      "precondition_source_line": "Lines 32-33: repeated invocation of play_sound('correct')",
+      "expected": "'Beep call_count == 2 with (1000, 150)'",
+      "actual": "'Beep call_count == 2'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Winsound dispatch: unrecognized input produces no beep",
+      "input": "'unknown_sound'",
+      "precondition_source_line": "Lines 31-40: try/except guard",
+      "expected": "'Beep call_count == 0'",
+      "actual": "'Beep call_count == 0'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Winsound dispatch: OSError exception suppression",
+      "input": "'correct with failing audio driver'",
+      "precondition_source_line": "Lines 38-39: except (RuntimeError, OSError): pass",
+      "expected": "'Exception suppressed cleanly without error'",
+      "actual": "'Handled cleanly'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Fallback: Tk root bell invocation",
+      "input": "'correct with winsound=None and active tk._default_root'",
+      "precondition_source_line": "Lines 24-25: if hasattr(tk, '_default_root') and tk._default_root: tk._default_root.bell()",
+      "expected": "'tk._default_root.bell() called once'",
+      "actual": "'bell call_count == 1'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Fallback: stdout bell character '\\a'",
+      "input": "'correct with winsound=None and tk._default_root=None'",
+      "precondition_source_line": "Lines 26-27: else: print('\\a', end='', flush=True)",
+      "expected": "'\\\\a'",
+      "actual": "\"'\\\\x07'\"",
+      "status": "PASSED"
+    },
+    {
+      "name": "Fallback: TclError / OSError warning output",
+      "input": "'correct with failing Tk bell'",
+      "precondition_source_line": "Lines 28-29: except (tk.TclError, OSError) as e: print warning",
+      "expected": "'Warning message logged to stdout'",
+      "actual": "'Warning message logged'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Fixture anchor line 78: smallest input a=1, b=1",
+      "input": "{'a': 1, 'b': 1, 'sum': 2, 'user_answer': 2, 'sound': 'correct'}",
+      "precondition_source_line": "Line 78: a, b = random.randint(1, 60), random.randint(1, 60); Line 575: play_sound('correct')",
+      "expected": "\"play_sound('correct') -> winsound.Beep(1000, 150)\"",
+      "actual": "'winsound.Beep called with (1000, 150)'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Fixture anchor line 78: ordinary input a=15, b=25",
+      "input": "{'a': 15, 'b': 25, 'sum': 40, 'user_answer': 39, 'sound': 'wrong'}",
+      "precondition_source_line": "Line 78: a, b = random.randint(1, 60), random.randint(1, 60); Line 595: play_sound('wrong')",
+      "expected": "\"play_sound('wrong') -> winsound.Beep(300, 300)\"",
+      "actual": "'winsound.Beep called with (300, 300)'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Fixture anchor line 127: domain boundary a=30, b=30 with lives=0",
+      "input": "{'a': 30, 'b': 30, 'sum': 60, 'lives': 0, 'sound': 'game_over'}",
+      "precondition_source_line": "Line 127: a, b = random.randint(1, 30), random.randint(1, 30); Line 605: play_sound('game_over')",
+      "expected": "\"play_sound('game_over') -> winsound.Beep(200, 600)\"",
+      "actual": "'winsound.Beep called with (200, 600)'",
+      "status": "PASSED"
+    }
+  ],
+  "pytest_summary": {
+    "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_math_quiz.py -v",
+    "exit_code": 0,
+    "output": "============================= test session starts ==============================\nplatform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/rudratiwari011/Desktop/Project /.venv/bin/python3.15\ncachedir: .pytest_cache\nrootdir: /Users/rudratiwari011/Desktop/Project \nconfigfile: pyproject.toml\ncollecting ... collected 17 items\n\ntests/test_math_quiz.py::test_play_sound_return_value_ordinary_input PASSED [  5%]\ntests/test_math_quiz.py::test_play_sound_return_value_smallest_valid_input PASSED [ 11%]\ntests/test_math_quiz.py::test_play_sound_return_value_domain_boundary_input PASSED [ 17%]\ntests/test_math_quiz.py::test_play_sound_return_value_unrecognized_input PASSED [ 23%]\ntests/test_math_quiz.py::test_play_sound_observable_mutation_isolation PASSED [ 29%]\ntests/test_math_quiz.py::test_play_sound_winsound_correct_beep PASSED    [ 35%]\ntests/test_math_quiz.py::test_play_sound_winsound_wrong_beep PASSED      [ 41%]\ntests/test_math_quiz.py::test_play_sound_winsound_game_over_beep PASSED  [ 47%]\ntests/test_math_quiz.py::test_play_sound_winsound_repeated_value_domain_boundary PASSED [ 52%]\ntests/test_math_quiz.py::test_play_sound_winsound_unrecognized_type_no_beep PASSED [ 58%]\ntests/test_math_quiz.py::test_play_sound_winsound_exception_handling PASSED [ 64%]\ntests/test_math_quiz.py::test_play_sound_fallback_tk_bell PASSED         [ 70%]\ntests/test_math_quiz.py::test_play_sound_fallback_stdout_bell PASSED     [ 76%]\ntests/test_math_quiz.py::test_play_sound_fallback_exception_handling PASSED [ 82%]\ntests/test_math_quiz.py::test_fixture_anchor_line78_smallest_input PASSED [ 88%]\ntests/test_math_quiz.py::test_fixture_anchor_line78_ordinary_input PASSED [ 94%]\ntests/test_math_quiz.py::test_fixture_anchor_line127_repeated_value_boundary_and_game_over PASSED [100%]\n\n============================== 17 passed in 0.03s ==============================\n"
+  }
+}

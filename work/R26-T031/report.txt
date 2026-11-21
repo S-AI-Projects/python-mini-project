@@ -1,0 +1,115 @@
+Task R26-T031 Verification Report
+Target: games/Math-Quiz/Math-Quiz.py::play_sound
+Overall Status: PASSED
+Total Checks: 17 (Nonzero Count Verified)
+Native Test Command: /Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_math_quiz.py -v
+Pytest Exit Code: 0
+
+--- Tool Versions ---
+Python: 3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit-Mach-O (arm64)
+Git Branch: R26-T031 (2a5b4c41)
+
+--- Test Check Results ---
+[01] PASSED: Return value: ordinary input 'correct'
+     Precondition Source Line: Line 575: play_sound('correct')
+     Input:    'correct'
+     Expected: None
+     Actual:   None
+
+[02] PASSED: Return value: smallest valid input 'wrong'
+     Precondition Source Line: Line 595: play_sound('wrong')
+     Input:    'wrong'
+     Expected: None
+     Actual:   None
+
+[03] PASSED: Return value: domain boundary 'game_over'
+     Precondition Source Line: Line 605: play_sound('game_over')
+     Input:    'game_over'
+     Expected: None
+     Actual:   None
+
+[04] PASSED: Return value: boundary empty input ''
+     Precondition Source Line: Line 21: def play_sound(sound_type)
+     Input:    ''
+     Expected: None
+     Actual:   None
+
+[05] PASSED: Observable mutation isolation
+     Precondition Source Line: Lines 21-40: play_sound function body
+     Input:    'correct'
+     Expected: 'no mutation on module state or inputs'
+     Actual:   'no mutation observed'
+
+[06] PASSED: Winsound dispatch: 'correct'
+     Precondition Source Line: Lines 32-33: if sound_type == 'correct': winsound.Beep(1000, 150)
+     Input:    'correct'
+     Expected: 'winsound.Beep(1000, 150)'
+     Actual:   'winsound.Beep(1000, 150)'
+
+[07] PASSED: Winsound dispatch: 'wrong'
+     Precondition Source Line: Lines 34-35: elif sound_type == 'wrong': winsound.Beep(300, 300)
+     Input:    'wrong'
+     Expected: 'winsound.Beep(300, 300)'
+     Actual:   'winsound.Beep(300, 300)'
+
+[08] PASSED: Winsound dispatch: 'game_over'
+     Precondition Source Line: Lines 36-37: elif sound_type == 'game_over': winsound.Beep(200, 600)
+     Input:    'game_over'
+     Expected: 'winsound.Beep(200, 600)'
+     Actual:   'winsound.Beep(200, 600)'
+
+[09] PASSED: Winsound dispatch: repeated-value domain boundary ('correct', 'correct')
+     Precondition Source Line: Lines 32-33: repeated invocation of play_sound('correct')
+     Input:    ['correct', 'correct']
+     Expected: 'Beep call_count == 2 with (1000, 150)'
+     Actual:   'Beep call_count == 2'
+
+[10] PASSED: Winsound dispatch: unrecognized input produces no beep
+     Precondition Source Line: Lines 31-40: try/except guard
+     Input:    'unknown_sound'
+     Expected: 'Beep call_count == 0'
+     Actual:   'Beep call_count == 0'
+
+[11] PASSED: Winsound dispatch: OSError exception suppression
+     Precondition Source Line: Lines 38-39: except (RuntimeError, OSError): pass
+     Input:    'correct with failing audio driver'
+     Expected: 'Exception suppressed cleanly without error'
+     Actual:   'Handled cleanly'
+
+[12] PASSED: Fallback: Tk root bell invocation
+     Precondition Source Line: Lines 24-25: if hasattr(tk, '_default_root') and tk._default_root: tk._default_root.bell()
+     Input:    'correct with winsound=None and active tk._default_root'
+     Expected: 'tk._default_root.bell() called once'
+     Actual:   'bell call_count == 1'
+
+[13] PASSED: Fallback: stdout bell character '\a'
+     Precondition Source Line: Lines 26-27: else: print('\a', end='', flush=True)
+     Input:    'correct with winsound=None and tk._default_root=None'
+     Expected: '\\a'
+     Actual:   "'\\x07'"
+
+[14] PASSED: Fallback: TclError / OSError warning output
+     Precondition Source Line: Lines 28-29: except (tk.TclError, OSError) as e: print warning
+     Input:    'correct with failing Tk bell'
+     Expected: 'Warning message logged to stdout'
+     Actual:   'Warning message logged'
+
+[15] PASSED: Fixture anchor line 78: smallest input a=1, b=1
+     Precondition Source Line: Line 78: a, b = random.randint(1, 60), random.randint(1, 60); Line 575: play_sound('correct')
+     Input:    {'a': 1, 'b': 1, 'sum': 2, 'user_answer': 2, 'sound': 'correct'}
+     Expected: "play_sound('correct') -> winsound.Beep(1000, 150)"
+     Actual:   'winsound.Beep called with (1000, 150)'
+
+[16] PASSED: Fixture anchor line 78: ordinary input a=15, b=25
+     Precondition Source Line: Line 78: a, b = random.randint(1, 60), random.randint(1, 60); Line 595: play_sound('wrong')
+     Input:    {'a': 15, 'b': 25, 'sum': 40, 'user_answer': 39, 'sound': 'wrong'}
+     Expected: "play_sound('wrong') -> winsound.Beep(300, 300)"
+     Actual:   'winsound.Beep called with (300, 300)'
+
+[17] PASSED: Fixture anchor line 127: domain boundary a=30, b=30 with lives=0
+     Precondition Source Line: Line 127: a, b = random.randint(1, 30), random.randint(1, 30); Line 605: play_sound('game_over')
+     Input:    {'a': 30, 'b': 30, 'sum': 60, 'lives': 0, 'sound': 'game_over'}
+     Expected: "play_sound('game_over') -> winsound.Beep(200, 600)"
+     Actual:   'winsound.Beep called with (200, 600)'
+
