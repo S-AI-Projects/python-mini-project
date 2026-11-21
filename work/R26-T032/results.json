@@ -1,0 +1,106 @@
+{
+  "task_id": "R26-T032",
+  "target_file": "utilities/Markdown-PDF-Converter/markdown_to_pdf.py",
+  "target_function": "setup_styles",
+  "native_command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_markdown_to_pdf.py -v",
+  "nonzero_test_count": 10,
+  "overall_status": "PASSED",
+  "tool_versions": {
+    "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "platform_machine": "arm64",
+    "pytest_available": true,
+    "git": {
+      "branch": "student/e26b07f0866/R26-T032",
+      "commit": "2a5b4c4155f8d53c31cd84fa89de9cf8511c0b3e",
+      "status": "?? tests/test_markdown_to_pdf.py\n?? work/"
+    }
+  },
+  "checks": [
+    {
+      "name": "Valid interior: ordinary full theme dictionary (THEMES['Classic'])",
+      "input": "\"THEMES['Classic'] (16 keys)\"",
+      "precondition_source_line": "Lines 25-43 (THEMES['Classic']), Lines 85-189 (setup_styles)",
+      "expected": "'Heading1(Times-Roman, 24, #1A365D), CustomListItem(leftIndent=24), CodeStyle(Courier)'",
+      "actual": "\"Heading1(Times-Roman, 24, HexColor('#1A365D'))\"",
+      "status": "PASSED"
+    },
+    {
+      "name": "Valid boundary: smallest supported input (minimal 8 required keys)",
+      "input": "{'font_family_headings': 'Helvetica-Bold', 'font_family_body': 'Helvetica', 'h1': '#0F766E', 'h2': '#115E59', 'h3': '#134E4A', 'text': '#1F2937', 'quote_text': '#4B5563', 'table_header_text': '#FFFFFF'}",
+      "precondition_source_line": "Lines 90, 93, 101, 109, 119, 125, 164, 175",
+      "expected": "'Styles created successfully with 8 required keys only'",
+      "actual": "'Heading1 and Normal styles configured successfully'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Valid boundary: font_family_body == 'Helvetica'",
+      "input": "\"font_family_body='Helvetica'\"",
+      "precondition_source_line": "Line 163: 'Helvetica-Oblique' if theme['font_family_body'] == 'Helvetica' else 'Times-Italic'",
+      "expected": "\"QuoteParaStyle.fontName == 'Helvetica-Oblique'\"",
+      "actual": "\"QuoteParaStyle.fontName == 'Helvetica-Oblique'\"",
+      "status": "PASSED"
+    },
+    {
+      "name": "Valid boundary: font_family_body != 'Helvetica' ('Times-Roman')",
+      "input": "\"font_family_body='Times-Roman'\"",
+      "precondition_source_line": "Line 163: 'Helvetica-Oblique' if theme['font_family_body'] == 'Helvetica' else 'Times-Italic'",
+      "expected": "\"QuoteParaStyle.fontName == 'Times-Italic'\"",
+      "actual": "\"QuoteParaStyle.fontName == 'Times-Italic'\"",
+      "status": "PASSED"
+    },
+    {
+      "name": "Valid boundary: stylesheet without 'BodyText' handled safely",
+      "input": "'MockStyleSheet without BodyText'",
+      "precondition_source_line": "Line 131: if 'BodyText' in styles:",
+      "expected": "\"'BodyText' skipped without KeyError\"",
+      "actual": "'Completed without error'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Mutation isolation: theme dictionary remains unmutated",
+      "input": "\"THEMES['Sleek Dark']\"",
+      "precondition_source_line": "Lines 85-189: pure dictionary read operations",
+      "expected": "'theme dict unchanged'",
+      "actual": "'theme dict unchanged'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Outside boundary: missing required key 'font_family_headings'",
+      "input": "\"dict lacking 'font_family_headings'\"",
+      "precondition_source_line": "Line 90: styles['Heading1'].fontName = theme['font_family_headings']",
+      "expected": "\"KeyError('font_family_headings')\"",
+      "actual": "'KeyError raised'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Outside boundary: None input",
+      "input": "None",
+      "precondition_source_line": "Line 90: theme['font_family_headings'] subscript on None",
+      "expected": "'TypeError'",
+      "actual": "'TypeError raised'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Outside boundary: malformed hex color format",
+      "input": "\"h1='invalid_hex'\"",
+      "precondition_source_line": "Line 93: colors.HexColor(theme['h1'])",
+      "expected": "'ValueError'",
+      "actual": "'ValueError raised'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Fixture anchors: self.story = [] (line 201) and self.text_accumulator = [] (line 205)",
+      "input": "'HTMLToFlowablesParser with setup_styles and <h1> tag'",
+      "precondition_source_line": "Line 201: self.story = []; Line 205: self.text_accumulator = []",
+      "expected": "'story=[] and accumulator=[] initially; flowables appended using Heading1 style'",
+      "actual": "'story initial: [], accumulator initial: [], generated 1 flowables'",
+      "status": "PASSED"
+    }
+  ],
+  "pytest_summary": {
+    "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_markdown_to_pdf.py -v",
+    "exit_code": 0,
+    "output": "============================= test session starts ==============================\nplatform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/rudratiwari011/Desktop/Project /.venv/bin/python3.15\ncachedir: .pytest_cache\nrootdir: /Users/rudratiwari011/Desktop/Project \nconfigfile: pyproject.toml\ncollecting ... collected 10 items\n\ntests/test_markdown_to_pdf.py::test_setup_styles_ordinary_input PASSED   [ 10%]\ntests/test_markdown_to_pdf.py::test_setup_styles_smallest_valid_input PASSED [ 20%]\ntests/test_markdown_to_pdf.py::test_setup_styles_quote_font_helvetica_boundary PASSED [ 30%]\ntests/test_markdown_to_pdf.py::test_setup_styles_quote_font_non_helvetica_boundary PASSED [ 40%]\ntests/test_markdown_to_pdf.py::test_setup_styles_optional_body_text_handled PASSED [ 50%]\ntests/test_markdown_to_pdf.py::test_setup_styles_mutation_isolation PASSED [ 60%]\ntests/test_markdown_to_pdf.py::test_setup_styles_boundary_missing_required_key PASSED [ 70%]\ntests/test_markdown_to_pdf.py::test_setup_styles_boundary_none_input PASSED [ 80%]\ntests/test_markdown_to_pdf.py::test_setup_styles_boundary_invalid_color_format PASSED [ 90%]\ntests/test_markdown_to_pdf.py::test_fixture_anchors_story_and_text_accumulator PASSED [100%]\n\n============================== 10 passed in 0.02s ==============================\n"
+  }
+}

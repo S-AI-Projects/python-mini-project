@@ -1,0 +1,73 @@
+Task R26-T032 Verification Report
+Target: utilities/Markdown-PDF-Converter/markdown_to_pdf.py::setup_styles
+Overall Status: PASSED
+Total Checks: 10 (Nonzero Count Verified)
+Native Test Command: /Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_markdown_to_pdf.py -v
+Pytest Exit Code: 0
+
+--- Tool Versions ---
+Python: 3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit-Mach-O (arm64)
+Git Branch: student/e26b07f0866/R26-T032 (2a5b4c41)
+
+--- Boundary & Regression Check Results ---
+[01] PASSED: Valid interior: ordinary full theme dictionary (THEMES['Classic'])
+     Precondition Source Line: Lines 25-43 (THEMES['Classic']), Lines 85-189 (setup_styles)
+     Input:    "THEMES['Classic'] (16 keys)"
+     Expected: 'Heading1(Times-Roman, 24, #1A365D), CustomListItem(leftIndent=24), CodeStyle(Courier)'
+     Actual:   "Heading1(Times-Roman, 24, HexColor('#1A365D'))"
+
+[02] PASSED: Valid boundary: smallest supported input (minimal 8 required keys)
+     Precondition Source Line: Lines 90, 93, 101, 109, 119, 125, 164, 175
+     Input:    {'font_family_headings': 'Helvetica-Bold', 'font_family_body': 'Helvetica', 'h1': '#0F766E', 'h2': '#115E59', 'h3': '#134E4A', 'text': '#1F2937', 'quote_text': '#4B5563', 'table_header_text': '#FFFFFF'}
+     Expected: 'Styles created successfully with 8 required keys only'
+     Actual:   'Heading1 and Normal styles configured successfully'
+
+[03] PASSED: Valid boundary: font_family_body == 'Helvetica'
+     Precondition Source Line: Line 163: 'Helvetica-Oblique' if theme['font_family_body'] == 'Helvetica' else 'Times-Italic'
+     Input:    "font_family_body='Helvetica'"
+     Expected: "QuoteParaStyle.fontName == 'Helvetica-Oblique'"
+     Actual:   "QuoteParaStyle.fontName == 'Helvetica-Oblique'"
+
+[04] PASSED: Valid boundary: font_family_body != 'Helvetica' ('Times-Roman')
+     Precondition Source Line: Line 163: 'Helvetica-Oblique' if theme['font_family_body'] == 'Helvetica' else 'Times-Italic'
+     Input:    "font_family_body='Times-Roman'"
+     Expected: "QuoteParaStyle.fontName == 'Times-Italic'"
+     Actual:   "QuoteParaStyle.fontName == 'Times-Italic'"
+
+[05] PASSED: Valid boundary: stylesheet without 'BodyText' handled safely
+     Precondition Source Line: Line 131: if 'BodyText' in styles:
+     Input:    'MockStyleSheet without BodyText'
+     Expected: "'BodyText' skipped without KeyError"
+     Actual:   'Completed without error'
+
+[06] PASSED: Mutation isolation: theme dictionary remains unmutated
+     Precondition Source Line: Lines 85-189: pure dictionary read operations
+     Input:    "THEMES['Sleek Dark']"
+     Expected: 'theme dict unchanged'
+     Actual:   'theme dict unchanged'
+
+[07] PASSED: Outside boundary: missing required key 'font_family_headings'
+     Precondition Source Line: Line 90: styles['Heading1'].fontName = theme['font_family_headings']
+     Input:    "dict lacking 'font_family_headings'"
+     Expected: "KeyError('font_family_headings')"
+     Actual:   'KeyError raised'
+
+[08] PASSED: Outside boundary: None input
+     Precondition Source Line: Line 90: theme['font_family_headings'] subscript on None
+     Input:    None
+     Expected: 'TypeError'
+     Actual:   'TypeError raised'
+
+[09] PASSED: Outside boundary: malformed hex color format
+     Precondition Source Line: Line 93: colors.HexColor(theme['h1'])
+     Input:    "h1='invalid_hex'"
+     Expected: 'ValueError'
+     Actual:   'ValueError raised'
+
+[10] PASSED: Fixture anchors: self.story = [] (line 201) and self.text_accumulator = [] (line 205)
+     Precondition Source Line: Line 201: self.story = []; Line 205: self.text_accumulator = []
+     Input:    'HTMLToFlowablesParser with setup_styles and <h1> tag'
+     Expected: 'story=[] and accumulator=[] initially; flowables appended using Heading1 style'
+     Actual:   'story initial: [], accumulator initial: [], generated 1 flowables'
+
