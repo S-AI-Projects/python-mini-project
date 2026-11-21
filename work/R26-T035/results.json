@@ -1,0 +1,90 @@
+{
+  "task_id": "R26-T035",
+  "target_file": "math/Prime-Number-Analyzer/Prime-Number-Analyzer.py",
+  "target_function": "is_prime",
+  "native_command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_prime_number_analyzer.py -v",
+  "nonzero_test_count": 8,
+  "overall_status": "PASSED",
+  "tool_versions": {
+    "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "platform_machine": "arm64",
+    "pytest_available": true,
+    "git": {
+      "branch": "student/e26b07f0866/R26-T035",
+      "commit": "2a5b4c4155f8d53c31cd84fa89de9cf8511c0b3e",
+      "status": "?? tests/test_prime_number_analyzer.py\n?? work/"
+    }
+  },
+  "checks": [
+    {
+      "name": "Domain around 1: is_prime(0) and is_prime(1)",
+      "input": "[0, 1]",
+      "precondition_source_line": "Lines 14-15: if num < 2: return False",
+      "expected": "[False, False]",
+      "actual": "[False, False]",
+      "status": "PASSED"
+    },
+    {
+      "name": "Domain around 2: is_prime(2), is_prime(3), is_prime(4)",
+      "input": "[2, 3, 4]",
+      "precondition_source_line": "Lines 16-19: if num == 2: return True; if num % 2 == 0: return False",
+      "expected": "[True, True, False]",
+      "actual": "[True, True, False]",
+      "status": "PASSED"
+    },
+    {
+      "name": "Domain around 9: is_prime(8), is_prime(9), is_prime(10)",
+      "input": "[8, 9, 10]",
+      "precondition_source_line": "Lines 20-22: odd factor trial division (9 % 3 == 0)",
+      "expected": "[False, False, False]",
+      "actual": "[False, False, False]",
+      "status": "PASSED"
+    },
+    {
+      "name": "Domain around 11: is_prime(11), is_prime(12), is_prime(13)",
+      "input": "[11, 12, 13]",
+      "precondition_source_line": "Lines 20-23: trial division exhaustion returns True",
+      "expected": "[True, False, True]",
+      "actual": "[True, False, True]",
+      "status": "PASSED"
+    },
+    {
+      "name": "Sieve through 12 (exclusive upper bound range(2, 12)): primes are 2, 3, 5, 7, 11",
+      "input": "'range(2, 12)'",
+      "precondition_source_line": "Goal: For a sieve through 12 the primes are 2, 3, 5, 7 and 11; respect exclusive upper-bound",
+      "expected": "[2, 3, 5, 7, 11]",
+      "actual": "[2, 3, 5, 7, 11]",
+      "status": "PASSED"
+    },
+    {
+      "name": "Repeatability: runs across fresh states and interleaved executions are invariant",
+      "input": "'Fixture [1, 2, 9, 11] across 3 independent phases'",
+      "precondition_source_line": "Step 3: Run fixture twice in fresh isolated state and once after another valid input",
+      "expected": "'[False, True, False, True] in all runs'",
+      "actual": "'Run1=[False, True, False, True], Run2=[False, True, False, True], Run3=[False, True, False, True]'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Input isolation: scalar argument is unmutated",
+      "input": "11",
+      "precondition_source_line": "Line 12: def is_prime(num: int) -> bool",
+      "expected": "'num remains 11'",
+      "actual": "'num=11, is_prime=True'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Boundary: negative integers return False",
+      "input": "[-1, -5, -997]",
+      "precondition_source_line": "Lines 14-15: if num < 2: return False",
+      "expected": "[False, False, False]",
+      "actual": "[False, False, False]",
+      "status": "PASSED"
+    }
+  ],
+  "pytest_summary": {
+    "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_prime_number_analyzer.py -v",
+    "exit_code": 0,
+    "output": "============================= test session starts ==============================\nplatform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/rudratiwari011/Desktop/Project /.venv/bin/python3.15\ncachedir: .pytest_cache\nrootdir: /Users/rudratiwari011/Desktop/Project \nconfigfile: pyproject.toml\ncollecting ... collected 8 items\n\ntests/test_prime_number_analyzer.py::test_is_prime_domain_around_one PASSED [ 12%]\ntests/test_prime_number_analyzer.py::test_is_prime_domain_around_two PASSED [ 25%]\ntests/test_prime_number_analyzer.py::test_is_prime_domain_around_nine PASSED [ 37%]\ntests/test_prime_number_analyzer.py::test_is_prime_domain_around_eleven PASSED [ 50%]\ntests/test_prime_number_analyzer.py::test_sieve_through_twelve_exclusive_upper_bound PASSED [ 62%]\ntests/test_prime_number_analyzer.py::test_is_prime_repeatability_across_fresh_and_interleaved_runs PASSED [ 75%]\ntests/test_prime_number_analyzer.py::test_is_prime_pure_function_input_isolation PASSED [ 87%]\ntests/test_prime_number_analyzer.py::test_is_prime_negative_numbers PASSED [100%]\n\n============================== 8 passed in 0.01s ===============================\n"
+  }
+}
