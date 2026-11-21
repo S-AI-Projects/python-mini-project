@@ -923,6 +923,21 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Word Counter",
+    "emoji": "📊",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Count case-normalized whitespace-delimited words with explicit punctuation-stripping.",
+    "keywords": [
+      "word counter",
+      "text analysis",
+      "nlp",
+      "utilities",
+      "frequency"
+    ],
+    "path": "utilities/Word-Counter/main.py"
   }
 ]
 

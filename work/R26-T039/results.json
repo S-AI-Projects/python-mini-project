@@ -1,0 +1,122 @@
+{
+  "tool_versions": {
+    "python": "Python 3.15.2"
+  },
+  "checks": [
+    {
+      "name": "native_unittest_discovery",
+      "command": "python3 -m unittest discover -s utilities/Word-Counter -p 'test_*.py' -v",
+      "test_count": 15,
+      "exit_code": 0,
+      "status": "PASS",
+      "output_summary": "OK"
+    },
+    {
+      "name": "core_contract_benchmarks",
+      "cases": [
+        {
+          "input": "Tea, tea! coffee",
+          "expected": {
+            "tea": 2,
+            "coffee": 1
+          },
+          "actual": {
+            "tea": 2,
+            "coffee": 1
+          },
+          "status": "PASS"
+        },
+        {
+          "input": "",
+          "expected": {},
+          "actual": {},
+          "status": "PASS"
+        },
+        {
+          "input": "   \n\t  ",
+          "expected": {},
+          "actual": {},
+          "status": "PASS"
+        },
+        {
+          "input": ",,, !!! ...",
+          "expected": {},
+          "actual": {},
+          "status": "PASS"
+        },
+        {
+          "input": "Apple, apple; banana! BANANA... cherry",
+          "expected": {
+            "apple": 2,
+            "banana": 2,
+            "cherry": 1
+          },
+          "actual": {
+            "apple": 2,
+            "banana": 2,
+            "cherry": 1
+          },
+          "status": "PASS"
+        }
+      ],
+      "status": "PASS"
+    },
+    {
+      "name": "complexity_experiment_three_sizes",
+      "sizes_evaluated": [
+        100,
+        1000,
+        10000
+      ],
+      "measurements": [
+        {
+          "size_n": 100.0,
+          "domain": "small_domain_fixed_entropy",
+          "vocab_size": 10.0,
+          "unique_words_found": 10.0,
+          "char_length": 685.0,
+          "bounded_operations": 785.0,
+          "elapsed_seconds": 1.0167001164518297e-05,
+          "ops_per_token": 7.85
+        },
+        {
+          "size_n": 1000.0,
+          "domain": "medium_domain_zipfian",
+          "vocab_size": 100.0,
+          "unique_words_found": 100.0,
+          "char_length": 7757.0,
+          "bounded_operations": 8757.0,
+          "elapsed_seconds": 8.604199683759362e-05,
+          "ops_per_token": 8.757
+        },
+        {
+          "size_n": 10000.0,
+          "domain": "large_domain_high_entropy",
+          "vocab_size": 1000.0,
+          "unique_words_found": 1000.0,
+          "char_length": 87471.0,
+          "bounded_operations": 97471.0,
+          "elapsed_seconds": 0.0008550420025130734,
+          "ops_per_token": 9.7471
+        }
+      ],
+      "linear_work_verified": true,
+      "status": "PASS"
+    },
+    {
+      "name": "ruff_lint",
+      "command": "ruff check utilities/Word-Counter/main.py utilities/Word-Counter/test_main.py",
+      "exit_code": 0,
+      "status": "PASS",
+      "output": "All checks passed!"
+    },
+    {
+      "name": "registry_integrity",
+      "command": "pytest tests/test_registry_integrity.py",
+      "exit_code": 0,
+      "status": "PASS"
+    }
+  ],
+  "timestamp": "2026-11-21T22:29:47+0530",
+  "overall": "PASS"
+}
