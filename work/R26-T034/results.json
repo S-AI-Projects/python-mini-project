@@ -1,0 +1,81 @@
+{
+  "task_id": "R26-T034",
+  "target_file": "utilities/multithreaded_scraper/main.py",
+  "target_function": "main",
+  "native_command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_multithreaded_scraper.py -v",
+  "nonzero_test_count": 7,
+  "overall_status": "PASSED",
+  "tool_versions": {
+    "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "platform_machine": "arm64",
+    "git": {
+      "branch": "student/e26b07f0866/R26-T034",
+      "commit": "2a5b4c4155f8d53c31cd84fa89de9cf8511c0b3e",
+      "status": "M tests/test_multithreaded_scraper.py\n M utilities/multithreaded_scraper/main.py\n?? work/"
+    }
+  },
+  "checks": [
+    {
+      "name": "Smallest valid input: single URL with default workers and depth",
+      "input": "['https://example.com/item0', '-o', '/var/folders/6m/yd0kd8515wl3n_dg5r_1z52w0000gn/T/tmpmiavqsas/smallest.json', '--delay', '0']",
+      "precondition_source_line": "Line 12: parser.add_argument('urls', nargs='*')",
+      "expected": "'Return None, unmutated argv, 1-item JSON array with matching URL and title'",
+      "actual": "'Return None, argv unmutated=True, count=1'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Ordinary input: multiple URLs with explicit workers, depth, and output",
+      "input": "['https://example.com/page1', 'https://example.com/page2', '-w', '2', '-d', '1', '-o', '/var/folders/6m/yd0kd8515wl3n_dg5r_1z52w0000gn/T/tmpmiavqsas/ordinary.json', '--format', 'json', '--delay', '0']",
+      "precondition_source_line": "Lines 12-16: urls, -w, -d, -o, --format",
+      "expected": "'Return None, unmutated argv, scraped entries for seed URLs'",
+      "actual": "\"Return None, scraped URLs: ['https://example.com/page1', 'https://example.com/page2']\"",
+      "status": "PASSED"
+    },
+    {
+      "name": "Invariant: output schema keys and shape strictly preserved",
+      "input": "'Exported items from ordinary input'",
+      "precondition_source_line": "Lines 49-54: DataExporter output serialization",
+      "expected": "'Every item has keys: url, title, meta_description, headings, links, depth'",
+      "actual": "'All items match schema: True'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Invariant: input argv list is strictly unmutated",
+      "input": "['https://example.com/test1', 'https://example.com/test2', '-o', '/var/folders/6m/yd0kd8515wl3n_dg5r_1z52w0000gn/T/tmpmiavqsas/mut.json', '--delay', '0']",
+      "precondition_source_line": "Lines 10-21: Argument parsing and extraction",
+      "expected": "'argv before == argv after'",
+      "actual": "'argv unmutated: True'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Invariant: fresh equivalent inputs yield identical outputs under controlled state",
+      "input": "'Two fresh independent argv instances with identical arguments'",
+      "precondition_source_line": "Lines 36-54: Deterministic pipeline execution",
+      "expected": "'output_a == output_b'",
+      "actual": "'Equal output data: True'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Property: 100 bounded valid cases with fixed seed (seed=42)",
+      "input": "'100 randomized valid CLI invocations across workers, depths, formats, URLs'",
+      "precondition_source_line": "Lines 10-56: Full CLI entrypoint",
+      "expected": "'100/100 cases pass invariant assertions'",
+      "actual": "'100/100 passed successfully'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Invariant detection: checks fail when invariant is deliberately broken",
+      "input": "'Simulated input mutation in temporary invocation'",
+      "precondition_source_line": "Done when: The checks fail when the relevant invariant is deliberately broken",
+      "expected": "'Assertion failure triggered on mutated input snapshot'",
+      "actual": "'Invariant violation successfully detected'",
+      "status": "PASSED"
+    }
+  ],
+  "pytest_summary": {
+    "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_multithreaded_scraper.py -v",
+    "exit_code": 0,
+    "output": "============================= test session starts ==============================\nplatform darwin -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0 -- /Users/rudratiwari011/Desktop/Project /.venv/bin/python3.15\ncachedir: .pytest_cache\nrootdir: /Users/rudratiwari011/Desktop/Project \nconfigfile: pyproject.toml\ncollecting ... collected 11 items\n\ntests/test_multithreaded_scraper.py::test_html_parser PASSED             [  9%]\ntests/test_multithreaded_scraper.py::test_exporter_json_and_csv PASSED   [ 18%]\ntests/test_multithreaded_scraper.py::test_scraper_mock_fetch PASSED      [ 27%]\ntests/test_multithreaded_scraper.py::test_scraper_rejects_non_http_schemes[file:///etc/hostname] PASSED [ 36%]\ntests/test_multithreaded_scraper.py::test_scraper_rejects_non_http_schemes[ftp://example.com/x] PASSED [ 45%]\ntests/test_multithreaded_scraper.py::test_scraper_rejects_non_http_schemes[data:text/html,hi] PASSED [ 54%]\ntests/test_multithreaded_scraper.py::test_main_smallest_valid_input PASSED [ 63%]\ntests/test_multithreaded_scraper.py::test_main_ordinary_input PASSED     [ 72%]\ntests/test_multithreaded_scraper.py::test_main_input_mutation_invariance PASSED [ 81%]\ntests/test_multithreaded_scraper.py::test_main_fresh_equivalent_inputs_invariance PASSED [ 90%]\ntests/test_multithreaded_scraper.py::test_main_property_100_bounded_valid_cases PASSED [100%]\n\n============================== 11 passed in 0.07s ==============================\n"
+  }
+}

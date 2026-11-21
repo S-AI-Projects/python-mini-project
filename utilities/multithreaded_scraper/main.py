@@ -7,7 +7,7 @@ import argparse
 from utilities.multithreaded_scraper import MultithreadedScraper, DataExporter
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description="High-Performance Multithreaded Web Scraper")
     parser.add_argument("urls", nargs="*", help="Target URL(s) to scrape")
     parser.add_argument("-w", "--workers", type=int, default=5, help="Number of concurrent worker threads (default: 5)")
@@ -16,7 +16,7 @@ def main():
     parser.add_argument("--format", choices=["json", "csv"], default="json", help="Output format (json/csv)")
     parser.add_argument("--delay", type=float, default=0.2, help="Delay between requests in seconds")
 
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     target_urls = args.urls
     if not target_urls:
