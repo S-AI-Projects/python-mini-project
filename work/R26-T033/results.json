@@ -1,0 +1,88 @@
+{
+  "task_id": "R26-T033",
+  "target_directory": "utilities/GPA-Calculator",
+  "native_command": "/opt/homebrew/opt/python@3.15/bin/python3.15 -m unittest discover -s utilities/GPA-Calculator -p test_*.py",
+  "nonzero_test_count": 8,
+  "overall_status": "PASSED",
+  "tool_versions": {
+    "python": "3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]",
+    "platform": "macOS-27.2.1-arm64-arm-64bit-Mach-O",
+    "platform_machine": "arm64",
+    "git": {
+      "branch": "student/e26b07f0866/R26-T033",
+      "commit": "2a5b4c4155f8d53c31cd84fa89de9cf8511c0b3e",
+      "status": "M projects_registry.json\n?? utilities/GPA-Calculator/\n?? work/"
+    }
+  },
+  "checks": [
+    {
+      "name": "Stated contract example: A=4 for 3 credits and B=3 for 1 credit gives 3.75",
+      "input": "[('A', 3), ('B', 1)]",
+      "contract_rule": "Goal: A=4 for 3 credits and B=3 for 1 credit gives 3.75",
+      "expected": "3.75",
+      "actual": "3.75",
+      "status": "PASSED"
+    },
+    {
+      "name": "Boundary: zero total credits rejected",
+      "input": "[('A', 0)]",
+      "contract_rule": "Goal: zero total credits rejected",
+      "expected": "'ValueError'",
+      "actual": "'ValueError raised'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Boundary: unknown grades rejected",
+      "input": "[('A', 3), ('Z_INVALID', 2)]",
+      "contract_rule": "Goal: unknown grades rejected",
+      "expected": "'ValueError'",
+      "actual": "'ValueError raised'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Boundary: negative credits rejected",
+      "input": "[('A', -1)]",
+      "contract_rule": "Enforce positive credit constraint",
+      "expected": "'ValueError'",
+      "actual": "'ValueError raised'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Supplied grade-point mapping support",
+      "input": "{'courses': [('HIGH', 2), ('MID', 2)], 'mapping': {'HIGH': 5.0, 'MID': 3.0}}",
+      "contract_rule": "Goal: Calculate credit-weighted GPA from a supplied grade-point mapping",
+      "expected": "4.0",
+      "actual": "4.0",
+      "status": "PASSED"
+    },
+    {
+      "name": "Focus: Dual-method independent reference comparison matches",
+      "input": "[('A+', 4), ('A-', 3), ('B+', 3), ('C', 2)]",
+      "contract_rule": "Focus: Compare the result with a second simple method or an independently calculated table",
+      "expected": "'primary == reference (3.4167)'",
+      "actual": "'primary=3.4167, reference=3.4167'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Focus: Assertion fails for an incorrect result",
+      "input": "'Tampered calculation returning incorrect 1.00'",
+      "contract_rule": "Done when: The assigned contribution focus is visible and assertions fail for an incorrect result",
+      "expected": "'AssertionError raised on mismatch'",
+      "actual": "'AssertionError caught'",
+      "status": "PASSED"
+    },
+    {
+      "name": "Import isolation: no prompts, file writes, or CLI run on import",
+      "input": "'import utilities.GPA-Calculator.main'",
+      "contract_rule": "Done when: Importing the module does not prompt, write files or run the CLI",
+      "expected": "'No stdout output on import'",
+      "actual": "'Zero stdout output'",
+      "status": "PASSED"
+    }
+  ],
+  "unittest_summary": {
+    "command": "/opt/homebrew/opt/python@3.15/bin/python3.15 -m unittest discover -s utilities/GPA-Calculator -p test_*.py",
+    "exit_code": 0,
+    "output": ".........\n----------------------------------------------------------------------\nRan 9 tests in 0.001s\n\nOK\n"
+  }
+}
