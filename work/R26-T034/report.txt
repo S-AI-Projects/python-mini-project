@@ -1,0 +1,55 @@
+Task R26-T034 Verification Report
+Target: utilities/multithreaded_scraper/main.py::main
+Overall Status: PASSED
+Total Checks: 7 (Nonzero Count Verified)
+Native Test Command: /Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_multithreaded_scraper.py -v
+Pytest Exit Code: 0
+
+--- Tool Versions ---
+Python: 3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit-Mach-O (arm64)
+Git Branch: student/e26b07f0866/R26-T034 (2a5b4c41)
+
+--- Invariant Check Results ---
+[01] PASSED: Smallest valid input: single URL with default workers and depth
+     Precondition Source Line: Line 12: parser.add_argument('urls', nargs='*')
+     Input:    ['https://example.com/item0', '-o', '/var/folders/6m/yd0kd8515wl3n_dg5r_1z52w0000gn/T/tmpmiavqsas/smallest.json', '--delay', '0']
+     Expected: 'Return None, unmutated argv, 1-item JSON array with matching URL and title'
+     Actual:   'Return None, argv unmutated=True, count=1'
+
+[02] PASSED: Ordinary input: multiple URLs with explicit workers, depth, and output
+     Precondition Source Line: Lines 12-16: urls, -w, -d, -o, --format
+     Input:    ['https://example.com/page1', 'https://example.com/page2', '-w', '2', '-d', '1', '-o', '/var/folders/6m/yd0kd8515wl3n_dg5r_1z52w0000gn/T/tmpmiavqsas/ordinary.json', '--format', 'json', '--delay', '0']
+     Expected: 'Return None, unmutated argv, scraped entries for seed URLs'
+     Actual:   "Return None, scraped URLs: ['https://example.com/page1', 'https://example.com/page2']"
+
+[03] PASSED: Invariant: output schema keys and shape strictly preserved
+     Precondition Source Line: Lines 49-54: DataExporter output serialization
+     Input:    'Exported items from ordinary input'
+     Expected: 'Every item has keys: url, title, meta_description, headings, links, depth'
+     Actual:   'All items match schema: True'
+
+[04] PASSED: Invariant: input argv list is strictly unmutated
+     Precondition Source Line: Lines 10-21: Argument parsing and extraction
+     Input:    ['https://example.com/test1', 'https://example.com/test2', '-o', '/var/folders/6m/yd0kd8515wl3n_dg5r_1z52w0000gn/T/tmpmiavqsas/mut.json', '--delay', '0']
+     Expected: 'argv before == argv after'
+     Actual:   'argv unmutated: True'
+
+[05] PASSED: Invariant: fresh equivalent inputs yield identical outputs under controlled state
+     Precondition Source Line: Lines 36-54: Deterministic pipeline execution
+     Input:    'Two fresh independent argv instances with identical arguments'
+     Expected: 'output_a == output_b'
+     Actual:   'Equal output data: True'
+
+[06] PASSED: Property: 100 bounded valid cases with fixed seed (seed=42)
+     Precondition Source Line: Lines 10-56: Full CLI entrypoint
+     Input:    '100 randomized valid CLI invocations across workers, depths, formats, URLs'
+     Expected: '100/100 cases pass invariant assertions'
+     Actual:   '100/100 passed successfully'
+
+[07] PASSED: Invariant detection: checks fail when invariant is deliberately broken
+     Precondition Source Line: Done when: The checks fail when the relevant invariant is deliberately broken
+     Input:    'Simulated input mutation in temporary invocation'
+     Expected: 'Assertion failure triggered on mutated input snapshot'
+     Actual:   'Invariant violation successfully detected'
+
