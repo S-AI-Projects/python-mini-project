@@ -20,11 +20,17 @@ _UNARY_OPS = {ast.UAdd: operator.pos, ast.USub: operator.neg}
 _MAX_INT_EXPONENT = 10_000
 
 
-def _build_namespace(x_val=None):
-    """Return the names an expression may use (math functions/constants, and x)."""
+def _base_math_names():
+    """Return a dict of public ``math`` names plus ``abs`` and ``round``."""
     names = {k: v for k, v in vars(math).items() if not k.startswith("_")}
     names["abs"] = abs
     names["round"] = round
+    return names
+
+
+def _build_namespace(x_val=None):
+    """Return the names an expression may use (math functions/constants, and x)."""
+    names = _base_math_names()
     if x_val is not None:
         names["x"] = x_val
         # Prefer numpy's elementwise versions so sin(x) works on arrays.

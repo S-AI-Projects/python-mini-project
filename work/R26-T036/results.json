@@ -1,0 +1,33 @@
+{
+  "tool_versions": {
+    "python": "Python 3.15.2",
+    "pytest": "pytest 9.2.0"
+  },
+  "checks": [
+    {
+      "name": "test_build_namespace",
+      "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_build_namespace.py -v --tb=short",
+      "passed": 18,
+      "total": 18,
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "test_scientific_calculator_regression",
+      "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_scientific_calculator.py -v --tb=short",
+      "passed": 27,
+      "total": 27,
+      "exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "name": "ruff_lint",
+      "command": "/Users/rudratiwari011/Desktop/Project /.venv/bin/ruff check <source> <tests>",
+      "exit_code": 0,
+      "status": "PASS",
+      "output": "All checks passed!"
+    }
+  ],
+  "timestamp": "2026-11-21T21:28:18+0530",
+  "overall": "PASS"
+}
