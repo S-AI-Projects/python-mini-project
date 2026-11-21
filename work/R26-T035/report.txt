@@ -1,0 +1,61 @@
+Task R26-T035 Verification Report
+Target: math/Prime-Number-Analyzer/Prime-Number-Analyzer.py::is_prime
+Overall Status: PASSED
+Total Checks: 8 (Nonzero Count Verified)
+Native Test Command: /Users/rudratiwari011/Desktop/Project /.venv/bin/pytest tests/test_prime_number_analyzer.py -v
+Pytest Exit Code: 0
+
+--- Tool Versions ---
+Python: 3.15.2 (main, Oct 25 2026, 16:57:51) [Clang 21.0.0 (clang-2100.3.34.2)]
+Platform: macOS-27.2.1-arm64-arm-64bit-Mach-O (arm64)
+Git Branch: student/e26b07f0866/R26-T035 (2a5b4c41)
+
+--- Repeatability Check Results ---
+[01] PASSED: Domain around 1: is_prime(0) and is_prime(1)
+     Precondition Source Line: Lines 14-15: if num < 2: return False
+     Input:    [0, 1]
+     Expected: [False, False]
+     Actual:   [False, False]
+
+[02] PASSED: Domain around 2: is_prime(2), is_prime(3), is_prime(4)
+     Precondition Source Line: Lines 16-19: if num == 2: return True; if num % 2 == 0: return False
+     Input:    [2, 3, 4]
+     Expected: [True, True, False]
+     Actual:   [True, True, False]
+
+[03] PASSED: Domain around 9: is_prime(8), is_prime(9), is_prime(10)
+     Precondition Source Line: Lines 20-22: odd factor trial division (9 % 3 == 0)
+     Input:    [8, 9, 10]
+     Expected: [False, False, False]
+     Actual:   [False, False, False]
+
+[04] PASSED: Domain around 11: is_prime(11), is_prime(12), is_prime(13)
+     Precondition Source Line: Lines 20-23: trial division exhaustion returns True
+     Input:    [11, 12, 13]
+     Expected: [True, False, True]
+     Actual:   [True, False, True]
+
+[05] PASSED: Sieve through 12 (exclusive upper bound range(2, 12)): primes are 2, 3, 5, 7, 11
+     Precondition Source Line: Goal: For a sieve through 12 the primes are 2, 3, 5, 7 and 11; respect exclusive upper-bound
+     Input:    'range(2, 12)'
+     Expected: [2, 3, 5, 7, 11]
+     Actual:   [2, 3, 5, 7, 11]
+
+[06] PASSED: Repeatability: runs across fresh states and interleaved executions are invariant
+     Precondition Source Line: Step 3: Run fixture twice in fresh isolated state and once after another valid input
+     Input:    'Fixture [1, 2, 9, 11] across 3 independent phases'
+     Expected: '[False, True, False, True] in all runs'
+     Actual:   'Run1=[False, True, False, True], Run2=[False, True, False, True], Run3=[False, True, False, True]'
+
+[07] PASSED: Input isolation: scalar argument is unmutated
+     Precondition Source Line: Line 12: def is_prime(num: int) -> bool
+     Input:    11
+     Expected: 'num remains 11'
+     Actual:   'num=11, is_prime=True'
+
+[08] PASSED: Boundary: negative integers return False
+     Precondition Source Line: Lines 14-15: if num < 2: return False
+     Input:    [-1, -5, -997]
+     Expected: [False, False, False]
+     Actual:   [False, False, False]
+
