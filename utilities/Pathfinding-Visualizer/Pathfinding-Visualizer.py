@@ -2,6 +2,27 @@ import os
 import time
 
 def clear_screen():
+    """Clear the terminal console screen during grid visualizer animations.
+
+    Executable Worked Example:
+    -------------------------
+    Example 1 (Windows NT):
+        When os.name == 'nt', clear_screen dispatches 'cls'.
+        Result: os.system('cls'), return value: None.
+
+    Example 2 (POSIX / Linux / macOS):
+        When os.name == 'posix', clear_screen dispatches 'clear'.
+        Result: os.system('clear'), return value: None.
+
+    Execution Flow & State Transition:
+    1. Initial State: Visualizer frame drawn; external grid anchors active:
+       - `neighbors = []` (line 14)
+       - `rows, cols = len(grid), len(grid[0])` (line 22)
+    2. Input Evaluation: Zero-argument invocation checks host `os.name`.
+    3. Decisive Transition: Dispatches platform command ('cls' if os.name == 'nt' else 'clear').
+    4. Final State: Console frame buffer cleared; return value is None;
+       zero mutation on grid dimensions or neighbor queues.
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def print_grid(grid):
