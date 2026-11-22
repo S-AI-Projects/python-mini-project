@@ -9,6 +9,21 @@ else:
 from utils.validation import get_int, get_choice
 
 def generate_pascal_triangle(n: int) -> list[list[int]]:
+    """Generate the first `n` rows of Pascal's Triangle.
+
+    Domain and Boundary Contract:
+    - Inputs: `n` (int) - number of rows to generate.
+    - Absent-result / Failure boundary:
+      - Line 12-13: `if n <= 0: return []`
+      - For n <= 0, the function returns an empty list `[]` without raising an exception.
+    - Precondition Fixture Anchors:
+      - `triangle = []` (line 14)
+      - `row = [1]` (line 17)
+    - Valid non-empty domain:
+      - Smallest valid non-empty input: n = 1 -> `[[1]]`
+      - Ordinary input: n = 4 -> `[[1], [1, 1], [1, 2, 1], [1, 3, 3, 1]]`
+    - Observable Mutation: Pure function; no external state mutation.
+    """
     if n <= 0:
         return []
     triangle = []
