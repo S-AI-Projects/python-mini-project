@@ -23,8 +23,18 @@ DIFFICULTY_INPUT_LIMITS = {
 
 
 # Detect if running in browser (Pyodide)
-def is_browser():
-    """Return True if running in a browser environment (Pyodide)."""
+def is_browser() -> bool:
+    """Return True if running in a browser environment (Pyodide / Emscripten).
+
+    Contract and Mutation Protection:
+    - Inputs: None (takes 0 arguments; inspects `sys.platform`).
+    - Result: `bool` (`True` if and only if `sys.platform == 'emscripten'`, otherwise `False`).
+    - Protected Condition: Exact equality against the Emscripten WebAssembly runtime platform tag.
+    - Fixture Anchors:
+        - `EMOJIS = [...]` (line 9)
+        - `DIFFICULTY_TIME_LIMITS = {...}` (line 12)
+    - Observable Mutation: None (pure predicate, zero mutation).
+    """
     return sys.platform == "emscripten"
 
 
