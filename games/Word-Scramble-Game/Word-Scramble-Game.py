@@ -79,7 +79,17 @@ DIFFICULTY_LEVELS = {
 # ─────────────────────────────────────────────
 #  HELPERS
 # ─────────────────────────────────────────────
-def clear():
+def clear() -> None:
+    """Clear the terminal screen based on the host operating system.
+
+    Domain and Boundary Contract:
+    - Inputs: None (takes 0 arguments).
+    - Result: None (does not return a value).
+    - Side effects: Invokes `os.system('cls')` if `os.name == 'nt'`,
+      otherwise `os.system('clear')`.
+    - Observable Mutation: None. Does not mutate external data structures
+      (e.g., `note = []` at line 276, `valid_words = []` at line 345).
+    """
     os.system("cls" if os.name == "nt" else "clear")
 
 
