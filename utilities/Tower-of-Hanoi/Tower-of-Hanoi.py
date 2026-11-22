@@ -1,8 +1,25 @@
 import tkinter as tk
 
 
-def main():
-    root = tk.Tk()
+def main(root=None):
+    """Run the Tower of Hanoi GUI application.
+
+    Domain and Boundary Contract:
+    - Inputs: `root` (optional Tk root instance; defaults to `None`, which creates `tk.Tk()`).
+    - External State & Isolation: Controlled UI seam allows dependency injection of mock
+      or headless root, preventing blocking `mainloop()` and GUI popups in tests.
+    - Fixture anchors:
+      - `towers = {"A": [], "B": [], "C": []}` (line 39)
+      - `tower_positions = {"A": 150, "B": 300, "C": 450}` (line 44)
+    - Result: Returns the configured `root` window object.
+    - Invariant: Repeated calls with fresh isolated roots produce identical,
+      independent UI state without cross-invocation contamination.
+    """
+    if root is None:
+        root = tk.Tk()
+        should_mainloop = True
+    else:
+        should_mainloop = False
     root.title("Tower of Hanoi")
     root.geometry("800x600")
 
@@ -242,7 +259,9 @@ def main():
     )
     try_again_button.pack(side=tk.LEFT, padx=5)
 
-    root.mainloop()
+    if should_mainloop:
+        root.mainloop()
+    return root
 
 
 if __name__ == "__main__":
