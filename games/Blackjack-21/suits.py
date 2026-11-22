@@ -5,8 +5,19 @@ import math
 SUIT_CACHE = {}
 
 def get_heart_points(cx, cy, scale, invert=False):
-    """Generates pure parametric coordinates for a perfect heart."""
+    """Generates pure parametric coordinates for a perfect heart.
+
+    Refactored Calculation:
+    - Simplified the conditional Y-projection into a unified screen coordinate
+      calculation using an explicit Y-orientation factor `y_sign` (+1 for inverted
+      spades, -1 for upright hearts), eliminating duplicate branch constructions.
+
+    Preconditions & Data Anchors:
+    - SUIT_CACHE = {} (line 5)
+    - points = []     (line 9)
+    """
     points = []
+    y_sign = 1 if invert else -1
     for i in range(360):
         t = math.radians(i)
         
@@ -14,12 +25,10 @@ def get_heart_points(cx, cy, scale, invert=False):
         x = 16 * (math.sin(t) ** 3)
         y = 13 * math.cos(t) - 5 * math.cos(2*t) - 2 * math.cos(3*t) - math.cos(4*t)
         
-        # Pygame Y-axis goes down, so we subtract Y. 
-        # If inverted (for Spades), we add Y to flip it upside down.
-        if invert:
-            points.append((cx + x * scale, cy + y * scale))
-        else:
-            points.append((cx + x * scale, cy - y * scale))
+        # Pygame Y-axis goes down. If inverted (for Spades), y_sign is +1; otherwise -1.
+        screen_x = cx + x * scale
+        screen_y = cy + y_sign * y * scale
+        points.append((screen_x, screen_y))
     return points
 
 def get_circle_points(cx, cy, r):
