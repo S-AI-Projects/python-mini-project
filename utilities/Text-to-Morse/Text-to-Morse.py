@@ -35,7 +35,17 @@ BEEP_FREQ      = 700   # Hz  – comfortable mid-range tone
 
 
 def _sleep_ms(ms: int) -> None:
-    """Sleep for *ms* milliseconds."""
+    """Sleep for *ms* milliseconds.
+
+    Invariant and Boundary Contract:
+    - Inputs: `ms` (int >= 0), duration in milliseconds.
+    - Result: None (does not return a value).
+    - Invariant: Calls `time.sleep(ms / 1000.0)` exactly once with duration
+      strictly equal to `ms / 1000.0` seconds. Preserves monotonic ordering
+      (ms1 <= ms2 implies duration(ms1) <= duration(ms2)).
+    - Observable Mutation: Zero mutation on external structures (such as
+      `morse_result = []` at line 109, `unsupported_chars = []` at line 110).
+    """
     time.sleep(ms / 1000.0)
 
 
