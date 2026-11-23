@@ -1,7 +1,7 @@
 [
   {
     "name": "Rock Paper Scissors",
-    "emoji": "🪨",
+    "emoji": "\ud83e\udea8",
     "category": "games",
     "difficulty": "beginner",
     "description": "Battle against the computer in this classic hand game.",
@@ -17,7 +17,7 @@
   },
   {
     "name": "Dice Rolling",
-    "emoji": "🎲",
+    "emoji": "\ud83c\udfb2",
     "category": "games",
     "difficulty": "beginner",
     "description": "Roll two dice and calculate your fortune with emoji dice!",
@@ -32,10 +32,10 @@
   },
   {
     "name": "Coin Flip",
-    "emoji": "🪙",
+    "emoji": "\ud83e\ude99",
     "category": "games",
     "difficulty": "beginner",
-    "description": "Predict heads or tails — a quick decision maker.",
+    "description": "Predict heads or tails \u2014 a quick decision maker.",
     "keywords": [
       "coin",
       "flip",
@@ -47,7 +47,7 @@
   },
   {
     "name": "Number Guessing Game",
-    "emoji": "🎯",
+    "emoji": "\ud83c\udfaf",
     "category": "games",
     "difficulty": "beginner",
     "description": "Guess the computer's secret number with smart hints.",
@@ -62,7 +62,7 @@
   },
   {
     "name": "Hangman Game",
-    "emoji": "🎮",
+    "emoji": "\ud83c\udfae",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Classic word-guessing game with 6 attempts.",
@@ -77,7 +77,7 @@
   },
   {
     "name": "FLAMES Game",
-    "emoji": "💖",
+    "emoji": "\ud83d\udc96",
     "category": "games",
     "difficulty": "beginner",
     "description": "Discover your relationship status with two names!",
@@ -92,7 +92,7 @@
   },
   {
     "name": "Fibonacci Series",
-    "emoji": "✨",
+    "emoji": "\u2728",
     "category": "math",
     "difficulty": "beginner",
     "description": "Generate beautiful Fibonacci sequences visually.",
@@ -107,7 +107,7 @@
   },
   {
     "name": "Pascal's Triangle",
-    "emoji": "🔺",
+    "emoji": "\ud83d\udd3a",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Explore mathematical beauty in Pascal's triangle.",
@@ -122,7 +122,7 @@
   },
   {
     "name": "Armstrong Number Checker",
-    "emoji": "💎",
+    "emoji": "\ud83d\udc8e",
     "category": "math",
     "difficulty": "beginner",
     "description": "Check if a number is an Armstrong number with breakdown.",
@@ -137,7 +137,7 @@
   },
   {
     "name": "Scientific Graphing Calculator",
-    "emoji": "🧮",
+    "emoji": "\ud83e\uddee",
     "category": "math",
     "difficulty": "beginner",
     "description": "All basic math operations plus power and modulus.",
@@ -152,7 +152,7 @@
   },
   {
     "name": "Prime Number Analyzer",
-    "emoji": "🔱",
+    "emoji": "\ud83d\udd31",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Check, generate, and factorize prime numbers.",
@@ -167,7 +167,7 @@
   },
   {
     "name": "Collatz Conjecture",
-    "emoji": "🔢",
+    "emoji": "\ud83d\udd22",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Explore the famous 3n+1 sequence until it reaches 1.",
@@ -182,7 +182,7 @@
   },
   {
     "name": "Projectile Motion Game",
-    "emoji": "🚀",
+    "emoji": "\ud83d\ude80",
     "category": "math",
     "difficulty": "advanced",
     "description": "Launch projectiles and visualize trajectory stats with matplotlib.",
@@ -197,7 +197,7 @@
   },
   {
     "name": "Complete Calculus Engine",
-    "emoji": "∫",
+    "emoji": "\u222b",
     "category": "math",
     "difficulty": "advanced",
     "description": "Compute derivatives and integrals, evaluate definite integrals, and graph polynomial functions.",
@@ -214,7 +214,7 @@
   },
   {
     "name": "Coordinate to Polar Transformation",
-    "emoji": "🧭",
+    "emoji": "\ud83e\udded",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Convert Cartesian (x,y) coordinates to polar form.",
@@ -229,7 +229,7 @@
   },
   {
     "name": "AP/GP/AGP/HP Recognizer",
-    "emoji": "📐",
+    "emoji": "\ud83d\udcd0",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Identify progression types from any number sequence.",
@@ -244,10 +244,10 @@
   },
   {
     "name": "Morse Code Translator",
-    "emoji": "📻",
+    "emoji": "\ud83d\udcfb",
     "category": "utilities",
     "difficulty": "beginner",
-    "description": "Translate text to Morse code and back — bidirectional.",
+    "description": "Translate text to Morse code and back \u2014 bidirectional.",
     "keywords": [
       "morse",
       "code",
@@ -260,7 +260,7 @@
   },
   {
     "name": "Tower of Hanoi",
-    "emoji": "🗼",
+    "emoji": "\ud83d\uddfc",
     "category": "utilities",
     "difficulty": "intermediate",
     "description": "Solve the classic Tower of Hanoi puzzle step by step.",
@@ -275,7 +275,7 @@
   },
   {
     "name": "Blackjack 21",
-    "emoji": "🃏",
+    "emoji": "\ud83c\udccf",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Play a classic card game of Blackjack against the dealer.",
@@ -290,7 +290,7 @@
   },
   {
     "name": "Dots & Boxes AI",
-    "emoji": "🔲",
+    "emoji": "\ud83d\udd32",
     "category": "games",
     "difficulty": "advanced",
     "description": "Play the classic dots and boxes grid game against a smart AI player.",
@@ -305,7 +305,7 @@
   },
   {
     "name": "Emoji Memory Game",
-    "emoji": "🍎",
+    "emoji": "\ud83c\udf4e",
     "category": "games",
     "difficulty": "beginner",
     "description": "Test and train your memory by repeating emoji patterns.",
@@ -320,7 +320,7 @@
   },
   {
     "name": "Number Sliding Puzzle",
-    "emoji": "🧩",
+    "emoji": "\ud83e\udde9",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Arrange the shuffled number tiles in ascending order in this grid puzzle.",
@@ -335,7 +335,7 @@
   },
   {
     "name": "Password Forge",
-    "emoji": "🔥",
+    "emoji": "\ud83d\udd25",
     "category": "games",
     "difficulty": "beginner",
     "description": "Survive evolving firewall rules by generating strong, conforming passwords.",
@@ -350,10 +350,10 @@
   },
   {
     "name": "Reverse Hangman Game",
-    "emoji": "🎮",
+    "emoji": "\ud83c\udfae",
     "category": "games",
     "difficulty": "intermediate",
-    "description": "Flip the role of Hangman — you try to guess the secret word from the computer.",
+    "description": "Flip the role of Hangman \u2014 you try to guess the secret word from the computer.",
     "keywords": [
       "hangman",
       "reverse",
@@ -365,7 +365,7 @@
   },
   {
     "name": "Simon Says",
-    "emoji": "🔊",
+    "emoji": "\ud83d\udd0a",
     "category": "games",
     "difficulty": "beginner",
     "description": "Remember and repeat the growing sequence of moves correctly.",
@@ -380,7 +380,7 @@
   },
   {
     "name": "War Card Game",
-    "emoji": "⚔️",
+    "emoji": "\u2694\ufe0f",
     "category": "games",
     "difficulty": "beginner",
     "description": "A simple card-drawing war game played against another player.",
@@ -395,7 +395,7 @@
   },
   {
     "name": "Whack-a-Mole",
-    "emoji": "🔨",
+    "emoji": "\ud83d\udd28",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Whack the moles as they pop up on a 3x3 grid before time runs out!",
@@ -411,7 +411,7 @@
   },
   {
     "name": "Word Scramble Game",
-    "emoji": "🔠",
+    "emoji": "\ud83d\udd20",
     "category": "games",
     "difficulty": "beginner",
     "description": "Unscramble jumbled words across different categories like Animals and Fruits.",
@@ -426,7 +426,7 @@
   },
   {
     "name": "Binary Search Visualizer",
-    "emoji": "🔍",
+    "emoji": "\ud83d\udd0d",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Visualize binary search step-by-step on a sorted list of numbers.",
@@ -441,7 +441,7 @@
   },
   {
     "name": "Multi-Algorithm Sorting Visualizer",
-    "emoji": "🫧",
+    "emoji": "\ud83e\udee7",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Visualize Bubble Sort, Selection Sort, Insertion Sort, and Quick Sort step-by-step.",
@@ -459,7 +459,7 @@
   },
   {
     "name": "Matrix Calculator",
-    "emoji": "🧮",
+    "emoji": "\ud83e\uddee",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Perform addition, subtraction, multiplication, and transposition of matrices.",
@@ -474,7 +474,7 @@
   },
   {
     "name": "Quadratic Solver",
-    "emoji": "📐",
+    "emoji": "\ud83d\udcd0",
     "category": "math",
     "difficulty": "beginner",
     "description": "Solve quadratic equations and get real or complex roots interactively.",
@@ -489,7 +489,7 @@
   },
   {
     "name": "Budget Tracker",
-    "emoji": "💰",
+    "emoji": "\ud83d\udcb0",
     "category": "utilities",
     "difficulty": "intermediate",
     "description": "Track income, expenses, and view summaries by category persistently in a CSV.",
@@ -504,7 +504,7 @@
   },
   {
     "name": "Caesar Cipher",
-    "emoji": "🔒",
+    "emoji": "\ud83d\udd12",
     "category": "utilities",
     "difficulty": "beginner",
     "description": "Encrypt and decrypt messages using the shift-based Caesar Cipher algorithm.",
@@ -519,7 +519,7 @@
   },
   {
     "name": "Fake News Headline Generator",
-    "emoji": "📰",
+    "emoji": "\ud83d\udcf0",
     "category": "utilities",
     "difficulty": "beginner",
     "description": "Generate funny, exaggerated fake news headlines in multiple modes.",
@@ -534,7 +534,7 @@
   },
   {
     "name": "Number System Converter",
-    "emoji": "🔢",
+    "emoji": "\ud83d\udd22",
     "category": "utilities",
     "difficulty": "beginner",
     "description": "Convert numbers interactively between Decimal, Binary, Octal, and Hexadecimal.",
@@ -550,7 +550,7 @@
   },
   {
     "name": "Productive Pet",
-    "emoji": "🐧",
+    "emoji": "\ud83d\udc27",
     "category": "utilities",
     "difficulty": "intermediate",
     "description": "Evolve your pet by tracking tasks and staying productive.",
@@ -565,7 +565,7 @@
   },
   {
     "name": "Progress Tracker",
-    "emoji": "🏆",
+    "emoji": "\ud83c\udfc6",
     "category": "utilities",
     "difficulty": "beginner",
     "description": "Track which mini projects you have completed on your learning journey.",
@@ -580,7 +580,7 @@
   },
   {
     "name": "Typing Speed Tester",
-    "emoji": "⌨️",
+    "emoji": "\u2328\ufe0f",
     "category": "utilities",
     "difficulty": "intermediate",
     "description": "Test your typing speed (WPM) and accuracy with randomized sentences.",
@@ -595,7 +595,7 @@
   },
   {
     "name": "Sudoku Solver & Game",
-    "emoji": "🧩",
+    "emoji": "\ud83e\udde9",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Interactive Sudoku puzzle with difficulty levels and a visual backtracking solver.",
@@ -611,7 +611,7 @@
   },
   {
     "name": "Fourier Series Visualizer",
-    "emoji": "📈",
+    "emoji": "\ud83d\udcc8",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Explore how complex waveforms can be approximated using harmonics.",
@@ -627,7 +627,7 @@
   },
   {
     "name": "Pathfinding Visualizer",
-    "emoji": "🗺️",
+    "emoji": "\ud83d\uddfa\ufe0f",
     "category": "utilities",
     "difficulty": "advanced",
     "description": "Visualize Dijkstra's and A* Search algorithms on an interactive grid.",
@@ -644,7 +644,7 @@
   },
   {
     "name": "TSP Visualizer",
-    "emoji": "🗺️",
+    "emoji": "\ud83d\uddfa\ufe0f",
     "category": "utilities",
     "difficulty": "advanced",
     "description": "Visualize the Traveling Salesperson Problem (TSP) using Nearest Neighbor and Brute Force algorithms.",
@@ -661,7 +661,7 @@
   },
   {
     "name": "Chess Game",
-    "emoji": "♟️",
+    "emoji": "\u265f\ufe0f",
     "category": "games",
     "difficulty": "advanced",
     "description": "Play a standard game of Chess with full rules, moves, and a beautiful UI.",
@@ -677,7 +677,7 @@
   },
   {
     "name": "Advanced Password Manager",
-    "emoji": "🔐",
+    "emoji": "\ud83d\udd10",
     "category": "security",
     "difficulty": "beginner",
     "description": "Secure password vault with SQLite database and stream encryption.",
@@ -693,7 +693,7 @@
   },
   {
     "name": "High-Performance Multithreaded Web Scraper",
-    "emoji": "🕷️",
+    "emoji": "\ud83d\udd77\ufe0f",
     "category": "utilities",
     "difficulty": "advanced",
     "description": "Scrape web pages concurrently with rate limiting and JSON/CSV export.",
@@ -709,7 +709,7 @@
   },
   {
     "name": "2048 Game",
-    "emoji": "🔢",
+    "emoji": "\ud83d\udd22",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Combine tiles and reach 2048!",
@@ -725,7 +725,7 @@
   },
   {
     "name": "Flappy Game",
-    "emoji": "🐦",
+    "emoji": "\ud83d\udc26",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Flappy bird style game",
@@ -741,7 +741,7 @@
   },
   {
     "name": "Math Quiz",
-    "emoji": "🧮",
+    "emoji": "\ud83e\uddee",
     "category": "math",
     "difficulty": "beginner",
     "description": "Test your math skills",
@@ -757,7 +757,7 @@
   },
   {
     "name": "Tic Tac Toe",
-    "emoji": "❌",
+    "emoji": "\u274c",
     "category": "games",
     "difficulty": "beginner",
     "description": "Classic X vs O game",
@@ -773,7 +773,7 @@
   },
   {
     "name": "Spot the Difference",
-    "emoji": "🔍",
+    "emoji": "\ud83d\udd0d",
     "category": "games",
     "difficulty": "beginner",
     "description": "Find differences between images",
@@ -789,7 +789,7 @@
   },
   {
     "name": "Minesweeper",
-    "emoji": "💣",
+    "emoji": "\ud83d\udca3",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Classic interactive Minesweeper CLI game with emojis.",
@@ -805,7 +805,7 @@
   },
   {
     "name": "Snake Game",
-    "emoji": "🐍",
+    "emoji": "\ud83d\udc0d",
     "category": "games",
     "difficulty": "beginner",
     "description": "Classic snake game where the player grows by eating food while avoiding collisions.",
@@ -820,7 +820,7 @@
   },
   {
     "name": "Word Building",
-    "emoji": "🔤",
+    "emoji": "\ud83d\udd24",
     "category": "games",
     "difficulty": "intermediate",
     "description": "Build word chains against the computer using valid English words.",
@@ -835,7 +835,7 @@
   },
   {
     "name": "Happy Number",
-    "emoji": "😊",
+    "emoji": "\ud83d\ude0a",
     "category": "math",
     "difficulty": "beginner",
     "description": "Check whether a number is happy by repeatedly summing the squares of its digits.",
@@ -850,7 +850,7 @@
   },
   {
     "name": "Quick Sort",
-    "emoji": "⚡",
+    "emoji": "\u26a1",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Sort integer lists using the quick sort divide-and-conquer algorithm.",
@@ -865,7 +865,7 @@
   },
   {
     "name": "Merge Sort",
-    "emoji": "🔀",
+    "emoji": "\ud83d\udd00",
     "category": "math",
     "difficulty": "intermediate",
     "description": "Sort integer lists using the merge sort divide-and-conquer algorithm.",
@@ -880,7 +880,7 @@
   },
   {
     "name": "Markdown PDF Converter",
-    "emoji": "📄",
+    "emoji": "\ud83d\udcc4",
     "category": "utilities",
     "difficulty": "intermediate",
     "description": "Convert Markdown documents into formatted PDF files.",
@@ -895,7 +895,7 @@
   },
   {
     "name": "N-Queens",
-    "emoji": "♛",
+    "emoji": "\u265b",
     "category": "utilities",
     "difficulty": "advanced",
     "description": "Solve the N-Queens puzzle by placing queens safely on an n by n board.",
@@ -910,7 +910,7 @@
   },
   {
     "name": "Mathematical Expression Parser",
-    "emoji": "🧮",
+    "emoji": "\ud83e\uddee",
     "category": "math",
     "difficulty": "advanced",
     "description": "Parse, tokenize, and evaluate mathematical expressions from scratch.",
@@ -923,7 +923,20 @@
       "calculator"
     ],
     "path": "expression_parser/main.py"
+  },
+  {
+    "name": "Palindrome Finder",
+    "emoji": "\ud83d\udd01",
+    "category": "utilities",
+    "difficulty": "beginner",
+    "description": "Find words that equal their reversal after lowercase normalization.",
+    "keywords": [
+      "palindrome",
+      "words",
+      "reversal",
+      "text",
+      "normalization"
+    ],
+    "path": "utilities/Palindrome-Finder/main.py"
   }
 ]
-
-
