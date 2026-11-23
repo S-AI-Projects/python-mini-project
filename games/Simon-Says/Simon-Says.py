@@ -13,6 +13,15 @@ from utils.banners import print_game_over_banner
 
 
 def main():
+    """
+    Main entry point for Simon Says memory game.
+
+    Invariants & Contract:
+    - color_map invariant (anchor line 28): Maps keys {'R', 'B', 'G', 'Y'} to {'🔴', '🔵', '🟢', '🟡'}.
+    - sequence invariant (anchor line 35): Initialized to empty list [], increments by exactly 1 emoji per round.
+    - Matching invariant: player_sequence == sequence holds if and only if
+      [color_map[k] for k in player_input] == sequence.
+    """
     global color_map, display_speed, emoji, game_over, i, new_emoji, play_again, player_input, player_sequence, replay_choice, round_number, sequence, valid_input
     print("🎮 Simon Says - Memory Sequence Game! 🎮")
     print("Watch the sequence and repeat it correctly!")
