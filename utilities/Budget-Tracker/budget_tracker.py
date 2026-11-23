@@ -18,10 +18,18 @@ FIELDNAMES = ["id", "date", "type", "category", "description", "amount"]
 # FILE HELPERS
 # ─────────────────────────────────────────────
 
-def initialize_file():
-    """Create the CSV file with headers if it doesn't exist."""
-    if not os.path.exists(DATA_FILE):
-        with open(DATA_FILE, mode="w", newline="") as f:
+def initialize_file(filepath=None):
+    """Create the CSV file with headers if it doesn't exist.
+
+    Supported boundary & contract:
+    - Input: Optional str or Path-like filepath (defaults to DATA_FILE).
+    - When file does not exist: Creates file and writes FIELDNAMES header line.
+    - When file already exists: Idempotent no-op; leaves existing file unchanged.
+    - Precondition anchors: FIELDNAMES = ["id", "date", "type", "category", "description", "amount"] (line 16), transactions = [] (line 28).
+    """
+    target = filepath if filepath is not None else DATA_FILE
+    if not os.path.exists(target):
+        with open(target, mode="w", newline="") as f:
             writer = csv.DictWriter(f, fieldnames=FIELDNAMES)
             writer.writeheader()
 
