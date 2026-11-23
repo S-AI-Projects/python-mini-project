@@ -11,7 +11,17 @@ else:
 from utils.validation import get_non_empty_string
 
 def solve_quadratic(a: float, b: float, c: float) -> tuple[str, complex | float, complex | float, float]:
-    """Solve the quadratic equation ax^2 + bx + c = 0."""
+    """Solve the quadratic equation ax^2 + bx + c = 0.
+
+    Precondition:
+    - a != 0 (line 25: raises ValueError if a == 0).
+
+    Representative Result Example:
+    - For equation x^2 - 3x + 2 = 0 (a=1, b=-3, c=2):
+      Discriminant d = (-3)^2 - 4*1*2 = 9 - 8 = 1.0 > 0.
+      Roots are (-(-3) +/- sqrt(1)) / 2 = (3 +/- 1) / 2 -> 2.0 and 1.0.
+      Returns: ("distinct_real", 2.0, 1.0, 1.0).
+    """
     if a == 0:
         raise ValueError("Not a quadratic equation (a cannot be 0)!")
     d = (b ** 2) - (4 * a * c)
