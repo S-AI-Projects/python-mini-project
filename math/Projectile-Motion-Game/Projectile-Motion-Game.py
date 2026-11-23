@@ -14,7 +14,43 @@ except ImportError:
 GRAVITY = 9.81
 
 
+def compute_trajectory_metrics(speed: float, angle: float) -> tuple[float, float, float]:
+    """Compute Time of Flight (TOF), Max Height (Hmax), and Horizontal Range.
+
+    Preconditions:
+    - speed >= 1 (speed input check)
+    - 1 <= angle <= 89 (angle input check)
+    - GRAVITY = 9.81
+
+    Executable Worked Example:
+    >>> speed, angle = 10.0, 45.0
+    >>> tof, hmax, rng = compute_trajectory_metrics(speed, angle)
+    >>> round(tof, 2), round(hmax, 2), round(rng, 2)
+    (1.44, 2.55, 10.19)
+    """
+    angle_rad = math.radians(angle)
+    flight_time = (2 * speed * math.sin(angle_rad)) / GRAVITY
+    max_height = (speed ** 2 * (math.sin(angle_rad) ** 2)) / (2 * GRAVITY)
+    horizontal_range = (speed ** 2 * math.sin(2 * angle_rad)) / GRAVITY
+    return flight_time, max_height, horizontal_range
+
+
 def main():
+    """
+    Main interactive entry point for Projectile Motion Calculator.
+
+    Worked Example & State Transition:
+    - Given speed = 10.0 m/s and angle = 45.0 deg:
+      1. Trigonometric conversion: angle_rad = 0.785398 rad.
+      2. Decisive physical state computation:
+         flight_time = (2 * 10 * sin(45°)) / 9.81 = 1.44 s
+         max_height = (10^2 * sin^2(45°)) / (2 * 9.81) = 2.55 m
+         horizontal_range = (10^2 * sin(90°)) / 9.81 = 10.19 m
+      3. Displayed output:
+         💠 Time of Flight (TOF) : 1.44 s
+         💠 Max Height (Hmax)    : 2.55 m
+         💠 Horizontal Range     : 10.19 m
+    """
     print("=" * 58)
     print("🚀 WELCOME TO PROJECTILE MOTION CALCULATOR 🚀")
     print("=" * 58)
@@ -68,9 +104,7 @@ def main():
 
         # Compute Stats
         angle_rad = math.radians(angle)
-        flight_time = (2 * speed * math.sin(angle_rad)) / GRAVITY
-        max_height = (speed ** 2 * (math.sin(angle_rad) ** 2)) / (2 * GRAVITY)
-        horizontal_range = (speed ** 2 * math.sin(2 * angle_rad)) / GRAVITY
+        flight_time, max_height, horizontal_range = compute_trajectory_metrics(speed, angle)
 
         print("\n📊 Results")
         print(f"💠 Time of Flight (TOF) : {flight_time:.2f} s")
