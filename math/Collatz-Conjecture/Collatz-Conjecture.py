@@ -6,7 +6,13 @@ MAX_INPUT = 10**12
 steps_cache = {1: 0}
 
 def collatz_next(n: int) -> int:
-    """Calculate the next number in the Collatz sequence."""
+    """Calculate the next number in the Collatz sequence.
+
+    Contract:
+    - Input: Positive integer n >= 1 (source precondition near line 8).
+    - Output: n // 2 if n is even, else 3 * n + 1.
+    - Pure function: Does not mutate arguments or global state (e.g. steps_cache at line 6).
+    """
     return n // 2 if n % 2 == 0 else 3 * n + 1
 
 
