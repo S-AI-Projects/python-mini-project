@@ -1,6 +1,11 @@
 import random
 
 
+def roll_dice() -> tuple[int, int]:
+    """Roll two six-sided dice and return (die1, die2)."""
+    return random.randint(1, 6), random.randint(1, 6)
+
+
 def main():
     global choice, dice_emoji, num1, num2
     print("🎲 Dice Rolling Game! 🎲")
@@ -20,8 +25,7 @@ def main():
         choice = input("🎲 Roll the dice? (y/n): ").lower()
 
         if choice == "y":
-            num1 = random.randint(1, 6)
-            num2 = random.randint(1, 6)
+            num1, num2 = roll_dice()
             print("\n🎲 Rolling...")
             print(f"Dice 1: {num1} {dice_emoji[num1]}")
             print(f"Dice 2: {num2} {dice_emoji[num2]}")
