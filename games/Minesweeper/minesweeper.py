@@ -29,6 +29,19 @@ NUMBERS = {
 }
 
 class Minesweeper:
+    """
+    Core game logic for terminal-based Minesweeper.
+
+    Complexity Analysis:
+    - Input size variable: N = size (grid dimension N x N, total cells N^2).
+    - Initialization (__init__): O(N^2) time and O(N^2) auxiliary memory to allocate
+      the N x N grid, visibility, and flag matrices.
+    - Mine Placement & Adjacency (place_mines):
+      * Worst-case time: O(M + 8 * N^2) = O(N^2) where M = num_mines (M < N^2) and
+        each cell inspects at most 8 neighboring coordinates (nr, nc = r + dr, c + dc).
+      * Observed scaling: Matrix allocation and adjacency passes scale quadratically
+        with dimension N (linear with total cell count N^2).
+    """
     def __init__(self, size, num_mines):
         self.size = size
         self.num_mines = num_mines
