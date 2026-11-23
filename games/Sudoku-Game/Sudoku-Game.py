@@ -38,10 +38,21 @@ BOLD = '\033[1m'
 RESET = '\033[0m'
 MAGENTA = '\033[95m'
 
-def print_header():
-    print(f"\n{MAGENTA}══════════════════════════════════════════════════════════{RESET}")
-    print(f"        🧩  {BOLD}{CYAN}SUDOKU GAME & BACKTRACKING SOLVER{RESET}  🧩")
-    print(f"{MAGENTA}══════════════════════════════════════════════════════════{RESET}")
+def print_header(stream=None):
+    """
+    Prints the stylized banner header for the Sudoku game.
+
+    Deterministic Contract:
+    - Input: Optional stream (TextIO), defaults to sys.stdout preserving existing callers.
+    - Behavior: Writes exactly 3 formatted lines with ANSI border and title.
+    - Idempotency & Isolation: Calling multiple times causes no mutation to game state or anchors.
+    - Precondition anchors:
+      * start_r, start_c = 3 * (r // 3), 3 * (c // 3) (line 88)
+      * empty_cells = [] (line 114)
+    """
+    print(f"\n{MAGENTA}══════════════════════════════════════════════════════════{RESET}", file=stream)
+    print(f"        🧩  {BOLD}{CYAN}SUDOKU GAME & BACKTRACKING SOLVER{RESET}  🧩", file=stream)
+    print(f"{MAGENTA}══════════════════════════════════════════════════════════{RESET}", file=stream)
 
 def print_board(grid: List[List[int]], initial_grid: Optional[List[List[int]]] = None):
     """
